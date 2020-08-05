@@ -13,24 +13,25 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class LeftClickListener implements Listener {
-   @EventHandler(
-      priority = EventPriority.MONITOR
-   )
-   public void leftClick(PlayerInteractEvent e) {
-      Player p = e.getPlayer();
-      if ((e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) && p.getItemInHand().getType().equals(Material.FLOWER_POT_ITEM) && p.getItemInHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
-         if (!p.hasPermission("craftflowers.edit")) {
-            e.setCancelled(true);
-            p.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
-         } else {
-            e.setCancelled(true);
-            GuiUtils gu = new GuiUtils();
-            GuiGenerator gui = new GuiGenerator();
-            ItemStack pot = p.getItemInHand();
-            gui.mainGUI(p);
-            gu.edit(p.getOpenInventory(), pot);
-         }
-      }
 
-   }
+    @EventHandler(
+            priority = EventPriority.MONITOR
+    )
+    public void leftClick(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        if ((event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) && player.getItemInHand().getType().equals(Material.FLOWER_POT) && player.getItemInHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
+            if (!player.hasPermission("craftflowers.edit")) {
+                event.setCancelled(true);
+                player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
+            } else {
+                event.setCancelled(true);
+                GuiUtils guiUtils = new GuiUtils();
+                GuiGenerator guiGenerator = new GuiGenerator();
+                ItemStack potItemStack = player.getItemInHand();
+                guiGenerator.mainGUI(player);
+                guiUtils.edit(player.getOpenInventory(), potItemStack);
+            }
+        }
+
+    }
 }
