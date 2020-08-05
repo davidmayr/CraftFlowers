@@ -1,7 +1,7 @@
 name: craftFlowers
 main: cm.ptks.craftflowers.CraftFlowers
-version: 0.4
-author: patrykss
+version: 0.5
+author: patrykss & MenschenToaster
 api-version: 1.16
 website: https://twitter.com/_patryks
 commands:
