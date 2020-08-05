@@ -1,0 +1,9 @@
+name: craftFlowers
+main: cm.ptks.craftflowers.Main
+version: 0.4
+author: patrykss
+website: https://twitter.com/_patryks
+commands:
+  craftflowers:
+    description: craftFlowers command description
+    aliases: [craftf, cf]
