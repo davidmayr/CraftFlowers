@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.Listeners;
+package cm.ptks.craftflowers.listeners;
 
 import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.EditSession;
@@ -14,7 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class BlockPlace implements Listener {
+public class BlockPlaceListener implements Listener {
    @EventHandler(
       priority = EventPriority.LOW
    )

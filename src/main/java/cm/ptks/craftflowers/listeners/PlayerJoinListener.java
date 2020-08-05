@@ -1,14 +1,14 @@
-package cm.ptks.craftflowers.Listeners;
+package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.Main;
-import cm.ptks.craftflowers.Util.CheckVersion;
+import cm.ptks.craftflowers.util.CheckVersion;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class PlayerJoin implements Listener {
+public class PlayerJoinListener implements Listener {
    @EventHandler
    public void joinPlayer(PlayerJoinEvent e) {
       Player p = e.getPlayer();

@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.Util;
+package cm.ptks.craftflowers.util;
 
 import java.util.ArrayList;
 import java.util.List;

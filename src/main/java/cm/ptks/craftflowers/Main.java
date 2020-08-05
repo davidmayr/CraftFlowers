@@ -1,12 +1,12 @@
 package cm.ptks.craftflowers;
 
-import cm.ptks.craftflowers.Commands.Cmd;
-import cm.ptks.craftflowers.Listeners.BlockPlace;
-import cm.ptks.craftflowers.Listeners.InventoryClick;
-import cm.ptks.craftflowers.Listeners.LeftClick;
-import cm.ptks.craftflowers.Listeners.PlayerJoin;
-import cm.ptks.craftflowers.Listeners.SwapHand;
-import cm.ptks.craftflowers.Util.CheckVersion;
+import cm.ptks.craftflowers.commands.CraftFlowersCommand;
+import cm.ptks.craftflowers.listeners.BlockPlaceListener;
+import cm.ptks.craftflowers.listeners.InventoryClickListener;
+import cm.ptks.craftflowers.listeners.LeftClickListener;
+import cm.ptks.craftflowers.listeners.PlayerJoinListener;
+import cm.ptks.craftflowers.listeners.SwapHandListener;
+import cm.ptks.craftflowers.util.CheckVersion;
 import java.io.File;
 import java.io.IOException;
 import org.bukkit.Bukkit;
@@ -47,15 +47,15 @@ public class Main extends JavaPlugin {
    }
 
    private void regListeners() {
-      Bukkit.getServer().getPluginManager().registerEvents(new BlockPlace(), this);
-      Bukkit.getServer().getPluginManager().registerEvents(new LeftClick(), this);
-      Bukkit.getServer().getPluginManager().registerEvents(new InventoryClick(), this);
-      Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
-      Bukkit.getServer().getPluginManager().registerEvents(new SwapHand(), this);
+      Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
+      Bukkit.getServer().getPluginManager().registerEvents(new LeftClickListener(), this);
+      Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
+      Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+      Bukkit.getServer().getPluginManager().registerEvents(new SwapHandListener(), this);
    }
 
    private void regCommands() {
-      this.getCommand("craftflowers").setExecutor(new Cmd());
+      this.getCommand("craftflowers").setExecutor(new CraftFlowersCommand());
    }
 
    public void checkYmls() {

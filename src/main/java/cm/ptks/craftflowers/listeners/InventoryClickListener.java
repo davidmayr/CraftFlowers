@@ -1,6 +1,6 @@
-package cm.ptks.craftflowers.Listeners;
+package cm.ptks.craftflowers.listeners;
 
-import cm.ptks.craftflowers.Util.GuiUtils;
+import cm.ptks.craftflowers.util.GuiUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class InventoryClick implements Listener {
+public class InventoryClickListener implements Listener {
    @EventHandler
    public void inventoryClick(InventoryClickEvent e) {
       if (e.getInventory().getName().equals("§2craftFlowers")) {

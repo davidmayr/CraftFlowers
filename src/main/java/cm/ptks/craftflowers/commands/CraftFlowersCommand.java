@@ -1,9 +1,9 @@
-package cm.ptks.craftflowers.Commands;
+package cm.ptks.craftflowers.commands;
 
 import cm.ptks.craftflowers.Main;
-import cm.ptks.craftflowers.Util.CheckVersion;
-import cm.ptks.craftflowers.Util.FlowersManage;
-import cm.ptks.craftflowers.Util.GuiGenerator;
+import cm.ptks.craftflowers.util.CheckVersion;
+import cm.ptks.craftflowers.util.FlowersManage;
+import cm.ptks.craftflowers.util.GuiGenerator;
 import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,10 +14,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class Cmd implements CommandExecutor {
+public class CraftFlowersCommand implements CommandExecutor {
    ItemStack pot;
 
-   public Cmd() {
+   public CraftFlowersCommand() {
       this.pot = new ItemStack(Material.FLOWER_POT_ITEM, 1);
       ItemMeta im = this.pot.getItemMeta();
       im.setDisplayName("§2craftFlowers");

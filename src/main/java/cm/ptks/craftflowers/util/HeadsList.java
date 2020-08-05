@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.Util;
+package cm.ptks.craftflowers.util;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;

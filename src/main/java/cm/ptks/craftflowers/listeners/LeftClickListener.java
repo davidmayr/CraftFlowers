@@ -1,7 +1,7 @@
-package cm.ptks.craftflowers.Listeners;
+package cm.ptks.craftflowers.listeners;
 
-import cm.ptks.craftflowers.Util.GuiGenerator;
-import cm.ptks.craftflowers.Util.GuiUtils;
+import cm.ptks.craftflowers.util.GuiGenerator;
+import cm.ptks.craftflowers.util.GuiUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -12,7 +12,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class LeftClick implements Listener {
+public class LeftClickListener implements Listener {
    @EventHandler(
       priority = EventPriority.MONITOR
    )

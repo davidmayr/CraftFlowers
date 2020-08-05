@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.Util;
+package cm.ptks.craftflowers.util;
 
 import cm.ptks.craftflowers.Main;
 import java.io.File;
