@@ -90,7 +90,7 @@ public class InventoryClickListener implements Listener {
                                     page = Integer.parseInt(event.getView().getTitle().replace("§2craftFlowers ", ""));
                                 }
 
-                                gu.next(event.getClickedInventory(), page);
+                                event.getWhoClicked().openInventory(gu.next(event.getClickedInventory(), page));
                             }
                     }
                 }

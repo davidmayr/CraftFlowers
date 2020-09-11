@@ -102,7 +102,7 @@ public class GuiUtils {
 
     }
 
-    public void next(Inventory old, int page) {
+    public Inventory next(Inventory old, int page) {
         Inventory inventory = Bukkit.createInventory(old.getHolder(), old.getSize(),
                 "§2craftFlowers" + (page == 0 ? "" : " " + page));
         inventory.setContents(old.getContents());
@@ -118,7 +118,7 @@ public class GuiUtils {
             inventory.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + (27 * page)));
         }
 
-
+        return inventory;
     }
 
     public void edit(InventoryView inventoryView, ItemStack pot) {
