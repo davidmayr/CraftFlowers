@@ -6,7 +6,7 @@
 
     <groupId>at.toastiii</groupId>
     <artifactId>CraftFlowers</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.6-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -67,13 +67,13 @@
         <dependency>
             <groupId>com.intellectualsites.fawe</groupId>
             <artifactId>FAWE-Bukkit</artifactId>
-            <version>1.16-306</version>
+            <version>1.16-343</version>
         </dependency>
 
         <dependency>
             <groupId>com.intellectualsites.fawe</groupId>
             <artifactId>FAWE-Core</artifactId>
-            <version>1.16-306</version>
+            <version>1.16-343</version>
         </dependency>
 
 
