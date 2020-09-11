@@ -20,7 +20,7 @@ public class CheckVersion {
 
     public String getNewestVersion() {
         try {
-            HttpsURLConnection con = (HttpsURLConnection) (new URL("https://api.spigotmc.org/legacy/update.php?resource=49451")).openConnection();
+            HttpsURLConnection con = (HttpsURLConnection) (new URL("https://api.spigotmc.org/legacy/update.php?resource=82407")).openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("GET");
             String version = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();

@@ -106,13 +106,14 @@ public class GuiUtils {
         i.setItem(0, (ItemStack) GuiGenerator.items.get(27));
 
         int slot;
-        for (slot = 1; slot < 13; ++slot) {
+        for (slot = 0; slot < 27; ++slot) {
+            i.setItem(slot, air);
+        }
+
+        for (slot = 1; slot < 27; ++slot) {
             i.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + 27));
         }
 
-        for (slot = 13; slot < 27; ++slot) {
-            i.setItem(slot, air);
-        }
 
     }
 
