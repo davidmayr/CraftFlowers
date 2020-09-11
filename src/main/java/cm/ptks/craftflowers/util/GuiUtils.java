@@ -112,6 +112,9 @@ public class GuiUtils {
     public void previous(Inventory inventory) {
 
         page--;
+        if(page < 0) {
+            page = 0;
+        }
 
         ItemStack air = new ItemStack(Material.AIR, 1);
         move(inventory, air);
@@ -124,7 +127,10 @@ public class GuiUtils {
         }
 
         for (int slot = 0; slot < 27; ++slot) {
-            inventory.setItem(slot, GuiGenerator.items.get(slot + (27 * this.page)));
+            ItemStack itemStack = GuiGenerator.items.get(slot + (27 * this.page));
+            if(itemStack == null)
+                continue;
+            inventory.setItem(slot, itemStack);
         }
     }
 
@@ -133,6 +139,10 @@ public class GuiUtils {
 
         page++;
 
+        //No Content
+        if(GuiGenerator.items.get((27 * this.page)) == null) {
+            page = 0;
+        }
         move(inventory, air);
     }
 
