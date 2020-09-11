@@ -4,6 +4,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.util.CheckVersion;
 import cm.ptks.craftflowers.util.FlowersManage;
 import cm.ptks.craftflowers.util.GuiGenerator;
+import cm.ptks.craftflowers.util.GuiUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -40,6 +41,7 @@ public class CraftFlowersCommand implements CommandExecutor {
 
                 GuiGenerator gui = new GuiGenerator();
                 gui.mainGUI(commandSender);
+                GuiUtils.create(player);
             } else {
                 FlowersManage flowersManage = new FlowersManage();
                 if (!args[0].equalsIgnoreCase("info") && !args[0].equalsIgnoreCase("i")) {

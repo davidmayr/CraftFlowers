@@ -1,6 +1,5 @@
 package cm.ptks.craftflowers.util;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -10,9 +9,24 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GuiUtils {
+
+    public static HashMap<Player, GuiUtils> PLAYERS = new HashMap<>();
+    private int page;
+
+    public static GuiUtils create(Player player) {
+        GuiUtils guiUtils = new GuiUtils();
+        PLAYERS.put(player, guiUtils);
+
+        return guiUtils;
+    }
+
+    private GuiUtils() {
+    }
+
     public void add(Inventory inv, ItemStack i, Player p) {
         for (int slot = 36; slot < 45; ++slot) {
             if (inv.getContents()[slot] == null) {
@@ -95,30 +109,31 @@ public class GuiUtils {
 
     }
 
-    public void previous(Inventory i) {
-        for (int slot = 0; slot < 27; ++slot) {
-            i.setItem(slot, (ItemStack) GuiGenerator.items.get(slot));
-        }
+    public void previous(Inventory inventory) {
+
+        page--;
+
+        ItemStack air = new ItemStack(Material.AIR, 1);
+        move(inventory, air);
 
     }
 
-    public Inventory next(Inventory old, int page) {
-        Inventory inventory = Bukkit.createInventory(old.getHolder(), old.getSize(),
-                "§2craftFlowers" + (page == 0 ? "" : " " + page));
-        inventory.setContents(old.getContents());
-        ItemStack air = new ItemStack(Material.AIR, 1);
-
-
-
+    private void move(Inventory inventory, ItemStack air) {
         for (int slot = 0; slot < 27; ++slot) {
             inventory.setItem(slot, air);
         }
 
         for (int slot = 0; slot < 27; ++slot) {
-            inventory.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + (27 * page)));
+            inventory.setItem(slot, GuiGenerator.items.get(slot + (27 * this.page)));
         }
+    }
 
-        return inventory;
+    public void next(Inventory inventory) {
+        ItemStack air = new ItemStack(Material.AIR, 1);
+
+        page++;
+
+        move(inventory, air);
     }
 
     public void edit(InventoryView inventoryView, ItemStack pot) {

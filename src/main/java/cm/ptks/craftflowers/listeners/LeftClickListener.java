@@ -25,7 +25,7 @@ public class LeftClickListener implements Listener {
                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
             } else {
                 event.setCancelled(true);
-                GuiUtils guiUtils = new GuiUtils();
+                GuiUtils guiUtils = GuiUtils.create(player);
                 GuiGenerator guiGenerator = new GuiGenerator();
                 ItemStack potItemStack = player.getItemInHand();
                 guiGenerator.mainGUI(player);
