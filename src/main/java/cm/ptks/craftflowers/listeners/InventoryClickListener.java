@@ -11,7 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class InventoryClickListener implements Listener {
     @EventHandler
     public void inventoryClick(InventoryClickEvent event) {
-        if (event.getView().getTitle().equals("§2craftFlowers")) {
+        if (event.getView().getTitle().startsWith("§2craftFlowers")) {
             if (event.getClickedInventory() == null) {
                 return;
             }
@@ -83,7 +83,14 @@ public class InventoryClickListener implements Listener {
                             break;
                         case 35:
                             if (!event.getClickedInventory().getStorageContents()[0].getType().equals(Material.OAK_SAPLING)) {
-                                gu.next(event.getClickedInventory());
+
+                                int page = 0;
+
+                                if(!event.getView().getTitle().equals("§2craftFlowers")) {
+                                    page = Integer.parseInt(event.getView().getTitle().replace("§2craftFlowers ", ""));
+                                }
+
+                                gu.next(event.getClickedInventory(), page);
                             }
                     }
                 }

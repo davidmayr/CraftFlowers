@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.util;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -101,16 +102,20 @@ public class GuiUtils {
 
     }
 
-    public void next(Inventory i) {
+    public void next(Inventory old, int page) {
+        Inventory inventory = Bukkit.createInventory(old.getHolder(), old.getSize(),
+                "§2craftFlowers" + (page == 0 ? "" : page));
+        inventory.setContents(old.getContents());
         ItemStack air = new ItemStack(Material.AIR, 1);
-        i.setItem(0, (ItemStack) GuiGenerator.items.get(27));
+
+
 
         for (int slot = 0; slot < 27; ++slot) {
-            i.setItem(slot, air);
+            inventory.setItem(slot, air);
         }
 
         for (int slot = 0; slot < 27; ++slot) {
-            i.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + 27));
+            inventory.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + (27 * page)));
         }
 
 
