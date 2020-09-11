@@ -11,7 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class InventoryClickListener implements Listener {
     @EventHandler
     public void inventoryClick(InventoryClickEvent event) {
-        if (event.getView().getTitle().startsWith("§2craftFlowers")) {
+        if (event.getView().getTitle().contains("§2craftFlowers")) {
             if (event.getClickedInventory() == null) {
                 return;
             }

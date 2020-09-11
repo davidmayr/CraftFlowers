@@ -104,7 +104,7 @@ public class GuiUtils {
 
     public void next(Inventory old, int page) {
         Inventory inventory = Bukkit.createInventory(old.getHolder(), old.getSize(),
-                "§2craftFlowers" + (page == 0 ? "" : page));
+                "§2craftFlowers" + (page == 0 ? "" : " " + page));
         inventory.setContents(old.getContents());
         ItemStack air = new ItemStack(Material.AIR, 1);
 
