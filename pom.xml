@@ -67,13 +67,13 @@
         <dependency>
             <groupId>com.intellectualsites.fawe</groupId>
             <artifactId>FAWE-Bukkit</artifactId>
-            <version>1.16-306</version>
+            <version>1.16-343</version>
         </dependency>
 
         <dependency>
             <groupId>com.intellectualsites.fawe</groupId>
             <artifactId>FAWE-Core</artifactId>
-            <version>1.16-306</version>
+            <version>1.16-343</version>
         </dependency>
 
 

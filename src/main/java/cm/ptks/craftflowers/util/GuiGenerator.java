@@ -28,10 +28,10 @@ public class GuiGenerator {
         putItem(9, Material.JUNGLE_SAPLING, "§2Jungle Sapling");
         putItem(10, Material.ACACIA_SAPLING, "§2Acacia Sapling");
         putItem(11, Material.DARK_OAK_SAPLING, "§2Dark Oak Sapling");
-        putItem(12, Material.DEAD_BUSH, "§2Shrub");
+        putItem(12, Material.DEAD_BUSH, "§2Dead Bush");
         putItem(13, Material.GRASS, "§2Grass");
         putItem(14, Material.FERN, "§2Fern");
-        putItem(15, Material.DEAD_BUSH, "§2Dead Bush");
+        putItem(15, Material.LILY_OF_THE_VALLEY, "§2Lily of the Valley");
         putItem(16, Material.DANDELION, "§2Dandelion");
         putItem(17, Material.POPPY, "§2Poppy");
         putItem(18, Material.BLUE_ORCHID, "§2Blue Orchid");
@@ -56,6 +56,27 @@ public class GuiGenerator {
         putItem(37, Material.MELON, "§2Melon");
         putItem(38, Material.PUMPKIN, "§2Pumpkin");
         putItem(39, Material.SUGAR_CANE, "§2Sugar Canes");
+        putItem(40, Material.WITHER_ROSE, "§2Wither Rose");
+        putItem(41, Material.SEAGRASS, "§2Seagrass");
+        putItem(42, Material.SEA_PICKLE, "§2Sea Pickle");
+        putItem(43, Material.CRIMSON_FUNGUS, "§2Crimson Fungus");
+        putItem(44, Material.CRIMSON_ROOTS, "§2Crimson Roots");
+        putItem(45, Material.WEEPING_VINES, "§2Weeping Vines");
+        putItem(46, Material.WARPED_FUNGUS, "§2Warped Fungus");
+        putItem(47, Material.WARPED_ROOTS, "§2Warped Roots");
+        putItem(48, Material.NETHER_SPROUTS, "§2Nether Sprouts");
+        putItem(49, Material.TWISTING_VINES, "§2Twisting Vines");
+        putItem(50, Material.KELP, "§2Kelp");
+        putItem(51, Material.BAMBOO, "§2Bamboo");
+        putItem(52, Material.END_ROD, "§2End Rod");
+        putItem(53, Material.CHORUS_PLANT, "§2Chorus Plant");
+        putItem(54, Material.CHORUS_FLOWER, "§2Chorus Flower");
+        putItem(55, Material.CHAIN, "§2Chain");
+        putItem(56, Material.FLOWER_POT, "§2Flower Pot");
+        putItem(57, Material.SOUL_LANTERN, "§2Soul Lantern");
+        putItem(58, Material.LANTERN, "§2Lantern");
+
+
     }
 
     ItemStack glass_create = craftGlassButton("§8Click to create a flower.");
