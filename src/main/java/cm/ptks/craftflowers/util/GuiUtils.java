@@ -109,7 +109,7 @@ public class GuiUtils {
             i.setItem(slot, air);
         }
 
-        for (int slot = 1; slot < 27; ++slot) {
+        for (int slot = 0; slot < 27; ++slot) {
             i.setItem(slot, (ItemStack) GuiGenerator.items.get(slot + 27));
         }
 
