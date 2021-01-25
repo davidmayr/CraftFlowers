@@ -12,11 +12,11 @@ import java.net.URL;
 public class CheckVersion {
 
     private String newestVersion = getNewestVersion();
-    private float currentVersion;
+    private String currentVersion;
     private long lastUpdate = 0L;
 
     public CheckVersion() {
-        this.currentVersion = Float.parseFloat(CraftFlowers.plugin.getDescription().getVersion());
+        this.currentVersion = CraftFlowers.plugin.getDescription().getVersion();
     }
 
     public String getNewestVersion() {
@@ -39,10 +39,10 @@ public class CheckVersion {
     }
 
     public boolean isUpdated() {
-        return this.currentVersion == Float.parseFloat(getNewestVersion());
+        return this.currentVersion.equals(getNewestVersion());
     }
 
     public boolean isOutdated() {
-        return this.currentVersion < Float.parseFloat(getNewestVersion());
+        return Float.parseFloat(this.currentVersion) < Float.parseFloat(getNewestVersion());
     }
 }
