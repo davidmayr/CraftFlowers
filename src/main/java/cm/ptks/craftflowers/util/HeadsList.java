@@ -49,7 +49,7 @@ public class HeadsList {
     }
 
     static void createSkull(String id, String data, String name, String... lore) {
-        ItemStack item = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
         if (lore.length > 0) {
@@ -58,16 +58,15 @@ public class HeadsList {
 
         item.setItemMeta(meta);
         SkullMeta headMeta = (SkullMeta) item.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), (String) null);
-        profile.getProperties().put("textures", new Property("textures", new String(data)));
-        Field profileField = null;
+        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        profile.getProperties().put("textures", new Property("textures", data));
+        Field profileField;
 
         try {
             profileField = headMeta.getClass().getDeclaredField("profile");
             profileField.setAccessible(true);
             profileField.set(headMeta, profile);
-        } catch (Exception var10) {
-        }
+        } catch (Exception ignored) {}
 
         item.setItemMeta(headMeta);
         heads.put(id, item);

@@ -2,7 +2,7 @@ package cm.ptks.craftflowers;
 
 import cm.ptks.craftflowers.commands.CraftFlowersCommand;
 import cm.ptks.craftflowers.listeners.*;
-import cm.ptks.craftflowers.util.CheckVersion;
+import cm.ptks.craftflowers.util.version.CheckVersion;
 import cm.ptks.craftflowers.util.GuiGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

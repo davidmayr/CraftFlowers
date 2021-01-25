@@ -1,7 +1,6 @@
 package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.util.CheckVersion;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

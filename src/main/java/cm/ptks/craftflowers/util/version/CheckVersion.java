@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.util;
+package cm.ptks.craftflowers.util.version;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import org.bukkit.Bukkit;
@@ -11,15 +11,15 @@ import java.net.URL;
 
 public class CheckVersion {
 
-    private String newestVersion = getNewestVersion();
-    private String currentVersion;
+    private FlowersVersion newestVersion = getNewestVersion();
+    private FlowersVersion currentVersion;
     private long lastUpdate = 0L;
 
     public CheckVersion() {
-        this.currentVersion = CraftFlowers.plugin.getDescription().getVersion();
+        this.currentVersion = FlowersVersion.read(CraftFlowers.plugin.getDescription().getVersion());
     }
 
-    public String getNewestVersion() {
+    public FlowersVersion getNewestVersion() {
         if(newestVersion != null && (System.currentTimeMillis() - lastUpdate) < 18000000) {
             return newestVersion;
         }
@@ -30,11 +30,11 @@ public class CheckVersion {
             String version = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();
             this.lastUpdate = System.currentTimeMillis();
             con.disconnect();
-            return version;
+            return FlowersVersion.read(version);
         } catch (Exception var3) {
             var3.printStackTrace();
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "Failed to check for an update on Spigot.");
-            return CraftFlowers.plugin.getDescription().getVersion();
+            return FlowersVersion.read(CraftFlowers.plugin.getDescription().getVersion());
         }
     }
 
@@ -43,6 +43,6 @@ public class CheckVersion {
     }
 
     public boolean isOutdated() {
-        return Float.parseFloat(this.currentVersion) < Float.parseFloat(getNewestVersion());
+        return this.currentVersion.isOlder(this.newestVersion);
     }
 }

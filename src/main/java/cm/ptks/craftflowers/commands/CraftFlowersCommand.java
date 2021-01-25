@@ -1,9 +1,8 @@
 package cm.ptks.craftflowers.commands;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.util.CheckVersion;
+import cm.ptks.craftflowers.util.version.CheckVersion;
 import cm.ptks.craftflowers.util.FlowersManage;
-import cm.ptks.craftflowers.util.GuiGenerator;
 import cm.ptks.craftflowers.util.GuiUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -55,11 +54,10 @@ public class CraftFlowersCommand implements CommandExecutor {
                                 String name = args[1].replaceAll("[^A-Za-z0-9]", "");
                                 String id = ids.toString().replace("§7", "");
                                 flowersManage.saveFlower(player, name, id);
-                                return true;
                             } else {
                                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You must held the pot.");
-                                return true;
                             }
+                            return true;
                         } else {
                             player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.GOLD + "/craftflowers save <name>");
                             return true;
@@ -110,8 +108,8 @@ public class CraftFlowersCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.AQUA + "/craftflowers help " + ChatColor.BLUE + "- Shows this text");
                     }
                 } else {
-                    CheckVersion cv = new CheckVersion();
-                    if (cv.isUpdated()) {
+                    CheckVersion versionChecker = CraftFlowers.plugin.getVersionChecker();
+                    if (versionChecker.isUpdated()) {
                         player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.AQUA + "Version: " + ChatColor.GREEN + CraftFlowers.plugin.getDescription().getVersion());
                     } else {
                         player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.AQUA + "Version: " + ChatColor.RED + CraftFlowers.plugin.getDescription().getVersion());

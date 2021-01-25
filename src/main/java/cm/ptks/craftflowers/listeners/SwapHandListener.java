@@ -10,7 +10,8 @@ public class SwapHandListener implements Listener {
     @EventHandler
     public void onHandSwap(PlayerSwapHandItemsEvent event) {
         ItemStack hand = event.getOffHandItem();
-        if (hand.getData().getItemType() == Material.FLOWER_POT && hand.getItemMeta().getDisplayName().equals("§2craftFlowers")) {
+        if (hand != null && hand.getType() == Material.FLOWER_POT && hand.getItemMeta() != null &&
+                hand.getItemMeta().hasDisplayName() && hand.getItemMeta().getDisplayName().equals("§2craftFlowers")) {
             event.setCancelled(true);
         }
 
