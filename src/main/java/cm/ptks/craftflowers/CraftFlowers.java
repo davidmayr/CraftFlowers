@@ -15,10 +15,12 @@ public class CraftFlowers extends JavaPlugin {
     public static CraftFlowers plugin;
 
     private GuiGenerator generator;
+    private CheckVersion versionChecker;
 
     public void onEnable() {
         plugin = this;
         this.generator = new GuiGenerator(this);
+        this.versionChecker = new CheckVersion();
         if (this.isFAWE()) {
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "------------------[craftFlowers]------------------");
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "    FastAsyncWorldEdit was found");
@@ -28,12 +30,12 @@ public class CraftFlowers extends JavaPlugin {
             this.registerListener();
             this.registerCommands();
             this.checkYmls();
-            CheckVersion cv = new CheckVersion();
-            if (cv.isOutdated()) {
+
+            if (versionChecker.isOutdated()) {
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "    Plugin is outdated!");
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription().getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + cv.getNewestVersion());
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW + "https://www.spigotmc.org/resources/craftflowers.49451/");
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription().getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + this.versionChecker.getNewestVersion());
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
             }
         } else {
@@ -47,6 +49,10 @@ public class CraftFlowers extends JavaPlugin {
 
     }
 
+    public CheckVersion getVersionChecker() {
+        return versionChecker;
+    }
+
     public GuiGenerator getGenerator() {
         return generator;
     }
@@ -55,7 +61,7 @@ public class CraftFlowers extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new LeftClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         Bukkit.getServer().getPluginManager().registerEvents(new SwapHandListener(), this);
     }
 

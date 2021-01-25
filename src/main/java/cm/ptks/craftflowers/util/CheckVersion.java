@@ -11,19 +11,24 @@ import java.net.URL;
 
 public class CheckVersion {
 
-    float newestVersion = Float.parseFloat(this.getNewestVersion());
-    float currentVersion;
+    private String newestVersion = getNewestVersion();
+    private float currentVersion;
+    private long lastUpdate = 0L;
 
     public CheckVersion() {
         this.currentVersion = Float.parseFloat(CraftFlowers.plugin.getDescription().getVersion());
     }
 
     public String getNewestVersion() {
+        if(newestVersion != null && (System.currentTimeMillis() - lastUpdate) < 18000000) {
+            return newestVersion;
+        }
         try {
             HttpsURLConnection con = (HttpsURLConnection) (new URL("https://api.spigotmc.org/legacy/update.php?resource=82407")).openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("GET");
             String version = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();
+            this.lastUpdate = System.currentTimeMillis();
             con.disconnect();
             return version;
         } catch (Exception var3) {
@@ -34,10 +39,10 @@ public class CheckVersion {
     }
 
     public boolean isUpdated() {
-        return this.currentVersion == this.newestVersion;
+        return this.currentVersion == Float.parseFloat(getNewestVersion());
     }
 
     public boolean isOutdated() {
-        return this.currentVersion < this.newestVersion;
+        return this.currentVersion < Float.parseFloat(getNewestVersion());
     }
 }
