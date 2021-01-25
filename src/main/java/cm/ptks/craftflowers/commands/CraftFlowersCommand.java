@@ -39,8 +39,8 @@ public class CraftFlowersCommand implements CommandExecutor {
                     return true;
                 }
 
-                GuiGenerator gui = new GuiGenerator();
-                gui.mainGUI(commandSender);
+
+                CraftFlowers.plugin.getGenerator().mainGUI(commandSender);
                 GuiUtils.create(player);
             } else {
                 FlowersManage flowersManage = new FlowersManage();

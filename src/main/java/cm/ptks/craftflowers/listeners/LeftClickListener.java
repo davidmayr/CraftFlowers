@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.listeners;
 
+import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.util.GuiGenerator;
 import cm.ptks.craftflowers.util.GuiUtils;
 import org.bukkit.ChatColor;
@@ -26,8 +27,8 @@ public class LeftClickListener implements Listener {
             } else {
                 event.setCancelled(true);
                 GuiUtils guiUtils = GuiUtils.create(player);
-                GuiGenerator guiGenerator = new GuiGenerator();
-                ItemStack potItemStack = player.getItemInHand();
+                GuiGenerator guiGenerator = CraftFlowers.plugin.getGenerator();
+                ItemStack potItemStack = player.getInventory().getItemInMainHand();
                 guiGenerator.mainGUI(player);
                 guiUtils.edit(player.getOpenInventory(), potItemStack);
             }

@@ -1,21 +1,47 @@
 package cm.ptks.craftflowers.util;
 
+import cm.ptks.craftflowers.CraftFlowers;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GuiGenerator {
-    static HashMap<Integer, ItemStack> items = new HashMap();
+    private HashMap<Integer, ItemStack> items = new HashMap();
 
-    static {
+
+    ItemStack glass_create = craftGlassButton("§8Click to create a flower.");
+    ItemStack glass_remove = craftGlassButton("§8Click to remove flower from top.");
+    ItemStack glass_clear = craftGlassButton("§8Click to clear all.");
+    ItemStack glass_white;
+
+    private CraftFlowers flowers;
+
+    public GuiGenerator(CraftFlowers flowers) {
+        this.flowers = flowers;
+        this.glass_white = new ItemStack(Material.BLACK_STAINED_GLASS, 1, (short) 0);
+        ItemMeta itemMeta = this.glass_white.getItemMeta();
+        itemMeta.setDisplayName(" ");
+        this.glass_white.setItemMeta(itemMeta);
+
+
+        init();
+    }
+
+    public HashMap<Integer, ItemStack> getItems() {
+        return items;
+    }
+
+    private void init() {
         putItem(0, Material.SUNFLOWER, "§2Sunflower");
         putItem(1, Material.LILAC, "§2Lilac");
         putItem(2, Material.TALL_GRASS, "§2Double Tallgrass");
@@ -75,23 +101,26 @@ public class GuiGenerator {
         putItem(56, Material.FLOWER_POT, "§2Flower Pot");
         putItem(57, Material.SOUL_LANTERN, "§2Soul Lantern");
         putItem(58, Material.LANTERN, "§2Lantern");
+        putItem(59, Material.WHEAT, "§2Wheat Seed");
+        putItem(60, Material.POTATO, Material.POTATOES, "§2Potato");
+        putItem(61, Material.CARROT, Material.CARROTS, "§2Carrot");
 
+        putItem(62, Material.BRAIN_CORAL, "§2Brain Coral");
+        putItem(63, Material.BUBBLE_CORAL, "§2Bubble Coral");
+        putItem(64, Material.FIRE_CORAL, "§2Fire Coral");
+        putItem(65, Material.HORN_CORAL, "§2Horn Coral");
+        putItem(66, Material.TUBE_CORAL, "§2Tube Coral");
+        putItem(67, Material.BRAIN_CORAL_FAN, "§2Brain Coral fan");
+        putItem(68, Material.BUBBLE_CORAL_FAN, "§2Bubble Coral fan");
+        putItem(69, Material.FIRE_CORAL_FAN, "§2Fire Coral fan");
+        putItem(70, Material.HORN_CORAL_FAN, "§2Horn Coral fan");
+        putItem(71, Material.TUBE_CORAL_FAN, "§2Tube Coral fan");
+
+        putItem(72, Material.COCOA, Material.COCOA_BEANS, "§2Cocoa");
 
     }
 
-    ItemStack glass_create = craftGlassButton("§8Click to create a flower.");
-    ItemStack glass_remove = craftGlassButton("§8Click to remove flower from top.");
-    ItemStack glass_clear = craftGlassButton("§8Click to clear all.");
-    ItemStack glass_white;
-
-    public GuiGenerator() {
-        this.glass_white = new ItemStack(Material.BLACK_STAINED_GLASS, 1, (short) 0);
-        ItemMeta itemMeta = this.glass_white.getItemMeta();
-        itemMeta.setDisplayName(" ");
-        this.glass_white.setItemMeta(itemMeta);
-    }
-
-    static ItemStack craftGlassButton(String description) {
+    private ItemStack craftGlassButton(String description) {
         ItemStack item = new ItemStack(Material.BLACK_STAINED_GLASS, 1);
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(" ");
@@ -103,17 +132,26 @@ public class GuiGenerator {
         return item;
     }
 
-    static void putItem(int mapIndex, Material material, String name) {
+    private void putItem(int mapIndex, Material material, Material blockMaterial, String name) {
         ItemStack item = new ItemStack(material, 1);
         ItemMeta im = item.getItemMeta();
         im.setDisplayName(name);
+
+        if(blockMaterial != null) {
+            im.getPersistentDataContainer().set(new NamespacedKey(this.flowers, "customBlock"), PersistentDataType.STRING, blockMaterial.name());
+        }
+
         item.setItemMeta(im);
         items.put(mapIndex, item);
     }
 
+    private void putItem(int mapIndex, Material material, String name) {
+        putItem(mapIndex, material, null, name);
+    }
+
     public void mainGUI(CommandSender commandSender) {
         final Inventory inv = Bukkit.getServer().createInventory(null, 54, "§2craftFlowers");
-        final Player p = (Player) commandSender;
+        final Player player = (Player) commandSender;
 
         inv.setItem(31, (ItemStack) HeadsList.heads.get("head_remove"));
         inv.setItem(32, (ItemStack) HeadsList.heads.get("head_clear"));
@@ -133,7 +171,7 @@ public class GuiGenerator {
             inv.setItem(headNumber + 44, HeadsList.heads.get("h" + headNumber));
         }
 
-        final InventoryView inventoryView = p.openInventory(inv);
+        final InventoryView inventoryView = player.openInventory(inv);
         if (inventoryView.getItem(36) == null || inventoryView.getItem(36).getType().equals(Material.AIR)) {
             inv.setItem(30, (ItemStack) HeadsList.heads.get("head_create"));
         } else {

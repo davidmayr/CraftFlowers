@@ -3,6 +3,7 @@ package cm.ptks.craftflowers;
 import cm.ptks.craftflowers.commands.CraftFlowersCommand;
 import cm.ptks.craftflowers.listeners.*;
 import cm.ptks.craftflowers.util.CheckVersion;
+import cm.ptks.craftflowers.util.GuiGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,8 +14,11 @@ import java.io.IOException;
 public class CraftFlowers extends JavaPlugin {
     public static CraftFlowers plugin;
 
+    private GuiGenerator generator;
+
     public void onEnable() {
         plugin = this;
+        this.generator = new GuiGenerator(this);
         if (this.isFAWE()) {
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "------------------[craftFlowers]------------------");
             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "    FastAsyncWorldEdit was found");
@@ -41,6 +45,10 @@ public class CraftFlowers extends JavaPlugin {
             Bukkit.getServer().getPluginManager().disablePlugin(this);
         }
 
+    }
+
+    public GuiGenerator getGenerator() {
+        return generator;
     }
 
     private void registerListener() {

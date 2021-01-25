@@ -6,9 +6,15 @@ import com.boydti.fawe.util.EditSessionBuilder;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.bukkit.BukkitPlayer;
+import com.sk89q.worldedit.function.pattern.Pattern;
+import com.sk89q.worldedit.function.pattern.WaterloggedRemover;
+import com.sk89q.worldedit.registry.state.Property;
+import com.sk89q.worldedit.registry.state.PropertyKey;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldedit.world.block.BaseBlock;
+import com.sk89q.worldedit.world.block.BlockType;
 import com.sk89q.worldedit.world.block.BlockTypes;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -43,38 +49,55 @@ public class BlockPlaceListener implements Listener {
                     final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(p);
 
                     final EditSession editSession = new EditSessionBuilder(world).player(bukkitPlayer).build();
+                    bukkitPlayer.queueAction(() -> {
+                        String id = lore.get(0).replace("§7", "");
 
-                    bukkitPlayer.queueAction(new Runnable() {
-                        public void run() {
-                            String id = ((String) lore.get(0)).replace("§7", "");
+                        Material material = Material.getMaterial(id);
+                        Location loc1 = e.getBlockPlaced().getLocation();
 
-                            Material material = Material.getMaterial(id);
-                            Location loc1 = e.getBlockPlaced().getLocation();
+                        try {
+                            BlockType blockType = BlockTypes.parse(material.name());
+                            BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
 
-                            try {
-                                editSession.setBlock(loc1.getBlockX(), loc1.getBlockY(), loc1.getBlockZ(), new BaseBlock(Objects.requireNonNull(BlockTypes.parse(material.name()).getDefaultState())));
-                            } catch (Exception var9) {
+                            Property<Object> prop = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("waterlogged", null);
+                            if (prop != null) {
+                                block = block.with(prop, false);
                             }
 
-                            Location loc2 = e.getBlockPlaced().getLocation().add(0.0D, 1.0D, 0.0D);
-
-                            for (int i = 1; i < lore.size(); ++i) {
-                                id = ((String) lore.get(i)).replace("§7", "");
-                                material = Material.getMaterial(id);
-
-                                if (loc2.getBlock().getType().equals(Material.AIR)) {
-                                    try {
-                                        editSession.setBlock(loc2.getBlockX(), loc2.getBlockY(), loc2.getBlockZ(), new BaseBlock(Objects.requireNonNull(BlockTypes.parse(material.name()).getDefaultState())));
-                                    } catch (Exception var8) {
-                                    }
-                                }
-
-                                loc2.add(0.0D, 1.0D, 0.0D);
-                            }
-
-                            editSession.flushQueue();
-                            bukkitPlayer.getSession().remember(editSession);
+                            editSession.setBlock(loc1.getBlockX(), loc1.getBlockY(), loc1.getBlockZ(), block);
+                        } catch (Exception var9) {
                         }
+
+                        Location loc2 = e.getBlockPlaced().getLocation().add(0.0D, 1.0D, 0.0D);
+
+                        for (int i = 1; i < lore.size(); ++i) {
+                            id = ChatColor.stripColor(lore.get(i));
+                            material = Material.getMaterial(id);
+
+                            if (loc2.getBlock().getType().equals(Material.AIR)) {
+                                try {
+
+                                    BlockType blockType = BlockTypes.parse(material.name());
+                                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
+
+                                    Property<Object> prop = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("waterlogged", null);
+                                    if (prop != null) {
+                                        block = block.with(prop, false);
+                                    }
+
+                                    editSession.setBlock(loc2.getBlockX(), loc2.getBlockY(), loc2.getBlockZ(), block);
+
+
+
+                                } catch (Exception var8) {
+                                }
+                            }
+
+                            loc2.add(0.0D, 1.0D, 0.0D);
+                        }
+
+                        editSession.flushQueue();
+                        bukkitPlayer.getSession().remember(editSession);
                     });
                 }
             }

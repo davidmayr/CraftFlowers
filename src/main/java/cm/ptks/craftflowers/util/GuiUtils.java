@@ -1,12 +1,16 @@
 package cm.ptks.craftflowers.util;
 
+import cm.ptks.craftflowers.CraftFlowers;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +51,16 @@ public class GuiUtils {
         for (int slot = 36; slot < 45; ++slot) {
             if (inv.getContents()[slot] != null) {
                 ItemStack i = inv.getContents()[slot];
-                lore.add("§7" + i.getType());
+
+                Material type = i.getType();
+
+                PersistentDataContainer container = i.getItemMeta().getPersistentDataContainer();
+
+                if(container.has(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING)) {
+                    type = Material.getMaterial(container.get(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING));
+                }
+
+                lore.add("§7" + type);
             }
         }
 
@@ -127,7 +140,7 @@ public class GuiUtils {
         }
 
         for (int slot = 0; slot < 27; ++slot) {
-            ItemStack itemStack = GuiGenerator.items.get(slot + (27 * this.page));
+            ItemStack itemStack = CraftFlowers.plugin.getGenerator().getItems().get(slot + (27 * this.page));
             if(itemStack == null)
                 continue;
             inventory.setItem(slot, itemStack);
@@ -140,7 +153,7 @@ public class GuiUtils {
         page++;
 
         //No Content
-        if(GuiGenerator.items.get((27 * this.page)) == null) {
+        if(CraftFlowers.plugin.getGenerator().getItems().get((27 * this.page)) == null) {
             page = 0;
         }
         move(inventory, air);
