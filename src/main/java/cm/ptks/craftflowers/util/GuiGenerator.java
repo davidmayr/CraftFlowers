@@ -117,6 +117,7 @@ public class GuiGenerator {
         putItem(71, Material.TUBE_CORAL_FAN, "§2Tube Coral fan");
 
         putItem(72, Material.COCOA, Material.COCOA_BEANS, "§2Cocoa");
+        putItem(73, Material.CORNFLOWER,"§2Cornflower");
 
     }
 

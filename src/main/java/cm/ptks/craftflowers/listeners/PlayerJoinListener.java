@@ -22,17 +22,17 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void joinPlayer(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        if (!player.hasPermission("craftflowers.admin"))
+            return;
 
         updateService.submit(() -> {
-            if (player.hasPermission("craftflowers.admin")) {
-                if (!flowers.getVersionChecker().isOutdated())
-                    return;
-                player.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
-                player.sendMessage(ChatColor.RED + "    Plugin is outdated!");
-                player.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + CraftFlowers.plugin.getDescription().getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + flowers.getVersionChecker().getNewestVersion());
-                player.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
-                player.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
-            }
+            if (!flowers.getVersionChecker().isOutdated())
+                return;
+            player.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
+            player.sendMessage(ChatColor.RED + "    Plugin is outdated!");
+            player.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + CraftFlowers.plugin.getDescription().getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + flowers.getVersionChecker().getNewestVersion());
+            player.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
+            player.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
         });
     }
 }
