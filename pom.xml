@@ -27,14 +27,14 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>IntellectualSites</id>
+            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
+        </repository>
         <!-- This adds the Spigot Maven repository to the build -->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>IntellectualSites</id>
-            <url>https://mvn.intellectualsites.com/content/repositories/releases/</url>
         </repository>
         <repository>
             <id>Worldedit</id>
@@ -71,15 +71,14 @@
 
         <!-- FAWE API -->
         <dependency>
-            <groupId>com.intellectualsites.fawe</groupId>
+            <groupId>com.fastasyncworldedit</groupId>
             <artifactId>FAWE-Bukkit</artifactId>
-            <version>1.16-555</version>
+            <version>1.17-47</version>
         </dependency>
-
         <dependency>
-            <groupId>com.intellectualsites.fawe</groupId>
+            <groupId>com.fastasyncworldedit</groupId>
             <artifactId>FAWE-Core</artifactId>
-            <version>1.16-555</version>
+            <version>1.17-47</version>
         </dependency>
 
 

@@ -6,6 +6,8 @@ import cm.ptks.craftflowers.util.version.CheckVersion;
 import cm.ptks.craftflowers.util.GuiGenerator;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -73,10 +75,15 @@ public class CraftFlowers extends JavaPlugin {
         if (!this.getDataFolder().exists()) {
             this.getDataFolder().mkdir();
         }
-
-        if (!(new File(this.getDataFolder(), "flowers.yml")).exists()) {
+        File flowersFile = new File(this.getDataFolder(), "flowers.yml");
+        if (!flowersFile.exists()) {
             try {
-                (new File(this.getDataFolder(), "flowers.yml")).createNewFile();
+                flowersFile.createNewFile();
+
+                FileConfiguration configuration = YamlConfiguration.loadConfiguration(flowersFile);
+                configuration.set("configFormat", 1);
+                configuration.save(flowersFile);
+
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "------------------[craftFlowers]------------------");
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "    flowers.yml not found");
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "    File has been created");
@@ -84,8 +91,37 @@ public class CraftFlowers extends JavaPlugin {
             } catch (IOException var2) {
                 var2.printStackTrace();
             }
+        } else {
+            FileConfiguration configuration = YamlConfiguration.loadConfiguration(flowersFile);
+
+            if(configuration.get("configFormat") == null) {
+
+                try {
+                    boolean b = flowersFile.renameTo(new File(this.getDataFolder(), "flowers.old.yml"));
+                    boolean newFile = flowersFile.createNewFile();
+
+                    if(!b || !newFile) {
+                        printUpgradeError();
+                    }
+                } catch (IOException e) {
+                    printUpgradeError();
+                    e.printStackTrace();
+                }
+
+                System.out.println("--------------------------");
+                System.out.println("Warning you are upgrading from an old CraftFlowers Version. Your saved flowers cannot be converted. ");
+                System.out.println("We have renamed your flowers.yml to flowers.old.yml and created a new flowers.yml.");
+                System.out.println("--------------------------");
+            }
         }
 
+    }
+
+    private void printUpgradeError() {
+        System.out.println("--------------------------");
+        System.out.println("Warning you are upgrading from an old CraftFlowers Version. Your saved flowers cannot be converted. ");
+        System.out.println("We tried to renamed your flowers.yml to flowers.old.yml but that failed. Try removing the file manually.");
+        System.out.println("--------------------------");
     }
 
     public boolean isFAWE() {

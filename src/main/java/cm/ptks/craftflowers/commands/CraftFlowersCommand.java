@@ -4,16 +4,22 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.util.version.CheckVersion;
 import cm.ptks.craftflowers.util.FlowersManage;
 import cm.ptks.craftflowers.util.GuiUtils;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CraftFlowersCommand implements CommandExecutor {
     ItemStack pot;
@@ -50,10 +56,16 @@ public class CraftFlowersCommand implements CommandExecutor {
                             return true;
                         } else if (args.length != 1 && args.length <= 2) {
                             if (player.getItemInHand().getType().equals(Material.FLOWER_POT) && player.getItemInHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
-                                List<String> ids = player.getItemInHand().getItemMeta().getLore();
+                                PersistentDataContainer container = Objects.requireNonNull(player.getItemInHand().getItemMeta()).getPersistentDataContainer();
                                 String name = args[1].replaceAll("[^A-Za-z0-9]", "");
-                                String id = ids.toString().replace("§7", "");
-                                flowersManage.saveFlower(player, name, id);
+
+                                String craftFlowersMeta = container.get(new NamespacedKey(CraftFlowers.plugin, "craftFlowersMeta"), PersistentDataType.STRING);
+                                if(craftFlowersMeta == null) {
+                                    player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You seem to have a flowerpot from an older version. These can not be converted.");
+                                    return false;
+                                }
+                                JsonArray array = new JsonParser().parse(craftFlowersMeta).getAsJsonArray();
+                                flowersManage.saveFlower(player, name, array);
                             } else {
                                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You must held the pot.");
                             }

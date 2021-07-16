@@ -1,6 +1,10 @@
 package cm.ptks.craftflowers.util;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -12,9 +16,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class GuiUtils {
 
@@ -47,6 +53,7 @@ public class GuiUtils {
         ItemMeta im = pot.getItemMeta();
         im.setDisplayName("§2craftFlowers");
         ArrayList<String> lore = new ArrayList();
+        JsonArray blockData = new JsonArray();
 
         for (int slot = 36; slot < 45; ++slot) {
             if (inv.getContents()[slot] != null) {
@@ -54,21 +61,73 @@ public class GuiUtils {
 
                 Material type = i.getType();
 
-                PersistentDataContainer container = i.getItemMeta().getPersistentDataContainer();
-
-                if(container.has(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING)) {
-                    type = Material.getMaterial(container.get(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING));
-                }
+                blockData.add(getDataFromItem(i));
 
                 lore.add("§7" + type);
             }
         }
 
         im.setLore(lore);
+        im.getPersistentDataContainer().set(new NamespacedKey(CraftFlowers.plugin, "craftFlowersMeta"), PersistentDataType.STRING, blockData.toString());
         pot.setItemMeta(im);
         if (inv.getContents()[36] != null) {
             p.getInventory().addItem(new ItemStack[]{pot});
         }
+
+    }
+
+    public JsonObject getDataFromItem(@Nonnull ItemStack i) {
+        JsonObject jsonObject = new JsonObject();
+
+        PersistentDataContainer container = Objects.requireNonNull(i.getItemMeta()).getPersistentDataContainer();
+        jsonObject.addProperty("material", i.getType().name());
+
+        if(container.has(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING)) {
+            jsonObject.addProperty("blockMaterial", Material.getMaterial(container
+                    .get(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING)).name());
+        }
+
+        if(container.has(new NamespacedKey(CraftFlowers.plugin, "customAge"), PersistentDataType.INTEGER)) {
+            jsonObject.addProperty("age", container
+                    .get(new NamespacedKey(CraftFlowers.plugin, "customAge"), PersistentDataType.INTEGER));
+        }
+        if(i.getItemMeta().hasDisplayName()) {
+            jsonObject.addProperty("name", i.getItemMeta().getDisplayName());
+        }
+        return jsonObject;
+    }
+
+
+    public void edit(InventoryView inventoryView, Player player, ItemStack pot) {
+        ItemMeta im = pot.getItemMeta();
+        String craftFlowersMeta = im.getPersistentDataContainer().get(new NamespacedKey(CraftFlowers.plugin, "craftFlowersMeta"), PersistentDataType.STRING);
+        if(craftFlowersMeta == null) {
+            player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You seem to have a flowerpot from an older version. These can not be converted.");
+            inventoryView.close();
+            return;
+        }
+
+        JsonArray jsonArray = new JsonParser().parse(craftFlowersMeta).getAsJsonArray();
+
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
+            ItemStack item = new ItemStack(Material.getMaterial(jsonObject.get("material").getAsString()), 1);
+            ItemMeta itemMeta = item.getItemMeta();
+            PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+            if(jsonObject.has("blockMaterial")) {
+                container.set(new NamespacedKey(CraftFlowers.plugin, "customBlock"), PersistentDataType.STRING, jsonObject.get("blockMaterial").getAsString());
+            }
+            if(jsonObject.has("age")) {
+                container.set(new NamespacedKey(CraftFlowers.plugin, "customAge"), PersistentDataType.INTEGER, jsonObject.get("age").getAsInt());
+            }
+            if(jsonObject.has("name")) {
+                itemMeta.setDisplayName(jsonObject.get("name").getAsString());
+            }
+            item.setItemMeta(itemMeta);
+            int slot = i + 36;
+            inventoryView.setItem(slot, item);
+        }
+
 
     }
 
@@ -77,22 +136,18 @@ public class GuiUtils {
         ItemMeta im = pot.getItemMeta();
         im.setDisplayName("§2craftFlowers");
         ArrayList<String> lore = new ArrayList();
+        JsonArray blockData = new JsonArray();
 
         for (int slot = 36; slot < 45; ++slot) {
             if (inv.getContents()[slot] != null) {
                 ItemStack i = inv.getContents()[slot];
-                if (i.getType().equals(Material.VINE)) {
-                    lore.add("§7" + i.getType() + ":15");
-                }
 
-                if (i.getType().equals(Material.SUGAR_CANE)) {
-                    lore.add("§783:0");
-                } else {
-                    lore.add("§7" + i.getType() + ":" + i.getData().getData());
-                }
+                blockData.add(getDataFromItem(i));
+                lore.add("§7" + i.getType());
             }
         }
 
+        im.getPersistentDataContainer().set(new NamespacedKey(CraftFlowers.plugin, "craftFlowersMeta"), PersistentDataType.STRING, blockData.toString());
         im.setLore(lore);
         pot.setItemMeta(im);
         if (inv.getContents()[36] != null) {
@@ -159,21 +214,4 @@ public class GuiUtils {
         move(inventory, air);
     }
 
-    public void edit(InventoryView inventoryView, ItemStack pot) {
-        List<String> lore = pot.getItemMeta().getLore();
-        if (pot.getItemMeta().hasLore() && lore.get(0) != null) {
-            for (int i = 0; i < lore.size(); ++i) {
-                String id = ((String) lore.get(i)).replace("§7", "");
-
-                Material material = Material.getMaterial(id);
-
-                ItemStack item;
-                int slot;
-                item = new ItemStack(material, 1);
-                slot = i + 36;
-                inventoryView.setItem(slot, item);
-            }
-        }
-
-    }
 }

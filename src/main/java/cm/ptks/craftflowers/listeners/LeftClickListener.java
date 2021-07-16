@@ -30,7 +30,7 @@ public class LeftClickListener implements Listener {
                 GuiGenerator guiGenerator = CraftFlowers.plugin.getGenerator();
                 ItemStack potItemStack = player.getInventory().getItemInMainHand();
                 guiGenerator.mainGUI(player);
-                guiUtils.edit(player.getOpenInventory(), potItemStack);
+                guiUtils.edit(player.getOpenInventory(), player, potItemStack);
             }
         }
 

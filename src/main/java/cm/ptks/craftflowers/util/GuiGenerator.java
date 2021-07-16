@@ -19,9 +19,6 @@ public class GuiGenerator {
     private HashMap<Integer, ItemStack> items = new HashMap();
 
 
-    ItemStack glass_create = craftGlassButton("§8Click to create a flower.");
-    ItemStack glass_remove = craftGlassButton("§8Click to remove flower from top.");
-    ItemStack glass_clear = craftGlassButton("§8Click to clear all.");
     ItemStack glass_white;
 
     private CraftFlowers flowers;
@@ -101,39 +98,50 @@ public class GuiGenerator {
         putItem(56, Material.FLOWER_POT, "§2Flower Pot");
         putItem(57, Material.SOUL_LANTERN, "§2Soul Lantern");
         putItem(58, Material.LANTERN, "§2Lantern");
-        putItem(59, Material.WHEAT, "§2Wheat Seed");
-        putItem(60, Material.POTATO, Material.POTATOES, "§2Potato");
-        putItem(61, Material.CARROT, Material.CARROTS, "§2Carrot");
 
-        putItem(62, Material.BRAIN_CORAL, "§2Brain Coral");
-        putItem(63, Material.BUBBLE_CORAL, "§2Bubble Coral");
-        putItem(64, Material.FIRE_CORAL, "§2Fire Coral");
-        putItem(65, Material.HORN_CORAL, "§2Horn Coral");
-        putItem(66, Material.TUBE_CORAL, "§2Tube Coral");
-        putItem(67, Material.BRAIN_CORAL_FAN, "§2Brain Coral fan");
-        putItem(68, Material.BUBBLE_CORAL_FAN, "§2Bubble Coral fan");
-        putItem(69, Material.FIRE_CORAL_FAN, "§2Fire Coral fan");
-        putItem(70, Material.HORN_CORAL_FAN, "§2Horn Coral fan");
-        putItem(71, Material.TUBE_CORAL_FAN, "§2Tube Coral fan");
 
-        putItem(72, Material.COCOA, Material.COCOA_BEANS, "§2Cocoa");
-        putItem(73, Material.CORNFLOWER,"§2Cornflower");
+        putItem(Material.BRAIN_CORAL, "§2Brain Coral");
+        putItem(Material.BUBBLE_CORAL, "§2Bubble Coral");
+        putItem(Material.FIRE_CORAL, "§2Fire Coral");
+        putItem(Material.HORN_CORAL, "§2Horn Coral");
+        putItem(Material.TUBE_CORAL, "§2Tube Coral");
+        putItem(Material.BRAIN_CORAL_FAN, "§2Brain Coral fan");
+        putItem(Material.BUBBLE_CORAL_FAN, "§2Bubble Coral fan");
+        putItem(Material.FIRE_CORAL_FAN, "§2Fire Coral fan");
+        putItem(Material.HORN_CORAL_FAN, "§2Horn Coral fan");
+        putItem(Material.TUBE_CORAL_FAN, "§2Tube Coral fan");
 
+        putItem(Material.COCOA_BEANS, Material.COCOA, "§2Cocoa");
+        putItem(Material.CORNFLOWER,"§2Cornflower");
+
+        putItem(Material.WHEAT, Material.WHEAT, "§2Wheat Seed Age 0", 0);
+        putItem(Material.WHEAT, Material.WHEAT, "§2Wheat Seed Age 1", 1);
+        putItem(Material.WHEAT, Material.WHEAT, "§2Wheat Seed Age 2", 2);
+        putItem(Material.WHEAT, Material.WHEAT,"§2Wheat Seed Age 3", 3);
+        putItem(Material.WHEAT, Material.WHEAT,"§2Wheat Seed Age 4", 4);
+        putItem(Material.WHEAT, Material.WHEAT,"§2Wheat Seed Age 5", 5);
+        putItem(Material.WHEAT, Material.WHEAT,"§2Wheat Seed Age 6", 6);
+        putItem(Material.WHEAT, Material.WHEAT,"§2Wheat Seed Age 7", 7);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 0", 0);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 1", 1);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 2", 2);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 3", 3);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 4", 4);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 5", 5);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 6", 6);
+        putItem(Material.POTATO, Material.POTATOES, "§2Potato Age 7", 7);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 0", 0);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 1", 1);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 2", 2);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 3", 3);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 4", 4);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 5", 5);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 6", 6);
+        putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 7", 7);
     }
 
-    private ItemStack craftGlassButton(String description) {
-        ItemStack item = new ItemStack(Material.BLACK_STAINED_GLASS, 1);
-        ItemMeta itemMeta = item.getItemMeta();
-        itemMeta.setDisplayName(" ");
-        ArrayList<String> lore = new ArrayList();
-        lore.add(" ");
-        lore.add(description);
-        itemMeta.setLore(lore);
-        item.setItemMeta(itemMeta);
-        return item;
-    }
 
-    private void putItem(int mapIndex, Material material, Material blockMaterial, String name) {
+    private void putItem(int mapIndex, Material material, Material blockMaterial, String name, Integer age) {
         ItemStack item = new ItemStack(material, 1);
         ItemMeta im = item.getItemMeta();
         im.setDisplayName(name);
@@ -141,27 +149,52 @@ public class GuiGenerator {
         if(blockMaterial != null) {
             im.getPersistentDataContainer().set(new NamespacedKey(this.flowers, "customBlock"), PersistentDataType.STRING, blockMaterial.name());
         }
+        if(age != null) {
+            im.getPersistentDataContainer().set(new NamespacedKey(this.flowers, "customAge"), PersistentDataType.INTEGER, age);
+        }
 
         item.setItemMeta(im);
         items.put(mapIndex, item);
     }
 
-    private void putItem(int mapIndex, Material material, String name) {
-        putItem(mapIndex, material, null, name);
+    private void putItem(int mapIndex, Material material, Material blockMaterial, String name) {
+        putItem(mapIndex, material, blockMaterial, name, null);
     }
+
+    private void putItem(int mapIndex, Material material, String name) {
+        putItem(mapIndex, material, null, name, null);
+    }
+
+    private void putItem(Material material, Material blockMaterial, String name, Integer age) {
+        int lastIndex = 0;
+        for (Integer integer : this.items.keySet()) {
+            if(integer > lastIndex)
+                lastIndex = integer;
+        }
+        putItem(lastIndex + 1, material, blockMaterial, name, age);
+    }
+
+    private void putItem(Material material, Material blockMaterial, String name) {
+        putItem(material, blockMaterial, name, null);
+    }
+
+    private void putItem(Material material, String name) {
+        putItem(material, null, name, null);
+    }
+
 
     public void mainGUI(CommandSender commandSender) {
         final Inventory inv = Bukkit.getServer().createInventory(null, 54, "§2craftFlowers");
         final Player player = (Player) commandSender;
 
-        inv.setItem(31, (ItemStack) HeadsList.heads.get("head_remove"));
-        inv.setItem(32, (ItemStack) HeadsList.heads.get("head_clear"));
+        inv.setItem(31, HeadsList.heads.get("head_remove"));
+        inv.setItem(32, HeadsList.heads.get("head_clear"));
         inv.setItem(28, this.glass_white);
         inv.setItem(29, this.glass_white);
         inv.setItem(33, this.glass_white);
         inv.setItem(34, this.glass_white);
-        inv.setItem(27, (ItemStack) HeadsList.heads.get("head_left"));
-        inv.setItem(35, (ItemStack) HeadsList.heads.get("head_right"));
+        inv.setItem(27, HeadsList.heads.get("head_left"));
+        inv.setItem(35, HeadsList.heads.get("head_right"));
 
         int headNumber;
         for (headNumber = 0; headNumber < 27; ++headNumber) {
