@@ -100,6 +100,13 @@ public class CraftFlowers extends JavaPlugin {
                     boolean b = flowersFile.renameTo(new File(this.getDataFolder(), "flowers.old.yml"));
                     boolean newFile = flowersFile.createNewFile();
 
+
+                    //Clear the old junk
+                    configuration = YamlConfiguration.loadConfiguration(flowersFile);
+
+                    configuration.set("configFormat", 1);
+                    configuration.save(flowersFile);
+
                     if(!b || !newFile) {
                         printUpgradeError();
                     }

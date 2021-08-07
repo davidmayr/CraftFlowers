@@ -4,13 +4,16 @@ package cm.ptks.craftflowers.listeners;
 import cm.ptks.craftflowers.CraftFlowers;
 import com.fastasyncworldedit.core.FaweAPI;
 import com.fastasyncworldedit.core.util.EditSessionBuilder;
+import com.fastasyncworldedit.core.util.TaskManager;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.bukkit.BukkitPlayer;
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldedit.world.block.BaseBlock;
@@ -58,54 +61,56 @@ public class BlockPlaceListener implements Listener {
                 if(jsonArray.size() <= 0)
                     return;
 
-                World world = FaweAPI.getWorld(player.getWorld().getName());
-                final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
+                TaskManager.IMP.async(() -> {
+                    World world = FaweAPI.getWorld(player.getWorld().getName());
+                    final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
+                    final EditSession editSession = new EditSessionBuilder(world)
+                            .player(bukkitPlayer).build();
 
-                final EditSession editSession = new EditSessionBuilder(world).player(bukkitPlayer).build();
+                    bukkitPlayer.queueAction(() -> {
+                        Location loc1 = event.getBlockPlaced().getLocation();
 
-                bukkitPlayer.queueAction(() -> {
-                    Location loc1 = event.getBlockPlaced().getLocation();
+                        for (int i = 0; i < jsonArray.size(); ++i) {
+                            JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
+                            Material material = Material.getMaterial(jsonObject.has("blockMaterial")
+                                    ? jsonObject.get("blockMaterial").getAsString() : jsonObject.get("material").getAsString());
 
-                    for (int i = 0; i < jsonArray.size(); ++i) {
-                        JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
-                        Material material = Material.getMaterial(jsonObject.has("blockMaterial")
-                                ? jsonObject.get("blockMaterial").getAsString() : jsonObject.get("material").getAsString());
+                            if (loc1.getBlock().getType().equals(Material.AIR)) {
+                                try {
 
-                        if (loc1.getBlock().getType().equals(Material.AIR)) {
-                            try {
+                                    BlockType blockType = BlockTypes.parse(material.name());
+                                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
 
-                                BlockType blockType = BlockTypes.parse(material.name());
-                                BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
+                                    Property<Object> prop = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("waterlogged", null);
+                                    if (prop != null) {
+                                        block = block.with(prop, false);
+                                    }
 
-                                Property<Object> prop = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("waterlogged", null);
-                                if (prop != null) {
-                                    block = block.with(prop, false);
-                                }
-
-                                if(jsonObject.has("age")) {
-                                    Property<Object> ageProp = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("age", null);
-                                    if (ageProp != null) {
-                                        try {
-                                            block = block.with(ageProp, jsonObject.get("age").getAsInt());
-                                        } catch (Exception ex) {
-                                            ex.printStackTrace();
+                                    if(jsonObject.has("age")) {
+                                        Property<Object> ageProp = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("age", null);
+                                        if (ageProp != null) {
+                                            try {
+                                                block = block.with(ageProp, jsonObject.get("age").getAsInt());
+                                            } catch (Exception ex) {
+                                                ex.printStackTrace();
+                                            }
                                         }
                                     }
+
+                                    editSession.setBlock(loc1.getBlockX(), loc1.getBlockY(), loc1.getBlockZ(), block);
+
+
+
+                                } catch (Exception ignored) {
                                 }
-
-                                editSession.setBlock(loc1.getBlockX(), loc1.getBlockY(), loc1.getBlockZ(), block);
-
-
-
-                            } catch (Exception ignored) {
                             }
+
+                            loc1.add(0.0D, 1.0D, 0.0D);
                         }
 
-                        loc1.add(0.0D, 1.0D, 0.0D);
-                    }
-
-                    editSession.flushQueue();
-                    bukkitPlayer.getSession().remember(editSession);
+                        editSession.flushQueue();
+                        bukkitPlayer.getSession().remember(editSession);
+                    });
                 });
             }
         }
