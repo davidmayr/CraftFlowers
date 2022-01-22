@@ -6,7 +6,7 @@
 
     <groupId>at.toastiii</groupId>
     <artifactId>CraftFlowers</artifactId>
-    <version>0.8.1</version>
+    <version>0.9.0</version>
     <build>
         <plugins>
             <plugin>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.1-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -69,23 +69,27 @@
         </dependency>
 
 
-        <!-- FAWE API -->
+        <!-- FAWE Core API -->
         <dependency>
             <groupId>com.fastasyncworldedit</groupId>
-            <artifactId>FAWE-Bukkit</artifactId>
-            <version>1.17-47</version>
+            <artifactId>FastAsyncWorldEdit-Core</artifactId>
+            <version>2.0.1</version>
+            <scope>provided</scope>
         </dependency>
+
+        <!-- FAWE Bukkit API -->
         <dependency>
             <groupId>com.fastasyncworldedit</groupId>
-            <artifactId>FAWE-Core</artifactId>
-            <version>1.17-47</version>
+            <artifactId>FastAsyncWorldEdit-Bukkit</artifactId>
+            <version>2.0.1</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>FastAsyncWorldEdit-Core</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-
-        <dependency>
-            <groupId>com.sk89q.worldedit</groupId>
-            <artifactId>worldedit-bukkit</artifactId>
-            <version>7.2.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>

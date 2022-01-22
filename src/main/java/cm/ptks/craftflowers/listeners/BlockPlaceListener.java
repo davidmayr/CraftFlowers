@@ -3,17 +3,14 @@ package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import com.fastasyncworldedit.core.FaweAPI;
-import com.fastasyncworldedit.core.util.EditSessionBuilder;
 import com.fastasyncworldedit.core.util.TaskManager;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.LocalSession;
+import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.bukkit.BukkitPlayer;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldedit.world.block.BaseBlock;
@@ -40,7 +37,8 @@ public class BlockPlaceListener implements Listener {
     )
     public void placeOfBlock(final BlockPlaceEvent event) {
         Player player = event.getPlayer();
-        if (event.getBlock().getType().equals(Material.FLOWER_POT) && player.getItemInHand().getType().equals(Material.FLOWER_POT) && player.getItemInHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
+        if (event.getBlock().getType().equals(Material.FLOWER_POT) && player.getInventory().getItemInMainHand().getType().equals(Material.FLOWER_POT)
+                && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
             if (!player.hasPermission("craftflowers.place")) {
                 event.setCancelled(true);
                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
@@ -48,7 +46,7 @@ public class BlockPlaceListener implements Listener {
                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
             } else {
                 event.setCancelled(true);
-                ItemStack pot = player.getItemInHand();
+                ItemStack pot = player.getInventory().getItemInMainHand();
                 final List<String> lore = pot.getItemMeta().getLore();
 
                 String craftFlowersMeta = pot.getItemMeta().getPersistentDataContainer()
@@ -64,8 +62,9 @@ public class BlockPlaceListener implements Listener {
                 TaskManager.IMP.async(() -> {
                     World world = FaweAPI.getWorld(player.getWorld().getName());
                     final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
-                    final EditSession editSession = new EditSessionBuilder(world)
-                            .player(bukkitPlayer).build();
+                    final EditSession editSession = WorldEdit.getInstance().newEditSessionBuilder()
+                            .world(world)
+                            .actor(bukkitPlayer).build();
 
                     bukkitPlayer.queueAction(() -> {
                         Location loc1 = event.getBlockPlaced().getLocation();
@@ -75,19 +74,19 @@ public class BlockPlaceListener implements Listener {
                             Material material = Material.getMaterial(jsonObject.has("blockMaterial")
                                     ? jsonObject.get("blockMaterial").getAsString() : jsonObject.get("material").getAsString());
 
-                            if (loc1.getBlock().getType().equals(Material.AIR)) {
+                            if (material != null && loc1.getBlock().getType().equals(Material.AIR)) {
                                 try {
 
                                     BlockType blockType = BlockTypes.parse(material.name());
                                     BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
 
-                                    Property<Object> prop = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("waterlogged", null);
+                                    Property<Boolean> prop = block.getBlockType().getProperty("waterlogged");
                                     if (prop != null) {
                                         block = block.with(prop, false);
                                     }
 
                                     if(jsonObject.has("age")) {
-                                        Property<Object> ageProp = (Property<Object>) block.getBlockType().getPropertyMap().getOrDefault("age", null);
+                                        Property<Integer> ageProp = block.getBlockType().getProperty("age");
                                         if (ageProp != null) {
                                             try {
                                                 block = block.with(ageProp, jsonObject.get("age").getAsInt());

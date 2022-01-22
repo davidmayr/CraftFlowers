@@ -11,8 +11,8 @@ import java.net.URL;
 
 public class CheckVersion {
 
-    private FlowersVersion newestVersion = getNewestVersion();
-    private FlowersVersion currentVersion;
+    private final FlowersVersion newestVersion = getNewestVersion();
+    private final FlowersVersion currentVersion;
     private long lastUpdate = 0L;
 
     public CheckVersion() {

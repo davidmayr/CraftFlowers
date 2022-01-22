@@ -20,7 +20,9 @@ public class LeftClickListener implements Listener {
     )
     public void leftClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        if ((event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) && player.getItemInHand().getType().equals(Material.FLOWER_POT) && player.getItemInHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
+        if ((event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK))
+                && player.getInventory().getItemInMainHand().getType().equals(Material.FLOWER_POT)
+                && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
             if (!player.hasPermission("craftflowers.edit")) {
                 event.setCancelled(true);
                 player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");

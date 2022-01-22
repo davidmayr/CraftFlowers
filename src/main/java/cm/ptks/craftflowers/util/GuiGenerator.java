@@ -1,6 +1,7 @@
 package cm.ptks.craftflowers.util;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import org.apache.commons.lang3.EnumUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -73,31 +74,45 @@ public class GuiGenerator {
         putItem(31, Material.JUNGLE_LEAVES, "§2Jungle Leaves");
         putItem(32, Material.ACACIA_LEAVES, "§2Acacia Leaves");
         putItem(33, Material.DARK_OAK_LEAVES, "§2Dark Oak Leaves");
-        putItem(34, Material.LILY_PAD, "§2Lily Pad");
-        putItem(35, Material.VINE, "§2Vines");
-        putItem(36, Material.CACTUS, "§2Cactus");
-        putItem(37, Material.MELON, "§2Melon");
-        putItem(38, Material.PUMPKIN, "§2Pumpkin");
-        putItem(39, Material.SUGAR_CANE, "§2Sugar Canes");
-        putItem(40, Material.WITHER_ROSE, "§2Wither Rose");
-        putItem(41, Material.SEAGRASS, "§2Seagrass");
-        putItem(42, Material.SEA_PICKLE, "§2Sea Pickle");
-        putItem(43, Material.CRIMSON_FUNGUS, "§2Crimson Fungus");
-        putItem(44, Material.CRIMSON_ROOTS, "§2Crimson Roots");
-        putItem(45, Material.WEEPING_VINES, "§2Weeping Vines");
-        putItem(46, Material.WARPED_FUNGUS, "§2Warped Fungus");
-        putItem(47, Material.WARPED_ROOTS, "§2Warped Roots");
-        putItem(48, Material.NETHER_SPROUTS, "§2Nether Sprouts");
-        putItem(49, Material.TWISTING_VINES, "§2Twisting Vines");
-        putItem(50, Material.KELP, "§2Kelp");
-        putItem(51, Material.BAMBOO, "§2Bamboo");
-        putItem(52, Material.END_ROD, "§2End Rod");
-        putItem(53, Material.CHORUS_PLANT, "§2Chorus Plant");
-        putItem(54, Material.CHORUS_FLOWER, "§2Chorus Flower");
-        putItem(55, Material.CHAIN, "§2Chain");
-        putItem(56, Material.FLOWER_POT, "§2Flower Pot");
-        putItem(57, Material.SOUL_LANTERN, "§2Soul Lantern");
-        putItem(58, Material.LANTERN, "§2Lantern");
+
+        //Is at least running 1.17
+        if(EnumUtils.isValidEnum(Material.class, "AZALEA")) {
+            putItem(Material.AZALEA, "§2Azalea");
+            putItem(Material.AZALEA_LEAVES, "§2Azalea Leaves");
+            putItem(Material.FLOWERING_AZALEA, "§2Flowering Azalea");
+            putItem(Material.FLOWERING_AZALEA_LEAVES, "§2Flowering Azalea Leaves");
+
+            putItem(Material.GLOW_BERRIES, Material.CAVE_VINES,"§2Glow Berries");
+            putItem(Material.BIG_DRIPLEAF, "§2Big Dripleaf");
+            putItem(Material.BIG_DRIPLEAF, Material.BIG_DRIPLEAF_STEM, "§2Big Dripleaf Stem");
+            putItem(Material.SMALL_DRIPLEAF, "§2Small Dripleaf");
+        }
+
+        putItem(Material.LILY_PAD, "§2Lily Pad");
+        putItem(Material.VINE, "§2Vines");
+        putItem(Material.CACTUS, "§2Cactus");
+        putItem(Material.MELON, "§2Melon");
+        putItem(Material.PUMPKIN, "§2Pumpkin");
+        putItem(Material.SUGAR_CANE, "§2Sugar Canes");
+        putItem(Material.WITHER_ROSE, "§2Wither Rose");
+        putItem(Material.SEAGRASS, "§2Seagrass");
+        putItem(Material.SEA_PICKLE, "§2Sea Pickle");
+        putItem(Material.CRIMSON_FUNGUS, "§2Crimson Fungus");
+        putItem(Material.CRIMSON_ROOTS, "§2Crimson Roots");
+        putItem(Material.WEEPING_VINES, "§2Weeping Vines");
+        putItem(Material.WARPED_FUNGUS, "§2Warped Fungus");
+        putItem(Material.WARPED_ROOTS, "§2Warped Roots");
+        putItem(Material.NETHER_SPROUTS, "§2Nether Sprouts");
+        putItem(Material.TWISTING_VINES, "§2Twisting Vines");
+        putItem(Material.KELP, "§2Kelp");
+        putItem(Material.BAMBOO, "§2Bamboo");
+        putItem(Material.END_ROD, "§2End Rod");
+        putItem(Material.CHORUS_PLANT, "§2Chorus Plant");
+        putItem(Material.CHORUS_FLOWER, "§2Chorus Flower");
+        putItem(Material.CHAIN, "§2Chain");
+        putItem(Material.FLOWER_POT, "§2Flower Pot");
+        putItem(Material.SOUL_LANTERN, "§2Soul Lantern");
+        putItem(Material.LANTERN, "§2Lantern");
 
 
         putItem(Material.BRAIN_CORAL, "§2Brain Coral");

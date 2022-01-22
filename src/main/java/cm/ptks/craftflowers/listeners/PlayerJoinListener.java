@@ -12,8 +12,8 @@ import java.util.concurrent.Executors;
 
 public class PlayerJoinListener implements Listener {
 
-    private CraftFlowers flowers;
-    private ExecutorService updateService = Executors.newSingleThreadExecutor();
+    private final CraftFlowers flowers;
+    private final ExecutorService updateService = Executors.newSingleThreadExecutor();
 
     public PlayerJoinListener(CraftFlowers flowers) {
         this.flowers = flowers;
