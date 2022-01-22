@@ -27,10 +27,6 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>IntellectualSites</id>
-            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
-        </repository>
         <!-- This adds the Spigot Maven repository to the build -->
         <repository>
             <id>spigot-repo</id>
