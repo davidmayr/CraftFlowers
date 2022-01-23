@@ -1,7 +1,6 @@
 package cm.ptks.craftflowers.util;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import org.apache.commons.lang3.EnumUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -13,16 +12,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GuiGenerator {
-    private HashMap<Integer, ItemStack> items = new HashMap();
+    private final HashMap<Integer, ItemStack> items = new HashMap();
 
 
     ItemStack glass_white;
 
-    private CraftFlowers flowers;
+    private final CraftFlowers flowers;
 
     public GuiGenerator(CraftFlowers flowers) {
         this.flowers = flowers;
@@ -76,7 +74,7 @@ public class GuiGenerator {
         putItem(33, Material.DARK_OAK_LEAVES, "§2Dark Oak Leaves");
 
         //Is at least running 1.17
-        if(EnumUtils.isValidEnum(Material.class, "AZALEA")) {
+        if(isValidEnum(Material.class, "AZALEA")) {
             putItem(Material.AZALEA, "§2Azalea");
             putItem(Material.AZALEA_LEAVES, "§2Azalea Leaves");
             putItem(Material.FLOWERING_AZALEA, "§2Flowering Azalea");
@@ -155,6 +153,22 @@ public class GuiGenerator {
         putItem(Material.CARROT, Material.CARROTS, "§2Carrot Age 7", 7);
     }
 
+    /**
+     * Method from Commons Lang 3 for 1.16 Backwards Compatability.
+     */
+    private static <E extends Enum<E>> boolean isValidEnum(Class<E> enumClass, String enumName) {
+        if (enumName == null) {
+            return false;
+        } else {
+            try {
+                Enum.valueOf(enumClass, enumName);
+                return true;
+            } catch (IllegalArgumentException var3) {
+                return false;
+            }
+        }
+    }
+
 
     private void putItem(int mapIndex, Material material, Material blockMaterial, String name, Integer age) {
         ItemStack item = new ItemStack(material, 1);
@@ -222,9 +236,9 @@ public class GuiGenerator {
 
         final InventoryView inventoryView = player.openInventory(inv);
         if (inventoryView.getItem(36) == null || inventoryView.getItem(36).getType().equals(Material.AIR)) {
-            inv.setItem(30, (ItemStack) HeadsList.heads.get("head_create"));
+            inv.setItem(30, HeadsList.heads.get("head_create"));
         } else {
-            inv.setItem(30, (ItemStack) HeadsList.heads.get("head_edit"));
+            inv.setItem(30, HeadsList.heads.get("head_edit"));
         }
 
     }
