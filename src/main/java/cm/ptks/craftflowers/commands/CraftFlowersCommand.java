@@ -46,10 +46,10 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
         if(args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
             UpdateChecker versionChecker = plugin.getVersionChecker();
-            if (versionChecker.isUpdated()) {
-                player.sendMessage(CraftFlowers.prefix + "§7Version: §2" + ChatColor.GREEN + plugin.getDescription().getVersion());
-            } else {
+            if (versionChecker.isOutdated()) {
                 player.sendMessage(CraftFlowers.prefix + "§7Version: §2" + ChatColor.RED + plugin.getDescription().getVersion());
+            } else {
+                player.sendMessage(CraftFlowers.prefix + "§7Version: §2" + ChatColor.GREEN + plugin.getDescription().getVersion());
             }
 
             player.sendMessage(CraftFlowers.prefix + "§7Author: §2" + plugin.getDescription().getAuthors().get(0));

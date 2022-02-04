@@ -23,7 +23,7 @@ public class FlowersVersion {
             if(split.length == 2) {
                 return new FlowersVersion(Integer.parseInt(split[0]), Integer.parseInt(split[1]), 0);
             } else if(split.length >= 3) {
-                return new FlowersVersion(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[1].split("-")[0]));
+                return new FlowersVersion(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2].split("-")[0]));
             } else if(split.length == 1){
                 return new FlowersVersion(Integer.parseInt(split[0]), 0, 0);
             }
@@ -32,6 +32,11 @@ public class FlowersVersion {
         }
 
         return new FlowersVersion(0, 0, 0);
+    }
+
+    @Override
+    public String toString() {
+        return major + "." + minor + "." + patch;
     }
 
     @Override
@@ -48,6 +53,10 @@ public class FlowersVersion {
     }
 
     public boolean isOlder(FlowersVersion version) {
-        return this.major < version.major || this.minor < version.minor || this.patch < version.patch;
+        if(this.major > version.major)
+            return false;
+        if(this.minor > version.minor)
+            return false;
+        return this.patch < version.patch;
     }
 }
