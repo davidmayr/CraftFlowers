@@ -2,11 +2,11 @@ package cm.ptks.craftflowers.listeners;
 
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.flower.AgingFlower;
+import cm.ptks.craftflowers.flower.Flower;
+import cm.ptks.craftflowers.flower.FlowerPot;
 import com.fastasyncworldedit.core.FaweAPI;
 import com.fastasyncworldedit.core.util.TaskManager;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
@@ -16,103 +16,123 @@ import com.sk89q.worldedit.world.World;
 import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
 import com.sk89q.worldedit.world.block.BlockTypes;
-import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.persistence.PersistentDataType;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class BlockPlaceListener implements Listener {
+
+    private final CraftFlowers plugin;
+
+    public BlockPlaceListener(CraftFlowers plugin) {
+        this.plugin = plugin;
+    }
+
     @EventHandler(
-            priority = EventPriority.LOW
+            priority = EventPriority.LOW,
+            ignoreCancelled = true
     )
     public void placeOfBlock(final BlockPlaceEvent event) {
         Player player = event.getPlayer();
-        if (event.getBlock().getType().equals(Material.FLOWER_POT) && player.getInventory().getItemInMainHand().getType().equals(Material.FLOWER_POT)
-                && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals("§2craftFlowers")) {
-            if (!player.hasPermission("craftflowers.place")) {
-                event.setCancelled(true);
-                player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
-            } else if (event.isCancelled()) {
-                player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You don't have permission!");
-            } else {
-                event.setCancelled(true);
-                ItemStack pot = player.getInventory().getItemInMainHand();
-                final List<String> lore = pot.getItemMeta().getLore();
 
-                String craftFlowersMeta = pot.getItemMeta().getPersistentDataContainer()
-                        .get(new NamespacedKey(CraftFlowers.plugin, "craftFlowersMeta"), PersistentDataType.STRING);
-                if(craftFlowersMeta == null) {
-                    player.sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "You seem to have a flowerpot from an older version. These can not be converted.");
-                    return;
-                }
-                JsonArray jsonArray = new JsonParser().parse(craftFlowersMeta).getAsJsonArray();
-                if(jsonArray.size() <= 0)
-                    return;
+        if(!event.getItemInHand().getType().equals(Material.FLOWER_POT))
+            return;
+        FlowerPot flowerPot = FlowerPot.parsePot(event.getItemInHand());
+        if(flowerPot == null)
+            return;
+        event.setCancelled(true);
+        if (!player.hasPermission("craftflowers.place")) {
+            player.sendMessage(CraftFlowers.prefix + "§cYou don't have the required permissions to place this Flower!");
+            return;
+        }
 
-                TaskManager.IMP.async(() -> {
-                    World world = FaweAPI.getWorld(player.getWorld().getName());
-                    final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
-                    final EditSession editSession = WorldEdit.getInstance().newEditSessionBuilder()
-                            .world(world)
-                            .actor(bukkitPlayer).build();
+        if(plugin.isSurvivalMode() && player.getGameMode() == GameMode.SURVIVAL) {
+            List<Flower> requiredFlowers = new ArrayList<>();
+            Location currentLocation = event.getBlockPlaced().getLocation().clone();
+            for (Flower flower : flowerPot.getFlowers()) {
+                if(!currentLocation.equals(event.getBlockPlaced().getLocation())
+                    && (!currentLocation.getBlock().getType().equals(Material.AIR)
+                    && !currentLocation.getBlock().getType().equals(Material.WATER)))
+                    continue;
+                requiredFlowers.add(flower);
+                currentLocation.add(0.0D, 1.0D, 0.0D);
+            }
+            Map<String, Integer> missingFlowerMap = new LinkedHashMap<>();
+            for (Flower flower : requiredFlowers) {
+                if(player.getInventory().contains(flower.getMaterial()))
+                    continue;
+                Integer integer = missingFlowerMap.getOrDefault(flower.getDisplayName(), 0) + 1;
+                missingFlowerMap.put(flower.getDisplayName(), integer);
+            }
+            if(!missingFlowerMap.isEmpty()) {
+                player.sendMessage(CraftFlowers.prefix + "§7You cannot place this flower since you are missing the following items:");
+                missingFlowerMap.forEach((flower, integer) -> player.sendMessage(CraftFlowers.arrow + flower
+                                                                                 + " §8(§7x" + integer + "§8)"));
+                return;
+            }
 
-                    bukkitPlayer.queueAction(() -> {
-                        Location loc1 = event.getBlockPlaced().getLocation();
-
-                        for (int i = 0; i < jsonArray.size(); ++i) {
-                            JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
-                            Material material = Material.getMaterial(jsonObject.has("blockMaterial")
-                                    ? jsonObject.get("blockMaterial").getAsString() : jsonObject.get("material").getAsString());
-
-                            if (material != null && loc1.getBlock().getType().equals(Material.AIR)) {
-                                try {
-
-                                    BlockType blockType = BlockTypes.parse(material.name());
-                                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
-
-                                    Property<Boolean> prop = block.getBlockType().getProperty("waterlogged");
-                                    if (prop != null) {
-                                        block = block.with(prop, false);
-                                    }
-
-                                    if(jsonObject.has("age")) {
-                                        Property<Integer> ageProp = block.getBlockType().getProperty("age");
-                                        if (ageProp != null) {
-                                            try {
-                                                block = block.with(ageProp, jsonObject.get("age").getAsInt());
-                                            } catch (Exception ex) {
-                                                ex.printStackTrace();
-                                            }
-                                        }
-                                    }
-
-                                    editSession.setBlock(loc1.getBlockX(), loc1.getBlockY(), loc1.getBlockZ(), block);
-
-
-
-                                } catch (Exception ignored) {
-                                }
-                            }
-
-                            loc1.add(0.0D, 1.0D, 0.0D);
-                        }
-
-                        editSession.flushQueue();
-                        bukkitPlayer.getSession().remember(editSession);
-                    });
-                });
+            for (Flower requiredFlower : requiredFlowers) {
+                removeOne(requiredFlower.getMaterial(), player);
             }
         }
 
+        TaskManager.taskManager().async(() -> {
+            World world = FaweAPI.getWorld(player.getWorld().getName());
+            final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
+            final EditSession editSession = WorldEdit.getInstance().newEditSessionBuilder()
+                    .world(world)
+                    .actor(bukkitPlayer).build();
+
+            bukkitPlayer.queueAction(() -> {
+                Location currentLocation = event.getBlockPlaced().getLocation();
+
+                for (Flower flower : flowerPot.getFlowers()) {
+                    if(!currentLocation.equals(event.getBlockPlaced().getLocation())
+                       && (!currentLocation.getBlock().getType().equals(Material.AIR)
+                           && !currentLocation.getBlock().getType().equals(Material.WATER)))
+                        continue;
+                    BlockType blockType = BlockTypes.parse(flower.getBlockMaterial().name());
+                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
+
+                    Property<Boolean> prop = block.getBlockType().getProperty("waterlogged");
+                    if (prop != null) {
+                        block = block.with(prop, false);
+                    }
+
+                    if(flower instanceof AgingFlower) {
+                        Property<Integer> ageProp = block.getBlockType().getProperty("age");
+                        block = block.with(ageProp, ((AgingFlower) flower).getAge());
+                    }
+
+                    editSession.setBlock(currentLocation.getBlockX(), currentLocation.getBlockY(), currentLocation.getBlockZ(), block);
+
+                    currentLocation.add(0.0D, 1.0D, 0.0D);
+                }
+
+                editSession.flushQueue();
+                bukkitPlayer.getSession().remember(editSession);
+            });
+        });
     }
+
+    private static void removeOne(Material material, Player player) {
+        ItemStack[] contents = player.getInventory().getStorageContents();
+
+        for (ItemStack item : contents) {
+            if (item != null && item.getType() == material) {
+                item.setAmount(item.getAmount() - 1);
+                return;
+            }
+        }
+    }
+
+
 }

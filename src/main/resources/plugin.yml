@@ -3,8 +3,10 @@ main: cm.ptks.craftflowers.CraftFlowers
 version: ${project.version}
 author: patrykss & MenschenToaster
 api-version: 1.16
-website: https://twitter.com/_patryks
+website: https://github.com/MenschenToaster/CraftFlowers
 commands:
   craftflowers:
     description: craftFlowers command description
     aliases: [craftf, cf]
+depend:
+  - FastAsyncWorldEdit

@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class FlowersVersion {
 
-    private int major;
-    private int minor;
-    private int patch;
+    private final int major;
+    private final int minor;
+    private final int patch;
 
     public FlowersVersion(int major, int minor, int patch) {
         this.major = major;

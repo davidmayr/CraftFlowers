@@ -8,34 +8,40 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
-public class CheckVersion {
+public class UpdateChecker {
 
-    private final FlowersVersion newestVersion = getNewestVersion();
+    private FlowersVersion newestVersion = fetchNewestVersion();
     private final FlowersVersion currentVersion;
-    private long lastUpdate = 0L;
 
-    public CheckVersion() {
-        this.currentVersion = FlowersVersion.read(CraftFlowers.plugin.getDescription().getVersion());
+    private final CraftFlowers plugin;
+
+    public UpdateChecker(CraftFlowers plugin) {
+        this.plugin = plugin;
+        this.currentVersion = FlowersVersion.read(plugin.getDescription().getVersion());
+
+        plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, () -> this.newestVersion = fetchNewestVersion(),
+                TimeUnit.HOURS.toSeconds(24) * 20, TimeUnit.HOURS.toSeconds(24) * 20);
     }
 
-    public FlowersVersion getNewestVersion() {
-        if(newestVersion != null && (System.currentTimeMillis() - lastUpdate) < 18000000) {
-            return newestVersion;
-        }
+    public FlowersVersion fetchNewestVersion() {
         try {
             HttpsURLConnection con = (HttpsURLConnection) (new URL("https://api.spigotmc.org/legacy/update.php?resource=82407")).openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("GET");
             String version = (new BufferedReader(new InputStreamReader(con.getInputStream()))).readLine();
-            this.lastUpdate = System.currentTimeMillis();
             con.disconnect();
             return FlowersVersion.read(version);
         } catch (Exception var3) {
             var3.printStackTrace();
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "[craftFlowers] " + ChatColor.RED + "Failed to check for an update on Spigot.");
-            return FlowersVersion.read(CraftFlowers.plugin.getDescription().getVersion());
+            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + "Failed to check for an update on Spigot.");
+            return FlowersVersion.read(plugin.getDescription().getVersion());
         }
+    }
+
+    public FlowersVersion getNewestVersion() {
+        return newestVersion;
     }
 
     public boolean isUpdated() {

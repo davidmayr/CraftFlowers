@@ -7,16 +7,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class PlayerJoinListener implements Listener {
 
-    private final CraftFlowers flowers;
-    private final ExecutorService updateService = Executors.newSingleThreadExecutor();
+    private final CraftFlowers plugin;
+
+    private static final String DOWNLOAD_LINK = "https://www.spigotmc.org/resources/82407";
 
     public PlayerJoinListener(CraftFlowers flowers) {
-        this.flowers = flowers;
+        this.plugin = flowers;
     }
 
     @EventHandler
@@ -25,14 +23,13 @@ public class PlayerJoinListener implements Listener {
         if (!player.hasPermission("craftflowers.admin"))
             return;
 
-        updateService.submit(() -> {
-            if (!flowers.getVersionChecker().isOutdated())
-                return;
-            player.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
-            player.sendMessage(ChatColor.RED + "    Plugin is outdated!");
-            player.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + CraftFlowers.plugin.getDescription().getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + flowers.getVersionChecker().getNewestVersion());
-            player.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
-            player.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
-        });
+        if (!plugin.getVersionChecker().isOutdated())
+            return;
+        player.sendMessage("§a");
+        player.sendMessage(CraftFlowers.prefix + "§cYou are running an outdated §2craftflowers §7version!");
+        player.sendMessage(CraftFlowers.prefix + "§7Current version: §c" + plugin.getDescription().getVersion());
+        player.sendMessage(CraftFlowers.prefix + "§7Newest version: §a" + plugin.getVersionChecker().getNewestVersion());
+        player.sendMessage(CraftFlowers.prefix + "§7Download new Version: §a" + DOWNLOAD_LINK);
+        player.sendMessage("§a");
     }
 }

@@ -23,8 +23,6 @@ SpigotMC: https://www.spigotmc.org/resources/craftflowers-1-16-1-17-port.82407/
 
 # About the Code
 
-The Developer said that he doesn't have the original Code anymore so I had to decompile it.  
-Look at i-am-allowed.png. I am allowed to do this.  
+The Developer said that he doesn't have the original Code anymore, so I had to decompile it.
 
-Most of the Code is the original Code or not properly formatted. Please don't use this to judge my Code-Style 🙃  
-The Plugin works for now. If you have any issues please create a Github Issue.  
+With Version 1.0.0 I have redone almost every line of this plugin. 
