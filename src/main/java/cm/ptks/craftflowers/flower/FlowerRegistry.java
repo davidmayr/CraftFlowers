@@ -61,16 +61,23 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.JUNGLE_LEAVES, "§2Jungle Leaves"));
         registerFlower(new Flower(Material.ACACIA_LEAVES, "§2Acacia Leaves"));
         registerFlower(new Flower(Material.DARK_OAK_LEAVES, "§2Dark Oak Leaves"));
-        registerFlower(new Flower(Material.BAMBOO, "§2Bamboo"));
         registerFlower(new Flower(Material.LILY_PAD, "§2Lily Pad"));
         registerFlower(new Flower(Material.VINE, "§2Vines"));
         registerFlower(new Flower(Material.CACTUS, "§2Cactus"));
         registerFlower(new Flower(Material.MELON, "§2Melon"));
         registerFlower(new Flower(Material.PUMPKIN, "§2Pumpkin"));
-        registerFlower(new Flower(Material.COCOA_BEANS, "§2Cocoa", Material.COCOA));
         registerFlower(new Flower(Material.SEA_PICKLE, "§2Sea Pickle"));
+        registerFlower(new Flower(Material.CRIMSON_ROOTS, "§2Crimson Roots"));
+        registerFlower(new Flower(Material.WEEPING_VINES, "§2Weeping Vines"));
+        registerFlower(new Flower(Material.WARPED_ROOTS, "§2Warped Roots"));
+        registerFlower(new Flower(Material.NETHER_SPROUTS, "§2Nether Sprouts"));
+        registerFlower(new Flower(Material.TWISTING_VINES, "§2Twisting Vines"));
+        registerFlower(new Flower(Material.BAMBOO, "§2Bamboo"));
+        registerFlower(new Flower(Material.END_ROD, "§2End Rod"));
         registerFlower(new Flower(Material.SOUL_LANTERN, "§2Soul Lantern"));
         registerFlower(new Flower(Material.LANTERN, "§2Lantern"));
+        registerFlower(new Flower(Material.COCOA_BEANS, "§2Cocoa", Material.COCOA));
+
         registerFlower(new Flower(Material.CRIMSON_ROOTS, "§2Crimson Roots"));
         registerFlower(new Flower(Material.WEEPING_VINES, "§2Weeping Vines"));
         registerFlower(new Flower(Material.WARPED_ROOTS, "§2Warped Roots"));
