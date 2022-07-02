@@ -55,9 +55,10 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.SMALL_DRIPLEAF, "§2Small Dripleaf"));
         }
         
-        if (isValidMaterial("MANGROVE_LEAVES")) {
+        if (isValidMaterial("MANGROVE_LEAVES" /* 1.19*/)) {
             registerFlower(new Flower(Material.MANGROVE_ROOTS, "§2Mangrove Roots"));
             registerFlower(new Flower(Material.MANGROVE_LEAVES, "§2Mangrove Leaves"));
+            registerFlower(new Flower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule"));
         }
 
         registerFlower(new Flower(Material.OAK_LEAVES, "§2Oak Leaves"));
@@ -126,13 +127,6 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, "§2Carrot", Material.CARROTS, 5),
                 new AgingFlower(Material.CARROT, "§2Carrot", Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, "§2Carrot", Material.CARROTS, 7)
-        )));
-        
-        registerFlower(new FlowerGroup(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule", Arrays.asList(
-                new AgingFlower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule", Material.MANGROVE_PROPAGULE, 0),
-                new AgingFlower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule", Material.MANGROVE_PROPAGULE, 1),
-                new AgingFlower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule", Material.MANGROVE_PROPAGULE, 2),
-                new AgingFlower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule", Material.MANGROVE_PROPAGULE, 3)
         )));
     }
 
