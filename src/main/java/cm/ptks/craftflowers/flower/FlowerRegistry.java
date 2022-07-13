@@ -54,6 +54,12 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.BIG_DRIPLEAF, "§2Big Dripleaf Stem", Material.BIG_DRIPLEAF_STEM));
             registerFlower(new Flower(Material.SMALL_DRIPLEAF, "§2Small Dripleaf"));
         }
+        
+        if (isValidMaterial("MANGROVE_LEAVES" /* 1.19*/)) {
+            registerFlower(new Flower(Material.MANGROVE_ROOTS, "§2Mangrove Roots"));
+            registerFlower(new Flower(Material.MANGROVE_LEAVES, "§2Mangrove Leaves"));
+            registerFlower(new Flower(Material.MANGROVE_PROPAGULE, "§2Mangrove Propagule"));
+        }
 
         registerFlower(new Flower(Material.OAK_LEAVES, "§2Oak Leaves"));
         registerFlower(new Flower(Material.SPRUCE_LEAVES, "§2Spruce Leaves"));
