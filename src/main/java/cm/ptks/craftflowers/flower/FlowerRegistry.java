@@ -128,6 +128,7 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, "§2Carrot", Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, "§2Carrot", Material.CARROTS, 7)
         )));
+        registerFlower(new Flower(Material.BARRIER, "§2Air Block", Material.AIR));
     }
 
     private static <E extends Enum<E>> boolean isValidMaterial(String enumName) {
