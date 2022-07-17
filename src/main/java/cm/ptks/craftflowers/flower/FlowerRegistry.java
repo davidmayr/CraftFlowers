@@ -33,11 +33,9 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.BIRCH_FENCE, "§2Birch Fence"));
         registerFlower(new Flower(Material.JUNGLE_FENCE, "§2Jungle Fence"));
         registerFlower(new Flower(Material.ACACIA_FENCE, "§2Acacia Fence"));
+        registerFlower(new Flower(Material.CRIMSON_FENCE, "§2Crimson Fence"));
+        registerFlower(new Flower(Material.WARPED_FENCE, "§2Warped Fence"));
 
-        if (isValidMaterial("WARPED_FENCE") /* 1.16+ */) {
-            registerFlower(new Flower(Material.CRIMSON_FENCE, "§2Acacia Fence"));
-            registerFlower(new Flower(Material.WARPED_FENCE, "§2Oak Fence"));
-        }
         if (isValidMaterial("MANGROVE_FENCE") /* 1.19+ */) {
             registerFlower(new Flower(Material.MANGROVE_FENCE, "§2Mangrove Fence"));
         }
