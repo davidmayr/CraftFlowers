@@ -25,6 +25,21 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.DEAD_BUSH, "§2Dead Bush"));
         registerFlower(new Flower(Material.GRASS, "§2Grass"));
         registerFlower(new Flower(Material.FERN, "§2Fern"));
+        registerFlower(new Flower(Material.NETHER_BRICK_FENCE, "§2Nether Brick Fence"));
+
+        registerFlower(new Flower(Material.DARK_OAK_FENCE, "§2Dark Oak Fence"));
+        registerFlower(new Flower(Material.SPRUCE_FENCE, "§2Spruce Fence"));
+        registerFlower(new Flower(Material.OAK_FENCE, "§2Oak Fence"));
+        registerFlower(new Flower(Material.BIRCH_FENCE, "§2Birch Fence"));
+        registerFlower(new Flower(Material.JUNGLE_FENCE, "§2Jungle Fence"));
+        registerFlower(new Flower(Material.ACACIA_FENCE, "§2Acacia Fence"));
+        registerFlower(new Flower(Material.CRIMSON_FENCE, "§2Crimson Fence"));
+        registerFlower(new Flower(Material.WARPED_FENCE, "§2Warped Fence"));
+
+        if (isValidMaterial("MANGROVE_FENCE") /* 1.19+ */) {
+            registerFlower(new Flower(Material.MANGROVE_FENCE, "§2Mangrove Fence"));
+        }
+
         registerFlower(new Flower(Material.DANDELION, "§2Dandelion"));
         registerFlower(new Flower(Material.POPPY, "§2Poppy"));
         registerFlower(new Flower(Material.BLUE_ORCHID, "§2Blue Orchid"));
@@ -45,6 +60,7 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.FLOWER_POT, "§2Flower Pot"));
 
         if (isValidMaterial("AZALEA") /* 1.17 or newer*/) {
+            registerFlower(new Flower(Material.MOSS_BLOCK, "§2Moss Block"));
             registerFlower(new Flower(Material.AZALEA, "§2Azalea"));
             registerFlower(new Flower(Material.FLOWERING_AZALEA, "§2Flowering Azalea"));
             registerFlower(new Flower(Material.AZALEA_LEAVES, "§2Azalea Leaves"));
