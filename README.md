@@ -11,10 +11,6 @@ Since my Plugin utilizes the WorldEdit-API you can also use //undo!
 
 SpigotMC: https://www.spigotmc.org/resources/craftflowers-1-16-1-17-port.82407/
 
-# change log
-
-update to 1.19
-
 # Permissions
 
 `craftflowers.use` - allows to open the GUI  
