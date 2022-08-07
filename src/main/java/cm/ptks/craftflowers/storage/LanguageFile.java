@@ -216,10 +216,10 @@ public class LanguageFile {
 		COMMAND_COMMAND_SAVE_TIP = language.getString("commands.command_save_tip");
 
 		// /craftflowers load
-		COMMAND_NO_PERMISSION_LOAD = language.getString("commands.author");
-		COMMAND_FLOWER_NOT_FOUND = language.getString("commands.author");
-		COMMAND_SUCCESS_LOAD = language.getString("commands.author");
-		COMMAND_COMMAND_LOAD_TIP = language.getString("commands.author");
+		COMMAND_NO_PERMISSION_LOAD = language.getString("commands.no_permission_load");
+		COMMAND_FLOWER_NOT_FOUND = language.getString("commands.flower_not_found");
+		COMMAND_SUCCESS_LOAD = language.getString("commands.success_load");
+		COMMAND_COMMAND_LOAD_TIP = language.getString("commands.command_load_tip");
 
 		// /craftflowers delete
 		COMMAND_NO_PERMISSION_DELETE = language.getString("commands.author");
