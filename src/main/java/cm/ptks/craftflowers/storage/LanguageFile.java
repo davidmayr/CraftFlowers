@@ -210,10 +210,10 @@ public class LanguageFile {
 		COMMAND_WEBSITE = language.getString("commands.website");
 
 		// /craftflowers save
-		COMMAND_NO_PERMISSION_SAVE = language.getString("commands.author");
-		COMMAND_SUCCESS_SAVE = language.getString("commands.author");
-		COMMAND_NEED_HOLD_CF_FLOWERPOT = language.getString("commands.author");
-		COMMAND_COMMAND_SAVE_TIP = language.getString("commands.author");
+		COMMAND_NO_PERMISSION_SAVE = language.getString("commands.no_permission_save");
+		COMMAND_SUCCESS_SAVE = language.getString("commands.success_save");
+		COMMAND_NEED_HOLD_CF_FLOWERPOT = language.getString("commands.need_hold_cf_flowerpot");
+		COMMAND_COMMAND_SAVE_TIP = language.getString("commands.command_save_tip");
 
 		// /craftflowers load
 		COMMAND_NO_PERMISSION_LOAD = language.getString("commands.author");
