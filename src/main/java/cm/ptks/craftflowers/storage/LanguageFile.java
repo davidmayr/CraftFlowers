@@ -314,19 +314,86 @@ public class LanguageFile {
 		FLOWER_PUMPKIN = language.getString("flower.PUMPKIN");
 		FLOWER_SEAGRASS = language.getString("flower.SEAGRASS");
 		FLOWER_SEA_PICKLE = language.getString("flower.SEA_PICKLE");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		FLOWER_ = language.getString("flower.age");
-		
+		FLOWER_KELP = language.getString("flower.KELP");
+		FLOWER_BAMBOO = language.getString("flower.BAMBOO");
+		FLOWER_END_ROD = language.getString("flower.END_ROD");
+		FLOWER_SOUL_LANTERN = language.getString("flower.SOUL_LANTERN");
+		FLOWER_LANTERN = language.getString("flower.LANTERN");
+		FLOWER_COCOA_BEANS = language.getString("flower.COCOA_BEANS");
+		FLOWER_CRIMSON_ROOTS = language.getString("flower.CRIMSON_ROOTS");
+		FLOWER_WEEPING_VINES = language.getString("flower.WEEPING_VINES");
+		FLOWER_WARPED_ROOTS = language.getString("flower.WARPED_ROOTS");
+		FLOWER_NETHER_SPROUTS = language.getString("flower.NETHER_SPROUTS");
+		FLOWER_TWISTING_VINES = language.getString("flower.TWISTING_VINES");
+		FLOWER_BRAIN_CORAL = language.getString("flower.BRAIN_CORAL");
+		FLOWER_BUBBLE_CORAL = language.getString("flower.BUBBLE_CORAL");
+		FLOWER_FIRE_CORAL = language.getString("flower.FIRE_CORAL");
+		FLOWER_HORN_CORAL = language.getString("flower.HORN_CORAL");
+		FLOWER_TUBE_CORAL = language.getString("flower.TUBE_CORAL");
+		FLOWER_BRAIN_CORAL_FAN = language.getString("flower.BRAIN_CORAL_FAN");
+		FLOWER_BUBBLE_CORAL_FAN = language.getString("flower.BUBBLE_CORAL_FAN");
+		FLOWER_FIRE_CORAL_FAN = language.getString("flower.FIRE_CORAL_FAN");
+		FLOWER_HORN_CORAL_FAN = language.getString("flower.HORN_CORAL_FAN");
+		FLOWER_TUBE_CORAL_FAN = language.getString("flower.TUBE_CORAL_FAN");
+
+		FLOWER_WHEAT = language.getString("flower.WHEAT");
+		FLOWER_WHEAT_AGE_0 = language.getString("flower.WHEAT_AGE.WHEAT_0");
+		FLOWER_WHEAT_AGE_1 = language.getString("flower.WHEAT_AGE.WHEAT_1");
+		FLOWER_WHEAT_AGE_2 = language.getString("flower.WHEAT_AGE.WHEAT_2");
+		FLOWER_WHEAT_AGE_3 = language.getString("flower.WHEAT_AGE.WHEAT_3");
+		FLOWER_WHEAT_AGE_4 = language.getString("flower.WHEAT_AGE.WHEAT_4");
+		FLOWER_WHEAT_AGE_5 = language.getString("flower.WHEAT_AGE.WHEAT_5");
+		FLOWER_WHEAT_AGE_6 = language.getString("flower.WHEAT_AGE.WHEAT_6");
+		FLOWER_WHEAT_AGE_7 = language.getString("flower.WHEAT_AGE.WHEAT_7");
+
+		FLOWER_POTATO = language.getString("flower.POTATO");
+		FLOWER_POTATO_AGE_0 = language.getString("flower.POTATO_AGE.POTATO_0");
+		FLOWER_POTATO_AGE_1 = language.getString("flower.POTATO_AGE.POTATO_1");
+		FLOWER_POTATO_AGE_2 = language.getString("flower.POTATO_AGE.POTATO_2");
+		FLOWER_POTATO_AGE_3 = language.getString("flower.POTATO_AGE.POTATO_3");
+		FLOWER_POTATO_AGE_4 = language.getString("flower.POTATO_AGE.POTATO_4");
+		FLOWER_POTATO_AGE_5 = language.getString("flower.POTATO_AGE.POTATO_5");
+		FLOWER_POTATO_AGE_6 = language.getString("flower.POTATO_AGE.POTATO_6");
+		FLOWER_POTATO_AGE_7 = language.getString("flower.POTATO_AGE.POTATO_7");
+
+		FLOWER_CARROT = language.getString("flower.CARROT");
+		FLOWER_CARROT_AGE_0 = language.getString("flower.CARROT_AGE.CARROT_0");
+		FLOWER_CARROT_AGE_1 = language.getString("flower.CARROT_AGE.CARROT_1");
+		FLOWER_CARROT_AGE_2 = language.getString("flower.CARROT_AGE.CARROT_2");
+		FLOWER_CARROT_AGE_3 = language.getString("flower.CARROT_AGE.CARROT_3");
+		FLOWER_CARROT_AGE_4 = language.getString("flower.CARROT_AGE.CARROT_4");
+		FLOWER_CARROT_AGE_5 = language.getString("flower.CARROT_AGE.CARROT_5");
+		FLOWER_CARROT_AGE_6 = language.getString("flower.CARROT_AGE.CARROT_6");
+
+		FLOWER_BARRIER = language.getString("flower.BARRIER");
+
+		// item
+		ITEM_SECOND_PREFIX = language.getString("item.second_prefix");
+
+		// gui
+		GUI_TITLE = language.getString("gui.title");
+		GUI_CREATE_FLOWER = language.getString("gui.create_flower");
+		GUI_CANT_CREATE_EMPTY_FLOWER = language.getString("gui.cant_create_empty_flower");
+		GUI_REMOVE_FROM_TOP = language.getString("gui.remove_from_top");
+		GUI_CLEAR_ALL = language.getString("gui.clear_all");
+		GUI_FLOWER_GROUP_TITLE_COLOR = language.getString("gui.flower_group_title_color");
+		GUI_GLASS_NAME_COLOR = language.getString("gui.glass_name_color");
+		GUI_PREVIOUS = language.getString("gui.previous");
+		GUI_NEXT = language.getString("gui.next");
+		GUI_SAVED_FLOWERPOTS = language.getString("gui.saved_flowerpots");
+		GUI_SAVED_FLOWERPOTS_NAME_COLOR = language.getString("gui.saved_flowerpots_name_color");
+
+		// action
+		ACTION_NO_PERMISSION_PLACE = language.getString("action.no_permission_place");
+		ACTION_MISSING_FOLLOWING_ITEMS = language.getString("action.missing_following_items");
+		ACTION_MISSING_FOLLOWING_ITEMS_LIST = language.getString("action.missing_following_items_list");
+		ACTION_NO_PERMISSION_EDIT = language.getString("action.no_permission_edit");
+		ACTION_OUTDATE_VERSION = language.getString("action.outdate_version");
+		ACTION_CURRENT_VERSION = language.getString("action.current_version");
+		ACTION_NEWEST_VERSION = language.getString("action.newest_version");
+		ACTION_DOWNLOAD_NEW_VERSION = language.getString("action.download_new_version");
+		ACTION_FAILED_CHECK_VERSION = language.getString("action.failed_check_version");
+
 
 	}
 }
