@@ -237,6 +237,44 @@ public class LanguageFile {
 		FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS = language.getString("flower_info.cant_add_more_than_9_flowers");
 
 		// flower
+		FLOWER_SUNFLOWER = language.getString("flower.SUNFLOWER");
+		FLOWER_SUGAR_CANE = language.getString("flower.SUGAR_CANE");
+		FLOWER_LILAC = language.getString("flower.LILAC");
+		FLOWER_ROSE_BUSH = language.getString("flower.ROSE_BUSH");
+		FLOWER_PEONY = language.getString("flower.PEONY");
+		FLOWER_TALL_GRASS = language.getString("flower.TALL_GRASS");
+		FLOWER_LARGE_FERN = language.getString("flower.LARGE_FERN");
+		FLOWER_OAK_SAPLING = language.getString("flower.OAK_SAPLING");
+		FLOWER_SPRUCE_SAPLING = language.getString("flower.SPRUCE_SAPLING");
+		FLOWER_BIRCH_SAPLING = language.getString("flower.BIRCH_SAPLING");
+		FLOWER_JUNGLE_SAPLING = language.getString("flower.JUNGLE_SAPLING");
+		FLOWER_ACACIA_SAPLING = language.getString("flower.ACACIA_SAPLING");
+		FLOWER_DARK_OAK_SAPLING = language.getString("flower.DARK_OAK_SAPLING");
+		FLOWER_DEAD_BUSH = language.getString("flower.DEAD_BUSH");
+		FLOWER_GRASS = language.getString("flower.GRASS");
+		FLOWER_FERN = language.getString("flower.FERN");
+		FLOWER_NETHER_BRICK_FENCE = language.getString("flower.NETHER_BRICK_FENCE");
+
+		FLOWER_DARK_OAK_FENCE = language.getString("flower.DARK_OAK_FENCE");
+		FLOWER_SPRUCE_FENCE = language.getString("flower.SPRUCE_FENCE");
+		FLOWER_OAK_FENCE = language.getString("flower.OAK_FENCE");
+		FLOWER_BIRCH_FENCE = language.getString("flower.BIRCH_FENCE");
+		FLOWER_JUNGLE_FENCE = language.getString("flower.JUNGLE_FENCE");
+		FLOWER_ACACIA_FENCE = language.getString("flower.ACACIA_FENCE");
+		FLOWER_CRIMSON_FENCE = language.getString("flower.CRIMSON_FENCE");
+		FLOWER_WARPED_FENCE = language.getString("flower.WARPED_FENCE");
+		FLOWER_MANGROVE_FENCE = language.getString("flower.MANGROVE_FENCE");
+		FLOWER_DANDELION = language.getString("flower.DANDELION");
+		FLOWER_POPPY = language.getString("flower.POPPY");
+		FLOWER_BLUE_ORCHID = language.getString("flower.BLUE_ORCHID");
+		FLOWER_ALLIUM = language.getString("flower.ALLIUM");
+		FLOWER_AZURE_BLUET = language.getString("flower.AZURE_BLUET");
+		FLOWER_RED_TULIP = language.getString("flower.RED_TULIP");
+		FLOWER_ORANGE_TULIP = language.getString("flower.ORANGE_TULIP");
+		FLOWER_WHITE_TULIP = language.getString("flower.WHITE_TULIP");
+		FLOWER_PINK_TULIP = language.getString("flower.PINK_TULIP");
+		FLOWER_OXEYE_DAISY = language.getString("flower.OXEYE_DAISY");
+		FLOWER_ = language.getString("flower.age");
 
 
 	}
