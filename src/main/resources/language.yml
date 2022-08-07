@@ -37,7 +37,7 @@ flower_info:
   cant_serialize_flowergroup: "Cannot serialize FlowerGroup"
   cant_add_more_than_9_flowers: "§cYou can't add more than 9 Flowers!"
 
-# flower name
+# flowers name
 flower:
   SUNFLOWER: "§2Sunflower"
   SUGAR_CANE: "§2Sugar Canes"
