@@ -274,8 +274,59 @@ public class LanguageFile {
 		FLOWER_WHITE_TULIP = language.getString("flower.WHITE_TULIP");
 		FLOWER_PINK_TULIP = language.getString("flower.PINK_TULIP");
 		FLOWER_OXEYE_DAISY = language.getString("flower.OXEYE_DAISY");
-		FLOWER_ = language.getString("flower.age");
+		FLOWER_CORNFLOWER = language.getString("flower.CORNFLOWER");
+		FLOWER_LILY_OF_THE_VALLEY = language.getString("flower.LILY_OF_THE_VALLEY");
+		FLOWER_WITHER_ROSE = language.getString("flower.WITHER_ROSE");
+		FLOWER_BROWN_MUSHROOM = language.getString("flower.BROWN_MUSHROOM");
+		FLOWER_RED_MUSHROOM = language.getString("flower.RED_MUSHROOM");
+		FLOWER_CRIMSON_FUNGUS = language.getString("flower.CRIMSON_FUNGUS");
+		FLOWER_WARPED_FUNGUS = language.getString("flower.WARPED_FUNGUS");
+		FLOWER_FLOWER_POT = language.getString("flower.FLOWER_POT");
 
+		// 1.17+
+		FLOWER_MOSS_BLOCK = language.getString("flower.MOSS_BLOCK");
+		FLOWER_AZALEA = language.getString("flower.AZALEA");
+		FLOWER_FLOWERING_AZALEA = language.getString("flower.FLOWERING_AZALEA");
+		FLOWER_AZALEA_LEAVES = language.getString("flower.AZALEA_LEAVES");
+		FLOWER_FLOWERING_AZALEA_LEAVES = language.getString("flower.FLOWERING_AZALEA_LEAVES");
+		FLOWER_GLOW_BERRIES = language.getString("flower.GLOW_BERRIES");
+		FLOWER_BIG_DRIPLEAF = language.getString("flower.BIG_DRIPLEAF");
+		FLOWER_BIG_DRIPLEAF_STEM = language.getString("flower.BIG_DRIPLEAF_STEM");
+		FLOWER_SMALL_DRIPLEAF = language.getString("flower.SMALL_DRIPLEAF");
+		FLOWER_SPORE_BLOSSOM = language.getString("flower.SPORE_BLOSSOM");
+
+		// 1.19+
+		FLOWER_MANGROVE_ROOTS = language.getString("flower.MANGROVE_ROOTS");
+		FLOWER_MANGROVE_LEAVES = language.getString("flower.MANGROVE_LEAVES");
+		FLOWER_MANGROVE_PROPAGULE = language.getString("flower.MANGROVE_PROPAGULE");
+
+
+		FLOWER_OAK_LEAVES = language.getString("flower.OAK_LEAVES");
+		FLOWER_SPRUCE_LEAVES = language.getString("flower.SPRUCE_LEAVES");
+		FLOWER_BIRCH_LEAVES = language.getString("flower.BIRCH_LEAVES");
+		FLOWER_JUNGLE_LEAVES = language.getString("flower.JUNGLE_LEAVES");
+		FLOWER_ACACIA_LEAVES = language.getString("flower.ACACIA_LEAVES");
+		FLOWER_DARK_OAK_LEAVES = language.getString("flower.DARK_OAK_LEAVES");
+		FLOWER_LILY_PAD = language.getString("flower.LILY_PAD");
+		FLOWER_VINE = language.getString("flower.VINE");
+		FLOWER_CACTUS = language.getString("flower.CACTUS");
+		FLOWER_MELON = language.getString("flower.MELON");
+		FLOWER_PUMPKIN = language.getString("flower.PUMPKIN");
+		FLOWER_SEAGRASS = language.getString("flower.SEAGRASS");
+		FLOWER_SEA_PICKLE = language.getString("flower.SEA_PICKLE");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		FLOWER_ = language.getString("flower.age");
+		
 
 	}
 }
