@@ -218,9 +218,15 @@ public class LanguageFile {
 		// /craftflowers load
 		COMMAND_NO_PERMISSION_LOAD = language.getString("commands.author");
 		COMMAND_FLOWER_NOT_FOUND = language.getString("commands.author");
+		COMMAND_SUCCESS_LOAD = language.getString("commands.author");
+		COMMAND_COMMAND_LOAD_TIP = language.getString("commands.author");
+
+		// /craftflowers delete
+		COMMAND_NO_PERMISSION_DELETE = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
+
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 
