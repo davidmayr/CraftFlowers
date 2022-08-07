@@ -364,6 +364,7 @@ public class LanguageFile {
 		FLOWER_CARROT_AGE_4 = language.getString("flower.CARROT_AGE.CARROT_4");
 		FLOWER_CARROT_AGE_5 = language.getString("flower.CARROT_AGE.CARROT_5");
 		FLOWER_CARROT_AGE_6 = language.getString("flower.CARROT_AGE.CARROT_6");
+		FLOWER_CARROT_AGE_7 = language.getString("flower.CARROT_AGE.CARROT_7");
 
 		FLOWER_BARRIER = language.getString("flower.BARRIER");
 
