@@ -222,13 +222,21 @@ public class LanguageFile {
 		COMMAND_COMMAND_LOAD_TIP = language.getString("commands.command_load_tip");
 
 		// /craftflowers delete
-		COMMAND_NO_PERMISSION_DELETE = language.getString("commands.author");
-		COMMAND_AUTHOR = language.getString("commands.author");
-		COMMAND_AUTHOR = language.getString("commands.author");
-		COMMAND_AUTHOR = language.getString("commands.author");
+		COMMAND_NO_PERMISSION_DELETE = language.getString("commands.no_permission_delete");
+		COMMAND_CANT_DELETE = language.getString("commands.cant_delete");
+		COMMAND_SUCCESS_DELETE = language.getString("commands.success_delete");
+		COMMAND_COMMAND_DELETE_TIP = language.getString("commands.command_delete_tip");
 
-		COMMAND_AUTHOR = language.getString("commands.author");
-		COMMAND_AUTHOR = language.getString("commands.author");
+		// /craftflowers list
+		COMMAND_NO_PERMISSION_LIST = language.getString("commands.no_permission_list");
+		COMMAND_NO_SAVED_FLOWERS = language.getString("commands.no_saved_flowers");
+
+		// flower_info
+		FLOWER_INFO_AGE = language.getString("flower_info.age");
+		FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP = language.getString("flower_info.cant_serialize_flowergroup");
+		FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS = language.getString("flower_info.cant_add_more_than_9_flowers");
+
+		// flower
 
 
 	}
