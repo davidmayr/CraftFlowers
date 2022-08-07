@@ -201,15 +201,29 @@ public class LanguageFile {
 
 		language.addDefaults(defaultLanguage);
 
+		// /craftflowers
 		COMMAND_NO_PERMISSION_USE = language.getString("commands.no_permission_use");
+
+		// /craftflowers info
 		COMMAND_VERSION = language.getString("commands.version");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_WEBSITE = language.getString("commands.website");
+
+		// /craftflowers save
+		COMMAND_NO_PERMISSION_SAVE = language.getString("commands.author");
+		COMMAND_SUCCESS_SAVE = language.getString("commands.author");
+		COMMAND_NEED_HOLD_CF_FLOWERPOT = language.getString("commands.author");
+		COMMAND_COMMAND_SAVE_TIP = language.getString("commands.author");
+
+		// /craftflowers load
+		COMMAND_NO_PERMISSION_LOAD = language.getString("commands.author");
+		COMMAND_FLOWER_NOT_FOUND = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
 		COMMAND_AUTHOR = language.getString("commands.author");
+
 
 	}
 }
