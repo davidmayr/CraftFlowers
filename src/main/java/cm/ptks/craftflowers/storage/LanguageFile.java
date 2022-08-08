@@ -184,10 +184,12 @@ public class LanguageFile {
 	public static String ACTION_DOWNLOAD_NEW_VERSION;
 	public static String ACTION_FAILED_CHECK_VERSION;
 
+
 	public static void LoadLanguageFile() {
 		CraftFlowers instance = CraftFlowers.getInstance();
 
 		String path = "language.yml";
+
 
 		File languageFile = new File(instance.getDataFolder(), path);
 
@@ -200,6 +202,7 @@ public class LanguageFile {
 		YamlConfiguration language = YamlConfiguration.loadConfiguration(languageFile);
 
 		language.addDefaults(defaultLanguage);
+
 
 		// /craftflowers
 		COMMAND_NO_PERMISSION_USE = language.getString("commands.no_permission_use");
@@ -397,4 +400,7 @@ public class LanguageFile {
 
 
 	}
+
 }
+
+

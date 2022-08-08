@@ -6,7 +6,7 @@
 
     <groupId>at.toastiii</groupId>
     <artifactId>CraftFlowers</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <build>
         <plugins>
             <plugin>
