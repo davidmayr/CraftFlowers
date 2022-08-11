@@ -80,7 +80,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_SAVE_TIP);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_SAVE_SYNTAX);
 			return true;
 		}
 
@@ -94,7 +94,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 				plugin.getExecutorService().submit(() -> {
 					SavedFlowerPot flower = plugin.getFlowerStorage().getFlower(args[1], player.getUniqueId());
 					if (flower == null) {
-						player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_FLOWER_NOT_FOUND);
+						player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_LOAD_NOT_FOUND);
 						return;
 					}
 					plugin.getServer().getScheduler().runTask(plugin, () -> {
@@ -105,7 +105,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_LOAD_TIP);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_LOAD_SYNTAX);
 			return true;
 		}
 
@@ -126,7 +126,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_DELETE_TIP);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_DELETE_SYNTAX);
 			return true;
 		}
 
@@ -148,7 +148,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
 
 		if (!args[0].equalsIgnoreCase("help") && !args[0].equalsIgnoreCase("h")) {
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_COMMAND_HELP);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_SYNTAX);
 		} else {
 			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_OPEN_GUI);
 			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_SAVE);

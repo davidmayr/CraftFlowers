@@ -29,7 +29,7 @@ public class FlowerPot {
 
 	public void addFlower(Player player, Flower flower) {
 		if (this.flowers.size() >= 9) {
-			player.sendMessage(CraftFlowers.prefix + LanguageFile.FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS);
+			player.sendMessage(CraftFlowers.prefix + LanguageFile.FLOWER_LIMIT_REACHED);
 			return;
 		}
 		this.flowers.add(flower);

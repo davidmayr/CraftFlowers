@@ -15,19 +15,19 @@ public class LanguageFile {
   public static String COMMAND_NO_PERMISSION_SAVE;
   public static String COMMAND_SUCCESS_SAVE;
   public static String COMMAND_NEED_HOLD_CF_FLOWERPOT;
-  public static String COMMAND_COMMAND_SAVE_TIP;
+  public static String COMMAND_SAVE_SYNTAX;
   public static String COMMAND_NO_PERMISSION_LOAD;
-  public static String COMMAND_FLOWER_NOT_FOUND;
+  public static String COMMAND_LOAD_NOT_FOUND;
   public static String COMMAND_SUCCESS_LOAD;
-  public static String COMMAND_COMMAND_LOAD_TIP;
+  public static String COMMAND_LOAD_SYNTAX;
   public static String COMMAND_NO_PERMISSION_DELETE;
   public static String COMMAND_CANT_DELETE;
   public static String COMMAND_SUCCESS_DELETE;
-  public static String COMMAND_COMMAND_DELETE_TIP;
+  public static String COMMAND_DELETE_SYNTAX;
   public static String COMMAND_NO_PERMISSION_LIST;
   public static String COMMAND_NO_SAVED_FLOWERS;
 
-  public static String COMMAND_HELP_COMMAND_HELP;
+  public static String COMMAND_HELP_SYNTAX;
   public static String COMMAND_HELP_OPEN_GUI;
   public static String COMMAND_HELP_SAVE;
   public static String COMMAND_HELP_LOAD;
@@ -38,7 +38,7 @@ public class LanguageFile {
 
   public static String FLOWER_INFO_AGE;
   public static String FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP;
-  public static String FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS;
+  public static String FLOWER_LIMIT_REACHED;
 
   public static String FLOWER_SUNFLOWER;
   public static String FLOWER_SUGAR_CANE;
@@ -222,26 +222,26 @@ public class LanguageFile {
     COMMAND_NO_PERMISSION_SAVE = language.getString("commands.no_permission_save");
     COMMAND_SUCCESS_SAVE = language.getString("commands.success_save");
     COMMAND_NEED_HOLD_CF_FLOWERPOT = language.getString("commands.need_hold_cf_flowerpot");
-    COMMAND_COMMAND_SAVE_TIP = language.getString("commands.command_save_tip");
+    COMMAND_SAVE_SYNTAX = language.getString("commands.command_save_syntax");
 
     // /craftflowers load
     COMMAND_NO_PERMISSION_LOAD = language.getString("commands.no_permission_load");
-    COMMAND_FLOWER_NOT_FOUND = language.getString("commands.flower_not_found");
+    COMMAND_LOAD_NOT_FOUND = language.getString("commands.load_not_found");
     COMMAND_SUCCESS_LOAD = language.getString("commands.success_load");
-    COMMAND_COMMAND_LOAD_TIP = language.getString("commands.command_load_tip");
+    COMMAND_LOAD_SYNTAX = language.getString("commands.command_load_syntax");
 
     // /craftflowers delete
     COMMAND_NO_PERMISSION_DELETE = language.getString("commands.no_permission_delete");
     COMMAND_CANT_DELETE = language.getString("commands.cant_delete");
     COMMAND_SUCCESS_DELETE = language.getString("commands.success_delete");
-    COMMAND_COMMAND_DELETE_TIP = language.getString("commands.command_delete_tip");
+    COMMAND_DELETE_SYNTAX = language.getString("commands.command_delete_syntax");
 
     // /craftflowers list
     COMMAND_NO_PERMISSION_LIST = language.getString("commands.no_permission_list");
     COMMAND_NO_SAVED_FLOWERS = language.getString("commands.no_saved_flowers");
 
     // /craftflowers help
-    COMMAND_HELP_COMMAND_HELP = language.getString("commands.help_messages.command_help");
+    COMMAND_HELP_SYNTAX = language.getString("commands.help_messages.help_syntax");
     COMMAND_HELP_OPEN_GUI = language.getString("commands.help_messages.open_gui");
     COMMAND_HELP_SAVE = language.getString("commands.help_messages.save");
     COMMAND_HELP_LOAD = language.getString("commands.help_messages.load");
@@ -254,8 +254,7 @@ public class LanguageFile {
     FLOWER_INFO_AGE = language.getString("flower_info.age");
     FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP =
         language.getString("flower_info.cant_serialize_flowergroup");
-    FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS =
-        language.getString("flower_info.cant_add_more_than_9_flowers");
+    FLOWER_LIMIT_REACHED = language.getString("flower_info.flower_limit_reached");
 
     // flower
     FLOWER_SUNFLOWER = language.getString("flower.SUNFLOWER");
@@ -445,14 +444,11 @@ public class LanguageFile {
   }
 
   public static String getActionMissingFollowingItemsList(
-      String arror, String flower, Integer integer) {
-    ACTION_MISSING_FOLLOWING_ITEMS_LIST =
-        ACTION_MISSING_FOLLOWING_ITEMS_LIST.replaceAll("%1", arror);
-    ACTION_MISSING_FOLLOWING_ITEMS_LIST =
-        ACTION_MISSING_FOLLOWING_ITEMS_LIST.replaceAll("%2", flower);
-    ACTION_MISSING_FOLLOWING_ITEMS_LIST =
-        ACTION_MISSING_FOLLOWING_ITEMS_LIST.replaceAll("%3", String.valueOf(integer));
-    return ACTION_MISSING_FOLLOWING_ITEMS_LIST;
+      String arrow, String flower, Integer integer) {
+    return ACTION_MISSING_FOLLOWING_ITEMS_LIST
+        .replaceAll("%1", arrow)
+        .replaceAll("%2", flower)
+        .replaceAll("%3", String.valueOf(integer));
   }
 
   public static String getActionCurrentVersion(String version) {

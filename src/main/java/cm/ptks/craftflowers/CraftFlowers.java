@@ -23,7 +23,7 @@ public class CraftFlowers extends JavaPlugin {
 
 	private static InventoryManager inventoryManager;
 
-	private static CraftFlowers thisinstance;
+	private static CraftFlowers instance;
 
 	public static String prefix;
 	public static String arrow;
@@ -35,7 +35,7 @@ public class CraftFlowers extends JavaPlugin {
 	private FlowerStorage flowerStorage;
 
 	public void onEnable() {
-		thisinstance = this;
+		instance = this;
 		LanguageFile.LoadLanguageFile();
 
 		CraftFlowers.inventoryManager = new InventoryManager(this);
@@ -76,7 +76,7 @@ public class CraftFlowers extends JavaPlugin {
 	}
 
 	public static CraftFlowers getInstance() {
-		return thisinstance;
+		return instance;
 	}
 
 	@Override

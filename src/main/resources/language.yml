@@ -14,19 +14,19 @@ commands:
   no_permission_save: "§cYou don't have permission!"
   success_save: "Successfully saved flowerpot."
   need_hold_cf_flowerpot: "You must hold a craftflowers flowerpot."
-  command_save_tip: "/craftflowers save <name>"
+  command_save_syntax: "/craftflowers save <name>"
 
   # /craftflowers load
   no_permission_load: "You don't have permission!"
-  flower_not_found: "§cFlower not found."
+  load_not_found: "§cFlower not found."
   success_load: "§7The Flower %1 has been successfully loaded!"
-  command_load_tip: "/craftflowers load <name>"
+  command_load_syntax: "/craftflowers load <name>"
 
   # /craftflowers delete
   no_permission_delete: "You don't have permission!"
   cant_delete: "§cThe Flower %1 could not be deleted!"
   success_delete: "§7The Flower %1 has been successfully deleted!"
-  command_delete_tip: "/craftflowers delete <name>"
+  command_delete_syntax: "/craftflowers delete <name>"
 
   # /craftflowers list
   no_permission_list: "§cYou don't have permission!"
@@ -46,7 +46,7 @@ commands:
 flower_info:
   age: "§8(§7Age %1§8)"
   cant_serialize_flowergroup: "Cannot serialize FlowerGroup"
-  cant_add_more_than_9_flowers: "§cYou can't add more than 9 Flowers!"
+  flower_limit_reached: "§cYou can't add more than 9 Flowers!"
 
 # flowers name
 flower:

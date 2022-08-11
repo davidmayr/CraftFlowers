@@ -17,7 +17,7 @@ public class FlowerGroup extends Flower {
 
 	@Override
 	public JsonObject serialize() {
-		throw new RuntimeException(LanguageFile.FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP);
+		throw new RuntimeException("Cannot serialize FlowerGroup");
 	}
 
 	public List<Flower> getChildren() {
