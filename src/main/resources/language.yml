@@ -6,9 +6,9 @@ commands:
   no_permission_use: "§cYou don't have permission!"
 
   # /craftflowers info
-  version: "§7Version: §2"
-  author: "§7Author: §2"
-  website: "§7Website: §2"
+  version: "§7Version: §2%1"
+  author: "§7Author: §2%1"
+  website: "§7Website: §2%1"
 
   # /craftflowers save
   no_permission_save: "§cYou don't have permission!"
@@ -31,6 +31,17 @@ commands:
   # /craftflowers list
   no_permission_list: "§cYou don't have permission!"
   no_saved_flowers: "§cYou don't have any saved flowers."
+
+  help_messages:
+    command_help: "/craftflowers help §8- §7For help"
+    open_gui: "/craftflowers §8- §7Opens GUI"
+    save: "/craftflowers save <name> §8- §7Saves the currently held flower"
+    load: "/craftflowers load <name> §8- §7Loads a saved flower"
+    delete: "/craftflowers delete <name> §8- §7Removes the saved flower"
+    info: "/craftflowers info §8- §7Shows info about the plugin"
+    list: "/craftflowers list §8- §7Opens a saved flower list gui"
+    help: "/craftflowers help §8- §7Shows this text"
+
 
 flower_info:
   age: "§8(§7Age %1§8)"

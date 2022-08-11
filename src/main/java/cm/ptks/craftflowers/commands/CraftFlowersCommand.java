@@ -48,19 +48,19 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 		if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
 			UpdateChecker versionChecker = plugin.getVersionChecker();
 			if (versionChecker.isOutdated()) {
-				player.sendMessage(CraftFlowers.prefix + "§7Version: §2" + ChatColor.RED + plugin.getDescription().getVersion());
+				player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandVersion(plugin.getDescription().getVersion(), "§c"));
 			} else {
-				player.sendMessage(CraftFlowers.prefix + "§7Version: §2" + ChatColor.GREEN + plugin.getDescription().getVersion());
+				player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandVersion(plugin.getDescription().getVersion(), "§a"));
 			}
 
-			player.sendMessage(CraftFlowers.prefix + "§7Author: §2" + plugin.getDescription().getAuthors().get(0));
-			player.sendMessage(CraftFlowers.prefix + "§7Website: §2" + plugin.getDescription().getWebsite());
+			player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandAuthor(plugin.getDescription().getAuthors().get(0)));
+			player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandWebsite(plugin.getDescription().getWebsite()));
 			return true;
 		}
 
 		if (args[0].equalsIgnoreCase("save") || args[0].equalsIgnoreCase("s")) {
 			if (!player.hasPermission("craftflowers.save")) {
-				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + "You don't have permission!");
+				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMAND_NO_PERMISSION_SAVE);
 				return true;
 			}
 
@@ -72,21 +72,21 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
 					plugin.getExecutorService().submit(() -> {
 						plugin.getFlowerStorage().saveFlower(name, player.getUniqueId(), flowerPot);
-						player.sendMessage(CraftFlowers.prefix + "§7Successfully saved flowerpot.");
+						player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_SUCCESS_SAVE);
 					});
 				} else {
-					player.sendMessage(CraftFlowers.prefix + ChatColor.RED + "You must hold a craftflowers flowerpot.");
+					player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMAND_NEED_HOLD_CF_FLOWERPOT);
 				}
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers save <name>");
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_SAVE_TIP);
 			return true;
 		}
 
 		if (args[0].equalsIgnoreCase("load") || args[0].equalsIgnoreCase("l")) {
 			if (!player.hasPermission("craftflowers.load")) {
-				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + "You don't have permission!");
+				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMAND_NO_PERMISSION_LOAD);
 				return true;
 			}
 
@@ -94,51 +94,51 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 				plugin.getExecutorService().submit(() -> {
 					SavedFlowerPot flower = plugin.getFlowerStorage().getFlower(args[1], player.getUniqueId());
 					if (flower == null) {
-						player.sendMessage(CraftFlowers.prefix + "§cFlower not found.");
+						player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_FLOWER_NOT_FOUND);
 						return;
 					}
 					plugin.getServer().getScheduler().runTask(plugin, () -> {
 						player.getInventory().addItem(flower.getFlowerPot().createItemStack());
-						player.sendMessage(CraftFlowers.prefix + "§7The Flower " + args[1] + " has been successfully loaded!");
+						player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandSuccessLoad(args[1]));
 					});
 				});
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers load <name>");
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_LOAD_TIP);
 			return true;
 		}
 
 		if (args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("d")) {
 			if (!player.hasPermission("craftflowers.delete")) {
-				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + "You don't have permission!");
+				player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMAND_NO_PERMISSION_DELETE);
 				return true;
 			}
 
 			if (args.length != 1 && args.length <= 2) {
 				plugin.getExecutorService().submit(() -> {
 					if (!plugin.getFlowerStorage().deleteFlower(args[1], player.getUniqueId())) {
-						player.sendMessage(CraftFlowers.prefix + "§cThe Flower " + args[1] + " could not be deleted!");
+						player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandCantDelete(args[1]));
 						return;
 					}
-					player.sendMessage(CraftFlowers.prefix + "§7The Flower " + args[1] + " has been successfully deleted!");
+					player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandSuccessDelete(args[1]));
 				});
 				return true;
 			}
 
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers delete <name>");
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_COMMAND_DELETE_TIP);
 			return true;
 		}
 
 		if (args[0].equalsIgnoreCase("list")) {
 			if (!player.hasPermission("craftflowers.use")) {
-				player.sendMessage(CraftFlowers.prefix + "§cYou don't have permission!");
+				player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_NO_PERMISSION_LIST);
 				return true;
 			}
 			plugin.getExecutorService().submit(() -> {
 				List<SavedFlowerPot> savedFlowers = plugin.getFlowerStorage().getSavedFlowers(player.getUniqueId());
 				if (savedFlowers.size() == 0) {
-					player.sendMessage(CraftFlowers.prefix + "§cYou don't have any saved flowers.");
+					player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_NO_SAVED_FLOWERS);
 					return;
 				}
 				plugin.getServer().getScheduler().runTask(plugin, () -> SavedFlowerListGui.openGui(player, savedFlowers));
@@ -148,15 +148,15 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
 
 		if (!args[0].equalsIgnoreCase("help") && !args[0].equalsIgnoreCase("h")) {
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers help §8- §7For help");
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_COMMAND_HELP);
 		} else {
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers §8- §7Opens GUI");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers save <name> §8- §7Saves the currently held flower");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers load <name> §8- §7Loads a saved flower");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers delete <name> §8- §7Removes the saved flower");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers info §8- §7Shows info about the plugin");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers list §8- §7Opens a saved flower list gui");
-			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + "/craftflowers help §8- §7Shows this text");
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_OPEN_GUI);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_SAVE);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_LOAD);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_DELETE);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_INFO);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_LIST);
+			player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMAND_HELP_HELP);
 		}
 
 		return true;

@@ -27,6 +27,16 @@ public class LanguageFile {
 	public static String COMMAND_NO_PERMISSION_LIST;
 	public static String COMMAND_NO_SAVED_FLOWERS;
 
+
+	public static String COMMAND_HELP_COMMAND_HELP;
+	public static String COMMAND_HELP_OPEN_GUI;
+	public static String COMMAND_HELP_SAVE;
+	public static String COMMAND_HELP_LOAD;
+	public static String COMMAND_HELP_DELETE;
+	public static String COMMAND_HELP_INFO;
+	public static String COMMAND_HELP_LIST;
+	public static String COMMAND_HELP_HELP;
+
 	public static String FLOWER_INFO_AGE;
 	public static String FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP;
 	public static String FLOWER_INFO_CANT_ADD_MORE_THAN_9_FLOWERS;
@@ -234,6 +244,16 @@ public class LanguageFile {
 		COMMAND_NO_PERMISSION_LIST = language.getString("commands.no_permission_list");
 		COMMAND_NO_SAVED_FLOWERS = language.getString("commands.no_saved_flowers");
 
+		// /craftflowers help
+		COMMAND_HELP_COMMAND_HELP = language.getString("commands.help_messages.command_help");
+		COMMAND_HELP_OPEN_GUI = language.getString("commands.help_messages.open_gui");
+		COMMAND_HELP_SAVE = language.getString("commands.help_messages.save");
+		COMMAND_HELP_LOAD = language.getString("commands.help_messages.load");
+		COMMAND_HELP_DELETE = language.getString("commands.help_messages.delete");
+		COMMAND_HELP_INFO = language.getString("commands.help_messages.info");
+		COMMAND_HELP_LIST = language.getString("commands.help_messages.list");
+		COMMAND_HELP_HELP = language.getString("commands.help_messages.help");
+
 		// flower_info
 		FLOWER_INFO_AGE = language.getString("flower_info.age");
 		FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP = language.getString("flower_info.cant_serialize_flowergroup");
@@ -398,7 +418,53 @@ public class LanguageFile {
 		ACTION_DOWNLOAD_NEW_VERSION = language.getString("action.download_new_version");
 		ACTION_FAILED_CHECK_VERSION = language.getString("action.failed_check_version");
 
+	}
 
+	public static String getCommandVersion(String version, String color) {
+		return COMMAND_VERSION.replace("%1", color + version);
+	}
+
+	public static String getCommandAuthor(String authors) {
+		return COMMAND_AUTHOR.replace("%1", authors);
+	}
+
+	public static String getCommandWebsite(String website) {
+		return COMMAND_WEBSITE.replace("%1", website);
+	}
+
+	public static String getCommandSuccessLoad(String args) {
+		return COMMAND_SUCCESS_LOAD.replace("%1", args);
+	}
+
+	public static String getCommandCantDelete(String args) {
+		return COMMAND_CANT_DELETE.replace("%1", args);
+	}
+
+	public static String getCommandSuccessDelete(String args) {
+		return COMMAND_SUCCESS_DELETE.replace("%1", args);
+	}
+
+	public static String getFlowerInfoAge(int age) {
+		return FLOWER_INFO_AGE.replace("%1", String.valueOf(age));
+	}
+
+	public static String getActionMissingFollowingItemsList(String arror, String flower, Integer integer) {
+		ACTION_MISSING_FOLLOWING_ITEMS_LIST = ACTION_MISSING_FOLLOWING_ITEMS_LIST.replace("%1", arror);
+		ACTION_MISSING_FOLLOWING_ITEMS_LIST = ACTION_MISSING_FOLLOWING_ITEMS_LIST.replace("%2", flower);
+		ACTION_MISSING_FOLLOWING_ITEMS_LIST = ACTION_MISSING_FOLLOWING_ITEMS_LIST.replace("%3", String.valueOf(integer));
+		return ACTION_MISSING_FOLLOWING_ITEMS_LIST;
+	}
+
+	public static String getActionCurrentVersion(String version) {
+		return ACTION_CURRENT_VERSION.replace("%1", version);
+	}
+
+	public static String getActionNewestVersion(String new_version) {
+		return ACTION_NEWEST_VERSION.replace("%1", new_version);
+	}
+
+	public static String getActionDownloadNewVersion(String download_link) {
+		return ACTION_DOWNLOAD_NEW_VERSION.replace("%1", download_link);
 	}
 
 }

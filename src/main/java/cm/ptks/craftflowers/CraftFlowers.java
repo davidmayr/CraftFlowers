@@ -23,7 +23,7 @@ public class CraftFlowers extends JavaPlugin {
 
 	private static InventoryManager inventoryManager;
 
-	private static CraftFlowers instance;
+	private static CraftFlowers thisinstance;
 
 	public static String prefix;
 	public static String arrow;
@@ -35,14 +35,12 @@ public class CraftFlowers extends JavaPlugin {
 	private FlowerStorage flowerStorage;
 
 	public void onEnable() {
-
-		instance = this;
+		thisinstance = this;
+		LanguageFile.LoadLanguageFile();
 
 		CraftFlowers.inventoryManager = new InventoryManager(this);
 		inventoryManager.init();
 		saveDefaultConfig();
-
-		LanguageFile.LoadLanguageFile();
 
 		CraftFlowers.prefix = ChatColor.translateAlternateColorCodes('&',
 				Objects.requireNonNull(getConfig().getString("prefix")));
@@ -77,6 +75,10 @@ public class CraftFlowers extends JavaPlugin {
 		return flowerStorage;
 	}
 
+	public static CraftFlowers getInstance() {
+		return thisinstance;
+	}
+
 	@Override
 	public void onDisable() {
 		this.executorService.shutdown();
@@ -95,9 +97,6 @@ public class CraftFlowers extends JavaPlugin {
 		return versionChecker;
 	}
 
-	public static CraftFlowers getInstance() {
-		return instance;
-	}
 
 	private void registerListener() {
 		Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
