@@ -37,7 +37,6 @@ public class LanguageFile {
   public static String COMMAND_HELP_HELP;
 
   public static String FLOWER_INFO_AGE;
-  public static String FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP;
   public static String FLOWER_LIMIT_REACHED;
 
   public static String FLOWER_SUNFLOWER;
@@ -252,8 +251,6 @@ public class LanguageFile {
 
     // flower_info
     FLOWER_INFO_AGE = language.getString("flower_info.age");
-    FLOWER_INFO_CANT_SERIALIZE_FLOWERGROUP =
-        language.getString("flower_info.cant_serialize_flowergroup");
     FLOWER_LIMIT_REACHED = language.getString("flower_info.flower_limit_reached");
 
     // flower

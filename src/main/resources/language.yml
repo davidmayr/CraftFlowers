@@ -45,7 +45,6 @@ commands:
 
 flower_info:
   age: "§8(§7Age <age>§8)"
-  cant_serialize_flowergroup: "Cannot serialize FlowerGroup"
   flower_limit_reached: "§cYou can't add more than 9 Flowers!"
 
 # flowers name
