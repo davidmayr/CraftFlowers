@@ -416,31 +416,31 @@ public class LanguageFile {
   }
 
   public static String getCommandVersion(String version, String color) {
-    return COMMAND_VERSION.replaceAll("%1", color + version);
+    return COMMAND_VERSION.replaceAll("<version>", color + version);
   }
 
   public static String getCommandAuthor(String authors) {
-    return COMMAND_AUTHOR.replaceAll("%1", authors);
+    return COMMAND_AUTHOR.replaceAll("<author>", authors);
   }
 
   public static String getCommandWebsite(String website) {
-    return COMMAND_WEBSITE.replaceAll("%1", website);
+    return COMMAND_WEBSITE.replaceAll("<website>", website);
   }
 
   public static String getCommandSuccessLoad(String args) {
-    return COMMAND_SUCCESS_LOAD.replaceAll("%1", args);
+    return COMMAND_SUCCESS_LOAD.replaceAll("<flower_pot_name>", args);
   }
 
   public static String getCommandCantDelete(String args) {
-    return COMMAND_CANT_DELETE.replaceAll("%1", args);
+    return COMMAND_CANT_DELETE.replaceAll("<flower_pot_name>", args);
   }
 
   public static String getCommandSuccessDelete(String args) {
-    return COMMAND_SUCCESS_DELETE.replaceAll("%1", args);
+    return COMMAND_SUCCESS_DELETE.replaceAll("<flower_pot_name>", args);
   }
 
   public static String getFlowerInfoAge(int age) {
-    return FLOWER_INFO_AGE.replaceAll("%1", String.valueOf(age));
+    return FLOWER_INFO_AGE.replaceAll("<age>", String.valueOf(age));
   }
 
   public static String getActionMissingFollowingItemsList(
@@ -452,14 +452,14 @@ public class LanguageFile {
   }
 
   public static String getActionCurrentVersion(String version) {
-    return ACTION_CURRENT_VERSION.replaceAll("%1", version);
+    return ACTION_CURRENT_VERSION.replaceAll("<version>", version);
   }
 
   public static String getActionNewestVersion(String new_version) {
-    return ACTION_NEWEST_VERSION.replaceAll("%1", new_version);
+    return ACTION_NEWEST_VERSION.replaceAll("<version>", new_version);
   }
 
   public static String getActionDownloadNewVersion(String download_link) {
-    return ACTION_DOWNLOAD_NEW_VERSION.replaceAll("%1", download_link);
+    return ACTION_DOWNLOAD_NEW_VERSION.replaceAll("<link>", download_link);
   }
 }
