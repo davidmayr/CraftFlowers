@@ -45,7 +45,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 		}
 
 
-		if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
+		if(args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
 			UpdateChecker versionChecker = plugin.getVersionChecker();
 			if (versionChecker.isOutdated()) {
 				player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandVersion(plugin.getDescription().getVersion(), "§c"));
@@ -93,7 +93,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 			if (args.length != 1 && args.length <= 2) {
 				plugin.getExecutorService().submit(() -> {
 					SavedFlowerPot flower = plugin.getFlowerStorage().getFlower(args[1], player.getUniqueId());
-					if (flower == null) {
+					if(flower == null) {
 						player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_LOAD_NOT_FOUND);
 						return;
 					}
@@ -117,7 +117,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
 			if (args.length != 1 && args.length <= 2) {
 				plugin.getExecutorService().submit(() -> {
-					if (!plugin.getFlowerStorage().deleteFlower(args[1], player.getUniqueId())) {
+					if(!plugin.getFlowerStorage().deleteFlower(args[1], player.getUniqueId())) {
 						player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandCantDelete(args[1]));
 						return;
 					}
@@ -137,7 +137,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 			}
 			plugin.getExecutorService().submit(() -> {
 				List<SavedFlowerPot> savedFlowers = plugin.getFlowerStorage().getSavedFlowers(player.getUniqueId());
-				if (savedFlowers.size() == 0) {
+				if(savedFlowers.size() == 0) {
 					player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMAND_NO_SAVED_FLOWERS);
 					return;
 				}
@@ -145,6 +145,9 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 			});
 			return true;
 		}
+
+
+
 
 
 		if (!args[0].equalsIgnoreCase("help") && !args[0].equalsIgnoreCase("h")) {
@@ -165,7 +168,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 	@Nullable
 	@Override
 	public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
-		if (args.length > 1)
+		if(args.length > 1)
 			return null;
 		return Stream.of("help", "info", "list", "load", "delete", "save").filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
 	}
