@@ -167,7 +167,7 @@ public class LanguageFile {
 
   public static String FLOWER_BARRIER;
 
-  public static String ITEM_SECOND_PREFIX;
+  public static String FLOWER_POT;
 
   public static String GUI_TITLE;
   public static String GUI_CREATE_FLOWER;
@@ -385,7 +385,7 @@ public class LanguageFile {
     FLOWER_BARRIER = language.getString("flower.BARRIER");
 
     // item
-    ITEM_SECOND_PREFIX = language.getString("item.second_prefix");
+    FLOWER_POT = language.getString("item.second_prefix");
 
     // gui
     GUI_TITLE = language.getString("gui.title");

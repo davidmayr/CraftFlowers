@@ -66,7 +66,7 @@ public class FlowerPot {
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		assert itemMeta != null;
 
-		itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.ITEM_SECOND_PREFIX);
+		itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.FLOWER_POT);
 
 		itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, serialize().toString());
 
