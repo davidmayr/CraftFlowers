@@ -1,9 +1,7 @@
 package cm.ptks.craftflowers;
 
 import cm.ptks.craftflowers.commands.CraftFlowersCommand;
-import cm.ptks.craftflowers.listeners.BlockPlaceListener;
-import cm.ptks.craftflowers.listeners.LeftClickListener;
-import cm.ptks.craftflowers.listeners.PlayerJoinListener;
+import cm.ptks.craftflowers.listeners.*;
 import cm.ptks.craftflowers.storage.FlowerStorage;
 import cm.ptks.craftflowers.storage.LanguageFile;
 import cm.ptks.craftflowers.storage.SqLiteStorage;
@@ -42,41 +40,42 @@ public class CraftFlowers extends JavaPlugin {
     inventoryManager.init();
     saveDefaultConfig();
 
-    CraftFlowers.prefix =
-        ChatColor.translateAlternateColorCodes(
-            '&', Objects.requireNonNull(getConfig().getString("prefix")));
-    CraftFlowers.arrow =
-        ChatColor.translateAlternateColorCodes(
-            '&', Objects.requireNonNull(getConfig().getString("arrow")));
+    CraftFlowers.prefix = ChatColor.translateAlternateColorCodes('&',
+            Objects.requireNonNull(getConfig().getString("prefix")));
+    CraftFlowers.arrow = ChatColor.translateAlternateColorCodes('&',
+            Objects.requireNonNull(getConfig().getString("arrow")));
 
-    if (Objects.equals(getConfig().getString("storage.type"), "sqlite")) {
+    if(Objects.equals(getConfig().getString("storage.type"), "sqlite")) {
       this.flowerStorage = new SqLiteStorage(new File(getDataFolder(), "database.db"));
     }
 
     this.versionChecker = new UpdateChecker(this);
 
+
+
     new Metrics(this, 2877);
     this.registerListener();
     this.registerCommands();
 
+
     if (versionChecker.isOutdated()) {
       ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
       console.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
-      console.sendMessage(ChatColor.RED     +  "    Plugin is outdated!");
-      console.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription().getVersion() +
-                           ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + this.versionChecker.getNewestVersion());
-      console.sendMessage(ChatColor.GOLD     + "Download new version: " + ChatColor.YELLOW
+      console.sendMessage(ChatColor.RED + "    Plugin is outdated!");
+      console.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription()
+              .getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + this.versionChecker.getNewestVersion());
+      console.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW
               + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
       console.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
     }
   }
 
-  public FlowerStorage getFlowerStorage() {
-    return flowerStorage;
-  }
-
   public static CraftFlowers getInstance() {
     return instance;
+  }
+
+  public FlowerStorage getFlowerStorage() {
+    return flowerStorage;
   }
 
   @Override
