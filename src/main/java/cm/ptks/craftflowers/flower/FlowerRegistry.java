@@ -148,7 +148,7 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, LanguageFile.FLOWER_CARROT_AGE_6, Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, LanguageFile.FLOWER_CARROT_AGE_7, Material.CARROTS, 7)
         )));
-        registerFlower(new Flower(Material.BARRIER, LanguageFile.FLOWER_BARRIER, Material.AIR));
+        registerFlower(new Flower(Material.BARRIER, LanguageFile.FLOWER_AIR, Material.AIR));
     }
 
     private static <E extends Enum<E>> boolean isValidMaterial(String enumName) {

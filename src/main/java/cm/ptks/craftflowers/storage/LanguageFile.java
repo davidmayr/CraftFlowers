@@ -165,7 +165,7 @@ public class LanguageFile {
   public static String FLOWER_CARROT_AGE_6;
   public static String FLOWER_CARROT_AGE_7;
 
-  public static String FLOWER_BARRIER;
+  public static String FLOWER_AIR;
 
   public static String FLOWER_POT;
 
@@ -382,10 +382,10 @@ public class LanguageFile {
     FLOWER_CARROT_AGE_6 = language.getString("flower.CARROT_AGE.CARROT_6");
     FLOWER_CARROT_AGE_7 = language.getString("flower.CARROT_AGE.CARROT_7");
 
-    FLOWER_BARRIER = language.getString("flower.BARRIER");
+    FLOWER_AIR = language.getString("flower.AIR");
 
     // item
-    FLOWER_POT = language.getString("item.second_prefix");
+    FLOWER_POT = language.getString("item.FLOWER_POT");
 
     // gui
     GUI_TITLE = language.getString("gui.title");

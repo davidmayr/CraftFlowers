@@ -180,11 +180,11 @@ flower:
     CARROT_6: "§2Carrot"
     CARROT_7: "§2Carrot"
 
-  BARRIER: "§2Air Block"
+  AIR: "§2Air Block"
 
 # item name
 item:
-  second_prefix: "§7Flowerpot"
+  FLOWER_POT: "§7Flowerpot"
 
 gui:
   title: "§2CraftFlowers"
