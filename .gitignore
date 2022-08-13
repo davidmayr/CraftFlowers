@@ -26,3 +26,4 @@ hs_err_pid*
 target/
 .idea/libraries/Maven__org_spigotmc_spigot_api_1_19_R0_1_SNAPSHOT.xml
 build.xml
+CraftFlowers.iml
