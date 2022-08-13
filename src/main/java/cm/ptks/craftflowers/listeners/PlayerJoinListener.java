@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import org.bukkit.ChatColor;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,10 +26,10 @@ public class PlayerJoinListener implements Listener {
         if (!plugin.getVersionChecker().isOutdated())
             return;
         player.sendMessage("§a");
-        player.sendMessage(CraftFlowers.prefix + "§cYou are running an outdated §2craftflowers §7version!");
-        player.sendMessage(CraftFlowers.prefix + "§7Current version: §c" + plugin.getDescription().getVersion());
-        player.sendMessage(CraftFlowers.prefix + "§7Newest version: §a" + plugin.getVersionChecker().getNewestVersion());
-        player.sendMessage(CraftFlowers.prefix + "§7Download new Version: §a" + DOWNLOAD_LINK);
+        player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_OUTDATE_VERSION);
+        player.sendMessage(CraftFlowers.prefix + LanguageFile.getActionCurrentVersion(plugin.getDescription().getVersion()));
+        player.sendMessage(CraftFlowers.prefix + LanguageFile.getActionNewestVersion(String.valueOf(plugin.getVersionChecker().getNewestVersion())));
+        player.sendMessage(CraftFlowers.prefix + LanguageFile.getActionDownloadNewVersion(DOWNLOAD_LINK));
         player.sendMessage("§a");
     }
 }

@@ -1,7 +1,11 @@
 package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import com.google.gson.*;
+import cm.ptks.craftflowers.storage.LanguageFile;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -17,79 +21,78 @@ import java.util.Objects;
 
 public class FlowerPot {
 
-    private final List<Flower> flowers;
+  private final List<Flower> flowers;
 
-    public FlowerPot(List<Flower> flowers) {
-        this.flowers = flowers;
+  public FlowerPot(List<Flower> flowers) {
+    this.flowers = flowers;
+  }
+
+  public void addFlower(Player player, Flower flower) {
+    if (this.flowers.size() >= 9) {
+      player.sendMessage(CraftFlowers.prefix + LanguageFile.FLOWER_LIMIT_REACHED);
+      return;
     }
+    this.flowers.add(flower);
+  }
 
-    public void addFlower(Player player, Flower flower) {
-        if(this.flowers.size() >= 9) {
-            player.sendMessage(CraftFlowers.prefix + "§cYou can't add more than 9 Flowers!");
-            return;
-        }
-        this.flowers.add(flower);
+  public static FlowerPot parsePot(JsonObject jsonObject) {
+    JsonArray array = jsonObject.get("flowers").getAsJsonArray();
+
+    List<Flower> flowers = new ArrayList<>();
+    for (JsonElement element : array) {
+      flowers.add(Flower.parse(element.getAsJsonObject()));
     }
+    return new FlowerPot(flowers);
+  }
 
-    public static FlowerPot parsePot(JsonObject jsonObject) {
-        JsonArray array = jsonObject.get("flowers").getAsJsonArray();
+  public JsonObject serialize() {
+    JsonObject jsonObject = new JsonObject();
+    JsonArray jsonElements = new JsonArray();
 
-        List<Flower> flowers = new ArrayList<>();
-        for (JsonElement element : array) {
-            flowers.add(Flower.parse(element.getAsJsonObject()));
-        }
-        return new FlowerPot(flowers);
+    for (Flower flower : flowers) {
+      // This shouldn't happen. But just in case
+      if (flower instanceof FlowerGroup) continue;
+      jsonElements.add(flower.serialize());
     }
+    jsonObject.add("flowers", jsonElements);
+    return jsonObject;
+  }
 
-    public JsonObject serialize() {
-        JsonObject jsonObject = new JsonObject();
-        JsonArray jsonElements = new JsonArray();
+  public ItemStack createItemStack() {
+    NamespacedKey key = new NamespacedKey(JavaPlugin.getPlugin(CraftFlowers.class), "flowerpot");
 
-        for (Flower flower : flowers) {
-            //This shouldn't happen. But just in case
-            if(flower instanceof FlowerGroup)
-                continue;
-            jsonElements.add(flower.serialize());
-        }
-        jsonObject.add("flowers", jsonElements);
-        return jsonObject;
-    }
+    ItemStack itemStack = new ItemStack(Material.FLOWER_POT);
+    ItemMeta itemMeta = itemStack.getItemMeta();
+    assert itemMeta != null;
 
-    public ItemStack createItemStack() {
-        NamespacedKey key = new NamespacedKey(JavaPlugin.getPlugin(CraftFlowers.class), "flowerpot");
+    itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.FLOWER_POT);
 
-        ItemStack itemStack = new ItemStack(Material.FLOWER_POT);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        assert itemMeta != null;
+    itemMeta
+        .getPersistentDataContainer()
+        .set(key, PersistentDataType.STRING, serialize().toString());
 
-        itemMeta.setDisplayName(CraftFlowers.prefix + "§7Flowerpot");
+    itemStack.setItemMeta(itemMeta);
+    return itemStack;
+  }
 
-        itemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, serialize().toString());
+  public static FlowerPot parsePot(ItemStack itemStack) {
+    NamespacedKey key = new NamespacedKey(JavaPlugin.getPlugin(CraftFlowers.class), "flowerpot");
+    ItemMeta itemMeta = itemStack.getItemMeta();
+    if (itemMeta == null) return null;
+    if (!itemMeta.getPersistentDataContainer().has(key, PersistentDataType.STRING)) return null;
+    String serialized = itemMeta.getPersistentDataContainer().get(key, PersistentDataType.STRING);
+    return parsePot(new JsonParser().parse(Objects.requireNonNull(serialized)).getAsJsonObject());
+  }
 
-        itemStack.setItemMeta(itemMeta);
-        return itemStack;
-    }
+  public List<Flower> getFlowers() {
+    return Collections.unmodifiableList(flowers);
+  }
 
-    public static FlowerPot parsePot(ItemStack itemStack) {
-        NamespacedKey key = new NamespacedKey(JavaPlugin.getPlugin(CraftFlowers.class), "flowerpot");
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        if (itemMeta == null)
-            return null;
-        if (!itemMeta.getPersistentDataContainer().has(key, PersistentDataType.STRING))
-            return null;
-        String serialized = itemMeta.getPersistentDataContainer().get(key, PersistentDataType.STRING);
-        return parsePot(new JsonParser().parse(Objects.requireNonNull(serialized)).getAsJsonObject());
-    }
+  public void removeFlower(Flower flower) {
+    this.flowers.remove(flower);
+  }
 
-    public List<Flower> getFlowers() {
-        return Collections.unmodifiableList(flowers);
-    }
-
-    public void removeFlower(Flower flower) {
-        this.flowers.remove(flower);
-    }
-
-    public void clearFlowers() {
-        this.flowers.clear();
-    }
+  public void clearFlowers() {
+    this.flowers.clear();
+  }
 }

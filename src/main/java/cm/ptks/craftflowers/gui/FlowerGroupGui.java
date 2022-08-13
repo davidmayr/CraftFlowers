@@ -4,12 +4,12 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerGroup;
 import cm.ptks.craftflowers.flower.FlowerPot;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import cm.ptks.craftflowers.util.ItemBuilder;
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -21,7 +21,7 @@ public class FlowerGroupGui implements InventoryProvider {
                 .size(6, 9)
                 .parent(parent)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + "§2" + flowerGroup.getDisplayName())
+                .title(CraftFlowers.arrow + LanguageFile.GUI_FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName())
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }

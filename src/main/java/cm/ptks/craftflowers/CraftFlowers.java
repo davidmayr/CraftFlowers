@@ -3,6 +3,7 @@ package cm.ptks.craftflowers;
 import cm.ptks.craftflowers.commands.CraftFlowersCommand;
 import cm.ptks.craftflowers.listeners.*;
 import cm.ptks.craftflowers.storage.FlowerStorage;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import cm.ptks.craftflowers.storage.SqLiteStorage;
 import cm.ptks.craftflowers.util.version.UpdateChecker;
 import fr.minuskube.inv.InventoryManager;
@@ -18,89 +19,98 @@ import java.util.concurrent.Executors;
 
 public class CraftFlowers extends JavaPlugin {
 
-    private static InventoryManager inventoryManager;
+  private static InventoryManager inventoryManager;
 
-    public static String prefix ;
-    public static String arrow;
+  private static CraftFlowers instance;
 
-    private UpdateChecker versionChecker;
+  public static String prefix;
+  public static String arrow;
 
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+  private UpdateChecker versionChecker;
 
-    private FlowerStorage flowerStorage;
+  private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    public void onEnable() {
-        CraftFlowers.inventoryManager = new InventoryManager(this);
-        inventoryManager.init();
-        saveDefaultConfig();
+  private FlowerStorage flowerStorage;
 
-        CraftFlowers.prefix = ChatColor.translateAlternateColorCodes('&',
-                Objects.requireNonNull(getConfig().getString("prefix")));
-        CraftFlowers.arrow = ChatColor.translateAlternateColorCodes('&',
-                Objects.requireNonNull(getConfig().getString("arrow")));
+  public void onEnable() {
+    instance = this;
+    LanguageFile.LoadLanguageFile();
 
-        if(Objects.equals(getConfig().getString("storage.type"), "sqlite")) {
-            this.flowerStorage = new SqLiteStorage(new File(getDataFolder(), "database.db"));
-        }
+    CraftFlowers.inventoryManager = new InventoryManager(this);
+    inventoryManager.init();
+    saveDefaultConfig();
 
-        this.versionChecker = new UpdateChecker(this);
+    CraftFlowers.prefix = ChatColor.translateAlternateColorCodes('&',
+            Objects.requireNonNull(getConfig().getString("prefix")));
+    CraftFlowers.arrow = ChatColor.translateAlternateColorCodes('&',
+            Objects.requireNonNull(getConfig().getString("arrow")));
 
-
-
-        new Metrics(this, 2877);
-        this.registerListener();
-        this.registerCommands();
-
-
-        if (versionChecker.isOutdated()) {
-            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-            console.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
-            console.sendMessage(ChatColor.RED + "    Plugin is outdated!");
-            console.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription()
-                    .getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + this.versionChecker.getNewestVersion());
-            console.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW
-                                + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
-            console.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
-        }
+    if(Objects.equals(getConfig().getString("storage.type"), "sqlite")) {
+      this.flowerStorage = new SqLiteStorage(new File(getDataFolder(), "database.db"));
     }
 
-    public FlowerStorage getFlowerStorage() {
-        return flowerStorage;
-    }
+    this.versionChecker = new UpdateChecker(this);
 
-    @Override
-    public void onDisable() {
-        this.executorService.shutdown();
-        this.flowerStorage.close();
-    }
 
-    public static InventoryManager getInventoryManager() {
-        return inventoryManager;
-    }
 
-    public ExecutorService getExecutorService() {
-        return executorService;
-    }
+    new Metrics(this, 2877);
+    this.registerListener();
+    this.registerCommands();
 
-    public UpdateChecker getVersionChecker() {
-        return versionChecker;
-    }
 
-    private void registerListener() {
-        Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new LeftClickListener(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+    if (versionChecker.isOutdated()) {
+      ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+      console.sendMessage(ChatColor.DARK_RED + "------------------[craftFlowers]------------------");
+      console.sendMessage(ChatColor.RED + "    Plugin is outdated!");
+      console.sendMessage(ChatColor.DARK_RED + "    Current version: " + ChatColor.RED + this.getDescription()
+              .getVersion() + ChatColor.DARK_GREEN + " The newest version: " + ChatColor.GREEN + this.versionChecker.getNewestVersion());
+      console.sendMessage(ChatColor.GOLD + "Download new version: " + ChatColor.YELLOW
+              + "https://www.spigotmc.org/resources/craftflowers-1-16-port-allowed-by-main-developer.82407/");
+      console.sendMessage(ChatColor.DARK_RED + "--------------------------------------------------");
     }
+  }
 
-    private void registerCommands() {
-        this.getCommand("craftflowers").setExecutor(new CraftFlowersCommand(this));
-    }
+  public static CraftFlowers getInstance() {
+    return instance;
+  }
 
-    public boolean isSurvivalMode() {
-        return getConfig().getBoolean("survivalMode");
-    }
+  public FlowerStorage getFlowerStorage() {
+    return flowerStorage;
+  }
 
-    public boolean isFAWE() {
-        return Bukkit.getServer().getPluginManager().getPlugin("FastAsyncWorldEdit") != null;
-    }
+  @Override
+  public void onDisable() {
+    this.executorService.shutdown();
+    this.flowerStorage.close();
+  }
+
+  public static InventoryManager getInventoryManager() {
+    return inventoryManager;
+  }
+
+  public ExecutorService getExecutorService() {
+    return executorService;
+  }
+
+  public UpdateChecker getVersionChecker() {
+    return versionChecker;
+  }
+
+  private void registerListener() {
+    Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new LeftClickListener(), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+  }
+
+  private void registerCommands() {
+    this.getCommand("craftflowers").setExecutor(new CraftFlowersCommand(this));
+  }
+
+  public boolean isSurvivalMode() {
+    return getConfig().getBoolean("survivalMode");
+  }
+
+  public boolean isFAWE() {
+    return Bukkit.getServer().getPluginManager().getPlugin("FastAsyncWorldEdit") != null;
+  }
 }

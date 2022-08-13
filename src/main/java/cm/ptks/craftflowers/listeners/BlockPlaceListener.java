@@ -5,6 +5,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.AgingFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerPot;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import com.fastasyncworldedit.core.FaweAPI;
 import com.fastasyncworldedit.core.util.TaskManager;
 import com.sk89q.worldedit.EditSession;
@@ -43,39 +44,38 @@ public class BlockPlaceListener implements Listener {
     public void placeOfBlock(final BlockPlaceEvent event) {
         Player player = event.getPlayer();
 
-        if(!event.getItemInHand().getType().equals(Material.FLOWER_POT))
+        if (!event.getItemInHand().getType().equals(Material.FLOWER_POT))
             return;
         FlowerPot flowerPot = FlowerPot.parsePot(event.getItemInHand());
-        if(flowerPot == null)
+        if (flowerPot == null)
             return;
         event.setCancelled(true);
         if (!player.hasPermission("craftflowers.place")) {
-            player.sendMessage(CraftFlowers.prefix + "§cYou don't have the required permissions to place this Flower!");
+            player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_NO_PERMISSION_PLACE);
             return;
         }
 
-        if(plugin.isSurvivalMode() && player.getGameMode() == GameMode.SURVIVAL) {
+        if (plugin.isSurvivalMode() && player.getGameMode() == GameMode.SURVIVAL) {
             List<Flower> requiredFlowers = new ArrayList<>();
             Location currentLocation = event.getBlockPlaced().getLocation().clone();
             for (Flower flower : flowerPot.getFlowers()) {
-                if(!currentLocation.equals(event.getBlockPlaced().getLocation())
-                    && (!currentLocation.getBlock().getType().equals(Material.AIR)
-                    && !currentLocation.getBlock().getType().equals(Material.WATER)))
+                if (!currentLocation.equals(event.getBlockPlaced().getLocation())
+                        && (!currentLocation.getBlock().getType().equals(Material.AIR)
+                        && !currentLocation.getBlock().getType().equals(Material.WATER)))
                     continue;
                 requiredFlowers.add(flower);
                 currentLocation.add(0.0D, 1.0D, 0.0D);
             }
             Map<String, Integer> missingFlowerMap = new LinkedHashMap<>();
             for (Flower flower : requiredFlowers) {
-                if(player.getInventory().contains(flower.getMaterial()))
+                if (player.getInventory().contains(flower.getMaterial()))
                     continue;
                 Integer integer = missingFlowerMap.getOrDefault(flower.getDisplayName(), 0) + 1;
                 missingFlowerMap.put(flower.getDisplayName(), integer);
             }
-            if(!missingFlowerMap.isEmpty()) {
-                player.sendMessage(CraftFlowers.prefix + "§7You cannot place this flower since you are missing the following items:");
-                missingFlowerMap.forEach((flower, integer) -> player.sendMessage(CraftFlowers.arrow + flower
-                                                                                 + " §8(§7x" + integer + "§8)"));
+            if (!missingFlowerMap.isEmpty()) {
+                player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_MISSING_FOLLOWING_ITEMS);
+                missingFlowerMap.forEach((flower, integer) -> player.sendMessage(LanguageFile.getActionMissingFollowingItemsList(CraftFlowers.arrow, flower, integer)));
                 return;
             }
 
@@ -95,9 +95,9 @@ public class BlockPlaceListener implements Listener {
                 Location currentLocation = event.getBlockPlaced().getLocation();
 
                 for (Flower flower : flowerPot.getFlowers()) {
-                    if(!currentLocation.equals(event.getBlockPlaced().getLocation())
-                       && (!currentLocation.getBlock().getType().equals(Material.AIR)
-                           && !currentLocation.getBlock().getType().equals(Material.WATER)))
+                    if (!currentLocation.equals(event.getBlockPlaced().getLocation())
+                            && (!currentLocation.getBlock().getType().equals(Material.AIR)
+                            && !currentLocation.getBlock().getType().equals(Material.WATER)))
                         continue;
                     BlockType blockType = BlockTypes.parse(flower.getBlockMaterial().name());
                     BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
@@ -107,7 +107,7 @@ public class BlockPlaceListener implements Listener {
                         block = block.with(prop, false);
                     }
 
-                    if(flower instanceof AgingFlower) {
+                    if (flower instanceof AgingFlower) {
                         Property<Integer> ageProp = block.getBlockType().getProperty("age");
                         block = block.with(ageProp, ((AgingFlower) flower).getAge());
                     }

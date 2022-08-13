@@ -1,6 +1,7 @@
 package cm.ptks.craftflowers.gui;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import cm.ptks.craftflowers.storage.SavedFlowerPot;
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
@@ -27,7 +28,7 @@ public class SavedFlowerListGui implements InventoryProvider {
                 .provider(new SavedFlowerListGui(pots))
                 .size(6, 9)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + "§2Saved Flowerpots")
+                .title(CraftFlowers.arrow + LanguageFile.GUI_SAVED_FLOWERPOTS)
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }
@@ -44,7 +45,7 @@ public class SavedFlowerListGui implements InventoryProvider {
             ItemStack itemStack = savedFlowerPot.getFlowerPot().createItemStack();
 
             ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(CraftFlowers.prefix + "§7" + savedFlowerPot.getName());
+            itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.GUI_SAVED_FLOWERPOTS_NAME_COLOR + savedFlowerPot.getName());
             itemStack.setItemMeta(itemMeta);
 
             items[i] = ClickableItem.of(itemStack,

@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.flower;
 
+import cm.ptks.craftflowers.storage.LanguageFile;
 import com.google.gson.JsonObject;
 import org.bukkit.Material;
 

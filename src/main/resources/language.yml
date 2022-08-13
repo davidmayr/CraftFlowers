@@ -1,0 +1,217 @@
+# CraftFlowers translate
+
+commands:
+
+  # /craftflowers
+  no_permission_use: "§cYou don't have permission!"
+
+  # /craftflowers info
+  version: "§7Version: §2<version>"
+  author: "§7Author: §2<author>"
+  website: "§7Website: §2<website>"
+
+  # /craftflowers save
+  no_permission_save: "§cYou don't have permission!"
+  success_save: "Successfully saved flowerpot."
+  need_hold_cf_flowerpot: "You must hold a craftflowers flowerpot."
+  command_save_syntax: "/craftflowers save <name>"
+
+  # /craftflowers load
+  no_permission_load: "You don't have permission!"
+  load_not_found: "§cFlower not found."
+  success_load: "§7The Flower <flower_pot_name> has been successfully loaded!"
+  command_load_syntax: "/craftflowers load <name>"
+
+  # /craftflowers delete
+  no_permission_delete: "You don't have permission!"
+  cant_delete: "§cThe Flower <flower_pot_name> could not be deleted!"
+  success_delete: "§7The Flower <flower_pot_name> has been successfully deleted!"
+  command_delete_syntax: "/craftflowers delete <name>"
+
+  # /craftflowers list
+  no_permission_list: "§cYou don't have permission!"
+  no_saved_flowers: "§cYou don't have any saved flowers."
+
+  help_messages:
+    command_help: "/craftflowers help §8- §7For help"
+    open_gui: "/craftflowers §8- §7Opens GUI"
+    save: "/craftflowers save <name> §8- §7Saves the currently held flower"
+    load: "/craftflowers load <name> §8- §7Loads a saved flower"
+    delete: "/craftflowers delete <name> §8- §7Removes the saved flower"
+    info: "/craftflowers info §8- §7Shows info about the plugin"
+    list: "/craftflowers list §8- §7Opens a saved flower list gui"
+    help: "/craftflowers help §8- §7Shows this text"
+
+
+flower_info:
+  age: "§8(§7Age <age>§8)"
+  flower_limit_reached: "§cYou can't add more than 9 Flowers!"
+
+# flowers name
+flower:
+  SUNFLOWER: "§2Sunflower"
+  SUGAR_CANE: "§2Sugar Canes"
+  LILAC: "§2Lilac"
+  ROSE_BUSH: "§2Rose Bush"
+  PEONY: "§2Peony"
+  TALL_GRASS: "§2Double Tallgrass"
+  LARGE_FERN: "§2Large Fern"
+  OAK_SAPLING: "§2Oak Sapling"
+  SPRUCE_SAPLING: "§2Spruce Sapling"
+  BIRCH_SAPLING: "§2Birch Sapling"
+  JUNGLE_SAPLING: "§2Jungle Sapling"
+  ACACIA_SAPLING: "§2Acacia Sapling"
+  DARK_OAK_SAPLING: "§2Dark Oak Sapling"
+  DEAD_BUSH: "§2Dead Bush"
+  GRASS: "§2Grass"
+  FERN: "§2Fern"
+  NETHER_BRICK_FENCE: "§2Nether Brick Fence"
+
+  DARK_OAK_FENCE: "§2Dark Oak Fence"
+  SPRUCE_FENCE: "§2Spruce Fence"
+  OAK_FENCE: "§2Oak Fence"
+  BIRCH_FENCE: "§2Birch Fence"
+  JUNGLE_FENCE: "§2Jungle Fence"
+  ACACIA_FENCE: "§2Acacia Fence"
+  CRIMSON_FENCE: "§2Crimson Fence"
+  WARPED_FENCE: "§2Warped Fence"
+  MANGROVE_FENCE: "§2Mangrove Fence"
+  DANDELION: "§2Dandelion"
+  POPPY: "§2Poppy"
+  BLUE_ORCHID: "§2Blue Orchid"
+  ALLIUM: "§2Allium"
+  AZURE_BLUET: "§2Azure Bluet"
+  RED_TULIP: "§2Red Tulip"
+  ORANGE_TULIP: "§2Orange Tulip"
+  WHITE_TULIP: "§2White Tulip"
+  PINK_TULIP: "§2Pink Tulip"
+  OXEYE_DAISY: "§2Oxeye Daisy"
+  CORNFLOWER: "§2Cornflower"
+  LILY_OF_THE_VALLEY: "§2Lily of the Valley"
+  WITHER_ROSE: "§2Wither Rose"
+  BROWN_MUSHROOM: "§2Mushroom"
+  RED_MUSHROOM: "§2Mushroom"
+  CRIMSON_FUNGUS: "§2Crimson Fungus"
+  WARPED_FUNGUS: "§2Warped Fungus"
+  FLOWER_POT: "§2Flower Pot"
+
+  # 1.17+
+  MOSS_BLOCK: "§2Moss Block"
+  AZALEA: "§2Azalea"
+  FLOWERING_AZALEA: "§2Flowering Azalea"
+  AZALEA_LEAVES: "§2Azalea Leaves"
+  FLOWERING_AZALEA_LEAVES: "§2Flowering Azalea Leaves"
+  GLOW_BERRIES: "§2Glow Berries"
+  BIG_DRIPLEAF: "§2Big Dripleaf"
+  BIG_DRIPLEAF_STEM: "§2Big Dripleaf Stem"
+  SMALL_DRIPLEAF: "§2Small Dripleaf"
+  SPORE_BLOSSOM: "§2Spore Blossom"
+
+  # 1.19+
+  MANGROVE_ROOTS: "§2Mangrove Roots"
+  MANGROVE_LEAVES: "§2Mangrove Leaves"
+  MANGROVE_PROPAGULE: "§2Mangrove Propagule"
+  
+  OAK_LEAVES: "§2Oak Leaves"
+  SPRUCE_LEAVES: "§2Spruce Leaves"
+  BIRCH_LEAVES: "§2Birch Leaves"
+  JUNGLE_LEAVES: "§2Jungle Leaves"
+  ACACIA_LEAVES: "§2Acacia Leaves"
+  DARK_OAK_LEAVES: "§2Dark Oak Leaves"
+  LILY_PAD: "§2Lily Pad"
+  VINE: "§2Vines"
+  CACTUS: "§2Cactus"
+  MELON: "§2Melon"
+  PUMPKIN: "§2Pumpkin"
+  SEAGRASS: "§2Seagrass"
+  SEA_PICKLE: "§2Sea Pickle"
+  KELP: "§2Kelp"
+  BAMBOO: "§2Bamboo"
+  END_ROD: "§2End Rod"
+  SOUL_LANTERN: "§2Soul Lantern"
+  LANTERN: "§2Lantern"
+  COCOA_BEANS: "§2Cocoa"
+  CRIMSON_ROOTS: "§2Crimson Roots"
+  WEEPING_VINES: "§2Weeping Vines"
+  WARPED_ROOTS: "§2Warped Roots"
+  NETHER_SPROUTS: "§2Nether Sprouts"
+  TWISTING_VINES: "§2Twisting Vines"
+  BRAIN_CORAL: "§2Brain Coral"
+  BUBBLE_CORAL: "§2Bubble Coral"
+  FIRE_CORAL: "§2Fire Coral"
+  HORN_CORAL: "§2Horn Coral"
+  TUBE_CORAL: "§2Tube Coral"
+  BRAIN_CORAL_FAN: "§2Brain Coral fan"
+  BUBBLE_CORAL_FAN: "§2Bubble Coral fan"
+  FIRE_CORAL_FAN: "§2Fire Coral fan"
+  HORN_CORAL_FAN: "§2Horn Coral fan"
+  TUBE_CORAL_FAN: "§2Tube Coral fan"
+
+  WHEAT: "§2Wheat Seeds"
+  WHEAT_AGE:
+    WHEAT_0: "§2Wheat Seeds"
+    WHEAT_1: "§2Wheat Seeds"
+    WHEAT_2: "§2Wheat Seeds"
+    WHEAT_3: "§2Wheat Seeds"
+    WHEAT_4: "§2Wheat Seeds"
+    WHEAT_5: "§2Wheat Seeds"
+    WHEAT_6: "§2Wheat Seeds"
+    WHEAT_7: "§2Wheat Seeds"
+
+  POTATO: "§2Potato"
+  POTATO_AGE:
+    POTATO_0: "§2Potato"
+    POTATO_1: "§2Potato"
+    POTATO_2: "§2Potato"
+    POTATO_3: "§2Potato"
+    POTATO_4: "§2Potato"
+    POTATO_5: "§2Potato"
+    POTATO_6: "§2Potato"
+    POTATO_7: "§2Potato"
+
+  CARROT: "§2Carrot"
+  CARROT_AGE:
+    CARROT_0: "§2Carrot"
+    CARROT_1: "§2Carrot"
+    CARROT_2: "§2Carrot"
+    CARROT_3: "§2Carrot"
+    CARROT_4: "§2Carrot"
+    CARROT_5: "§2Carrot"
+    CARROT_6: "§2Carrot"
+    CARROT_7: "§2Carrot"
+
+  AIR: "§2Air Block"
+
+# item name
+item:
+  FLOWER_POT: "§7Flowerpot"
+
+gui:
+  title: "§2CraftFlowers"
+  create_flower: "§2Create flower"
+  cant_create_empty_flower: "§cYou cannot create an empty flower!"
+  remove_from_top: "§2Remove from top"
+  clear_all: "§2Clear all"
+  flower_group_title_color: "§2"
+  glass_name_color: "§a"
+  previous: "§2Previous"
+  next: "§2Next"
+  saved_flowerpots: "§2Saved Flowerpots"
+  saved_flowerpots_name_color: "§7"
+
+action:
+  # place the pot
+  no_permission_place: "§cYou don't have the required permissions to place this Flower!"
+  missing_following_items: "§7You cannot place this flower since you are missing the following items:"
+  missing_following_items_list: "%1%2 §8(§7x%3§8)"
+
+  # edit the pot
+  no_permission_edit: "§cYou don't have the required permissions to edit this Flower!"
+
+  # join messages
+  outdate_version: "§cYou are running an outdated §2craftflowers §7version!"
+  current_version: "§7Current version: §c<version>"
+  newest_version: "§7Newest version: §a<version>"
+  download_new_version: "§7Download new Version: §a<link>"
+  failed_check_version: "Failed to check for an update on Spigot."
+

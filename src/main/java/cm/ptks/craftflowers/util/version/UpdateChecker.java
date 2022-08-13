@@ -1,6 +1,7 @@
 package cm.ptks.craftflowers.util.version;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.storage.LanguageFile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -35,7 +36,7 @@ public class UpdateChecker {
             return FlowersVersion.read(version);
         } catch (Exception var3) {
             var3.printStackTrace();
-            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + "Failed to check for an update on Spigot.");
+            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.ACTION_FAILED_CHECK_VERSION);
             return FlowersVersion.read(plugin.getDescription().getVersion());
         }
     }
