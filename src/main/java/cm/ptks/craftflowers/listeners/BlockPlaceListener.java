@@ -51,7 +51,7 @@ public class BlockPlaceListener implements Listener {
             return;
         event.setCancelled(true);
         if (!player.hasPermission("craftflowers.place")) {
-            player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_NO_PERMISSION_PLACE);
+            player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION.NO_PERMISSION_PLACE);
             return;
         }
 
@@ -74,7 +74,7 @@ public class BlockPlaceListener implements Listener {
                 missingFlowerMap.put(flower.getDisplayName(), integer);
             }
             if (!missingFlowerMap.isEmpty()) {
-                player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_MISSING_FOLLOWING_ITEMS);
+                player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION.MISSING_FOLLOWING_ITEMS);
                 missingFlowerMap.forEach((flower, integer) -> player.sendMessage(LanguageFile.getActionMissingFollowingItemsList(CraftFlowers.arrow, flower, integer)));
                 return;
             }

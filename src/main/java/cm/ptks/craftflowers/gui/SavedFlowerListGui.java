@@ -28,7 +28,7 @@ public class SavedFlowerListGui implements InventoryProvider {
                 .provider(new SavedFlowerListGui(pots))
                 .size(6, 9)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + LanguageFile.GUI_SAVED_FLOWERPOTS)
+                .title(CraftFlowers.arrow + LanguageFile.GUI.SAVED_FLOWERPOTS)
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }
@@ -45,7 +45,7 @@ public class SavedFlowerListGui implements InventoryProvider {
             ItemStack itemStack = savedFlowerPot.getFlowerPot().createItemStack();
 
             ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.GUI_SAVED_FLOWERPOTS_NAME_COLOR + savedFlowerPot.getName());
+            itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.GUI.SAVED_FLOWERPOTS_NAME_COLOR + savedFlowerPot.getName());
             itemStack.setItemMeta(itemMeta);
 
             items[i] = ClickableItem.of(itemStack,

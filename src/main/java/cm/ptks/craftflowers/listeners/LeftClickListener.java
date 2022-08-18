@@ -32,7 +32,7 @@ public class LeftClickListener implements Listener {
             return;
         event.setCancelled(true);
         if (!player.hasPermission("craftflowers.edit")) {
-            player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION_NO_PERMISSION_EDIT);
+            player.sendMessage(CraftFlowers.prefix + LanguageFile.ACTION.NO_PERMISSION_EDIT);
             return;
         }
         CraftFlowersGui.openGui(player, flowerPot);

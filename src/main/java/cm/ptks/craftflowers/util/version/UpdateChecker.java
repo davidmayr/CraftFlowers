@@ -36,7 +36,7 @@ public class UpdateChecker {
             return FlowersVersion.read(version);
         } catch (Exception var3) {
             var3.printStackTrace();
-            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.ACTION_FAILED_CHECK_VERSION);
+            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.ACTION.FAILED_CHECK_VERSION);
             return FlowersVersion.read(plugin.getDescription().getVersion());
         }
     }

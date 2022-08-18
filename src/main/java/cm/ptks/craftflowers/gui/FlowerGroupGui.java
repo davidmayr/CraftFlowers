@@ -21,7 +21,7 @@ public class FlowerGroupGui implements InventoryProvider {
                 .size(6, 9)
                 .parent(parent)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + LanguageFile.GUI_FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName())
+                .title(CraftFlowers.arrow + LanguageFile.GUI.FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName())
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }

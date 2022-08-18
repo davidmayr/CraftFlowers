@@ -1,54 +1,54 @@
 # CraftFlowers translate
 
-commands:
+COMMANDS:
 
   # /craftflowers
-  no_permission_use: "§cYou don't have permission!"
+  NO_PERMISSION_USE: "§cYou don't have permission!"
 
   # /craftflowers info
-  version: "§7Version: §2<version>"
-  author: "§7Author: §2<author>"
-  website: "§7Website: §2<website>"
+  VERSION: "§7Version: §2<version>"
+  AUTHOR: "§7Author: §2<author>"
+  WEBSITE: "§7Website: §2<website>"
 
   # /craftflowers save
-  no_permission_save: "§cYou don't have permission!"
-  success_save: "Successfully saved flowerpot."
-  need_hold_cf_flowerpot: "You must hold a craftflowers flowerpot."
-  command_save_syntax: "/craftflowers save <name>"
+  NO_PERMISSION_SAVE: "§cYou don't have permission!"
+  SUCCESS_SAVE: "Successfully saved flowerpot."
+  NEED_HOLD_CF_FLOWERPOT: "You must hold a craftflowers flowerpot."
+  SAVE_SYNTAX: "/craftflowers save <name>"
 
   # /craftflowers load
-  no_permission_load: "You don't have permission!"
-  load_not_found: "§cFlower not found."
-  success_load: "§7The Flower <flower_pot_name> has been successfully loaded!"
-  command_load_syntax: "/craftflowers load <name>"
+  NO_PERMISSION_LOAD: "You don't have permission!"
+  LOAD_NOT_FOUND: "§cFlower not found."
+  SUCCESS_LOAD: "§7The Flower <flower_pot_name> has been successfully loaded!"
+  LOAD_SYNTAX: "/craftflowers load <name>"
 
   # /craftflowers delete
-  no_permission_delete: "You don't have permission!"
-  cant_delete: "§cThe Flower <flower_pot_name> could not be deleted!"
-  success_delete: "§7The Flower <flower_pot_name> has been successfully deleted!"
-  command_delete_syntax: "/craftflowers delete <name>"
+  NO_PERMISSION_DELETE: "You don't have permission!"
+  CANT_DELETE: "§cThe Flower <flower_pot_name> could not be deleted!"
+  SUCCESS_DELETE: "§7The Flower <flower_pot_name> has been successfully deleted!"
+  DELETE_SYNTAX: "/craftflowers delete <name>"
 
   # /craftflowers list
-  no_permission_list: "§cYou don't have permission!"
-  no_saved_flowers: "§cYou don't have any saved flowers."
+  NO_PERMISSION_LIST: "§cYou don't have permission!"
+  NO_SAVED_FLOWERS: "§cYou don't have any saved flowers."
 
-  help_messages:
-    command_help: "/craftflowers help §8- §7For help"
-    open_gui: "/craftflowers §8- §7Opens GUI"
-    save: "/craftflowers save <name> §8- §7Saves the currently held flower"
-    load: "/craftflowers load <name> §8- §7Loads a saved flower"
-    delete: "/craftflowers delete <name> §8- §7Removes the saved flower"
-    info: "/craftflowers info §8- §7Shows info about the plugin"
-    list: "/craftflowers list §8- §7Opens a saved flower list gui"
-    help: "/craftflowers help §8- §7Shows this text"
+  HELP_MESSAGES:
+    SYNTAX: "/craftflowers help §8- §7For help"
+    OPEN_GUI: "/craftflowers §8- §7Opens GUI"
+    SAVE: "/craftflowers save <name> §8- §7Saves the currently held flower"
+    LOAD: "/craftflowers load <name> §8- §7Loads a saved flower"
+    DELETE: "/craftflowers delete <name> §8- §7Removes the saved flower"
+    INFO: "/craftflowers info §8- §7Shows info about the plugin"
+    LIST: "/craftflowers list §8- §7Opens a saved flower list gui"
+    HELP: "/craftflowers help §8- §7Shows this text"
 
 
-flower_info:
-  age: "§8(§7Age <age>§8)"
-  flower_limit_reached: "§cYou can't add more than 9 Flowers!"
+FLOWER_INFO:
+  AGE: "§8(§7Age <age>§8)"
+  LIMIT_REACHED: "§cYou can't add more than 9 Flowers!"
 
 # flowers name
-flower:
+FLOWER:
   SUNFLOWER: "§2Sunflower"
   SUGAR_CANE: "§2Sugar Canes"
   LILAC: "§2Lilac"
@@ -183,35 +183,35 @@ flower:
   AIR: "§2Air Block"
 
 # item name
-item:
+ITEM:
   FLOWER_POT: "§7Flowerpot"
 
-gui:
-  title: "§2CraftFlowers"
-  create_flower: "§2Create flower"
-  cant_create_empty_flower: "§cYou cannot create an empty flower!"
-  remove_from_top: "§2Remove from top"
-  clear_all: "§2Clear all"
-  flower_group_title_color: "§2"
-  glass_name_color: "§a"
-  previous: "§2Previous"
-  next: "§2Next"
-  saved_flowerpots: "§2Saved Flowerpots"
-  saved_flowerpots_name_color: "§7"
+GUI:
+  TITLE: "§2CraftFlowers"
+  CREATE_FLOWER: "§2Create flower"
+  CANT_CREATE_EMPTY_FLOWER: "§cYou cannot create an empty flower!"
+  REMOVE_FROM_TOP: "§2Remove from top"
+  CLEAR_ALL: "§2Clear all"
+  FLOWER_GROUP_TITLE_COLOR: "§2"
+  GLASS_NAME_COLOR: "§a"
+  PREVIOUS: "§2Previous"
+  NEXT: "§2Next"
+  SAVED_FLOWERPOTS: "§2Saved Flowerpots"
+  SAVED_FLOWERPOTS_NAME_COLOR: "§7"
 
-action:
+ACTION:
   # place the pot
-  no_permission_place: "§cYou don't have the required permissions to place this Flower!"
-  missing_following_items: "§7You cannot place this flower since you are missing the following items:"
-  missing_following_items_list: "%1%2 §8(§7x%3§8)"
+  NO_PERMISSION_PLACE: "§cYou don't have the required permissions to place this Flower!"
+  MISSING_FOLLOWING_ITEMS: "§7You cannot place this flower since you are missing the following items:"
+  MISSING_FOLLOWING_ITEMS_LIST: "%1%2 §8(§7x%3§8)"
 
   # edit the pot
-  no_permission_edit: "§cYou don't have the required permissions to edit this Flower!"
+  NO_PERMISSION_EDIT: "§cYou don't have the required permissions to edit this Flower!"
 
   # join messages
-  outdate_version: "§cYou are running an outdated §2craftflowers §7version!"
-  current_version: "§7Current version: §c<version>"
-  newest_version: "§7Newest version: §a<version>"
-  download_new_version: "§7Download new Version: §a<link>"
-  failed_check_version: "Failed to check for an update on Spigot."
+  OUTDATE_VERSION: "§cYou are running an outdated §2craftflowers §7version!"
+  CURRENT_VERSION: "§7Current version: §c<version>"
+  NEWEST_VERSION: "§7Newest version: §a<version>"
+  DOWNLOAD_NEW_VERSION: "§7Download new Version: §a<link>"
+  FAILED_CHECK_VERSION: "Failed to check for an update on Spigot."
 
