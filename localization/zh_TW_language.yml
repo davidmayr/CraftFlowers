@@ -1,0 +1,220 @@
+# CraftFlowers translate
+
+COMMANDS:
+
+  # /craftflowers
+  NO_PERMISSION_USE: "§c你沒有權限!"
+
+  # /craftflowers info
+  VERSION: "§7版本: §2<version>"
+  AUTHOR: "§7作者: §2<author>"
+  WEBSITE: "§7網站: §2<website>"
+
+  # /craftflowers save
+  NO_PERMISSION_SAVE: "§c你沒有權限!"
+  SUCCESS_SAVE: "§7成功保存花盆."
+  NEED_HOLD_CF_FLOWERPOT: "你必須拿著一個craftflowers花盆."
+  SAVE_SYNTAX: "/craftflowers save <name>"
+
+  # /craftflowers load
+  NO_PERMISSION_LOAD: "你沒有權限!"
+  LOAD_NOT_FOUND: "§c找不到此花盆."
+  SUCCESS_LOAD: §7花盆 <flower_pot_name> 已成功載入!"
+  LOAD_SYNTAX: "/craftflowers load <name>"
+
+  # /craftflowers delete
+  NO_PERMISSION_DELETE: "你沒有權限!"
+  CANT_DELETE: "§c花盆 <flower_pot_name> 無法刪除!"
+  SUCCESS_DELETE: "§7花盆 <flower_pot_name> 已成功刪除!"
+  DELETE_SYNTAX: "/craftflowers delete <name>"
+
+  # /craftflowers list
+  NO_PERMISSION_LIST: "§c你沒有權限!"
+  NO_SAVED_FLOWERS: "§c你沒有已儲存的花盆."
+
+  HELP_MESSAGES:
+    SYNTAX: "/craftflowers help §8- §7獲得幫助"
+    OPEN_GUI: "/craftflowers §8- §7開啟選單"
+    SAVE: "/craftflowers save <name> §8- §7保存當前拿著的花盆"
+    LOAD: "/craftflowers load <name> §8- §7載入已儲存的花盆"
+    DELETE: "/craftflowers delete <name> §8- §7刪除已儲存的花盆"
+    INFO: "/craftflowers info §8- §7顯示有關插件的訊息"
+    LIST: "/craftflowers list §8- §7打開保存的花盆列表"
+    HELP: "/craftflowers help §8- §7顯示此訊息"
+
+
+FLOWER_INFO:
+  AGE: "§8(§7Age <age>§8)"
+  LIMIT_REACHED: "§c您不能添加超過 9 朵花!"
+
+# flowers name
+FLOWER:
+  SUNFLOWER: "§2向日葵"
+  SUGAR_CANE: "§2甘蔗"
+  LILAC: "§2紫丁香"
+  ROSE_BUSH: "§2玫瑰叢"
+  PEONY: "§2牡丹花"
+  TALL_GRASS: "§2芒草"
+  LARGE_FERN: "§2大型蕨類"
+  OAK_SAPLING: "§2橡木樹苗"
+  SPRUCE_SAPLING: "§2杉木樹苗"
+  BIRCH_SAPLING: "§2樺木樹苗"
+  JUNGLE_SAPLING: "§2叢林木樹苗"
+  ACACIA_SAPLING: "§2相思木樹苗"
+  DARK_OAK_SAPLING: "§2黑橡木樹苗"
+  DEAD_BUSH: "§2枯灌木"
+  GRASS: "§2草"
+  FERN: "§2蕨"
+  NETHER_BRICK_FENCE: "§2地獄磚柵欄"
+
+  DARK_OAK_FENCE: "§2黑橡木柵欄"
+  SPRUCE_FENCE: "§2杉木柵欄"
+  OAK_FENCE: "§2橡木柵欄"
+  BIRCH_FENCE: "§2樺木柵欄"
+  JUNGLE_FENCE: "§2叢林木柵欄"
+  ACACIA_FENCE: "§2相思木柵欄"
+  CRIMSON_FENCE: "§2緋紅蕈木柵欄"
+  WARPED_FENCE: "§2扭曲蕈木柵欄"
+  
+  # 1.19+
+  MANGROVE_FENCE: "§2紅樹林木柵欄"
+  
+  DANDELION: "§2蒲公英"
+  POPPY: "§2罌粟"
+  BLUE_ORCHID: "§2藍色蝴蝶蘭"
+  ALLIUM: "§2紫紅球花"
+  AZURE_BLUET: "§2雛草"
+  RED_TULIP: "§2紅色鬱金香"
+  ORANGE_TULIP: "§2橙色鬱金香"
+  WHITE_TULIP: "§2白色鬱金香"
+  PINK_TULIP: "§2粉紅色鬱金香"
+  OXEYE_DAISY: "§2雛菊"
+  CORNFLOWER: "§2矢車菊"
+  LILY_OF_THE_VALLEY: "§2鈴蘭"
+  WITHER_ROSE: "§2凋零玫瑰"
+  BROWN_MUSHROOM: "§2棕色蘑菇"
+  RED_MUSHROOM: "§2紅色蘑菇"
+  CRIMSON_FUNGUS: "§2緋紅蕈菇"
+  WARPED_FUNGUS: "§2扭曲蕈菇"
+  FLOWER_POT: "§2花盆"
+
+  # 1.17+
+  MOSS_BLOCK: "§2苔蘚方塊"
+  AZALEA: "§2杜鵑叢"
+  FLOWERING_AZALEA: "§2開花的杜鵑叢"
+  AZALEA_LEAVES: "§2杜鵑葉"
+  FLOWERING_AZALEA_LEAVES: "§2開花的杜鵑葉"
+  CAVE_VINES: "§2洞穴藤蔓"
+  BIG_DRIPLEAF: "§2大懸葉草"
+  BIG_DRIPLEAF_STEM: "§2大懸葉草椗"
+  SMALL_DRIPLEAF: "§2小懸葉草"
+  SPORE_BLOSSOM: "§2孢子花"
+
+  # 1.19+
+  MANGROVE_ROOTS: "§2紅樹林木根"
+  MANGROVE_LEAVES: "§2紅樹林木樹葉"
+  MANGROVE_PROPAGULE: "§2紅樹林木胎生苗"
+  
+  OAK_LEAVES: "§2橡木樹葉"
+  SPRUCE_LEAVES: "§2杉木樹葉"
+  BIRCH_LEAVES: "§2樺木樹葉"
+  JUNGLE_LEAVES: "§2叢林木樹葉"
+  ACACIA_LEAVES: "§2相思木樹葉"
+  DARK_OAK_LEAVES: "§2黑橡木樹葉"
+  LILY_PAD: "§2荷葉"
+  VINE: "§2藤蔓"
+  CACTUS: "§2仙人掌"
+  MELON: "§2西瓜"
+  PUMPKIN: "§2南瓜"
+  SEAGRASS: "§2海草"
+  SEA_PICKLE: "§2海泡菜"
+  KELP: "§2海带"
+  BAMBOO: "§2竹子"
+  END_ROD: "§2終界燭"
+  SOUL_LANTERN: "§2靈魂燈籠"
+  LANTERN: "§2燈籠"
+  COCOA_BEANS: "§2可可豆"
+  CRIMSON_ROOTS: "§2緋紅蕈根""
+  WEEPING_VINES: "§2垂泣藤"
+  WARPED_ROOTS: "§2扭曲蕈根"
+  NETHER_SPROUTS: "§2地獄芽"
+  TWISTING_VINES: "§2扭曲藤"
+  BRAIN_CORAL: "§2腦珊瑚"
+  BUBBLE_CORAL: "§2氣泡珊瑚"
+  FIRE_CORAL: "§2火珊瑚"
+  HORN_CORAL: "§2角珊瑚"
+  TUBE_CORAL: "§2管珊瑚"
+  BRAIN_CORAL_FAN: "§2扇狀腦珊瑚"
+  BUBBLE_CORAL_FAN: "§2扇狀氣泡珊瑚"
+  FIRE_CORAL_FAN: "§2扇狀火珊瑚"
+  HORN_CORAL_FAN: "§2扇狀角珊瑚"
+  TUBE_CORAL_FAN: "§2扇狀管珊瑚"
+
+  WHEAT: "§2小麥種子"
+  WHEAT_AGE:
+    WHEAT_0: "§2小麥種子"
+    WHEAT_1: "§2小麥種子"
+    WHEAT_2: "§2小麥種子"
+    WHEAT_3: "§2小麥種子"
+    WHEAT_4: "§2小麥種子"
+    WHEAT_5: "§2小麥種子"
+    WHEAT_6: "§2小麥種子"
+    WHEAT_7: "§2小麥種子"
+
+  POTATO: "§2馬鈴薯"
+  POTATO_AGE:
+    POTATO_0: "§2馬鈴薯"
+    POTATO_1: "§2馬鈴薯"
+    POTATO_2: "§2馬鈴薯"
+    POTATO_3: "§2馬鈴薯"
+    POTATO_4: "§2馬鈴薯"
+    POTATO_5: "§2馬鈴薯"
+    POTATO_6: "§2馬鈴薯"
+    POTATO_7: "§2馬鈴薯"
+
+  CARROT: "§2胡蘿蔔"
+  CARROT_AGE:
+    CARROT_0: "§2胡蘿蔔"
+    CARROT_1: "§2胡蘿蔔"
+    CARROT_2: "§2胡蘿蔔"
+    CARROT_3: "§2胡蘿蔔"
+    CARROT_4: "§2胡蘿蔔"
+    CARROT_5: "§2胡蘿蔔"
+    CARROT_6: "§2胡蘿蔔"
+    CARROT_7: "§2胡蘿蔔"
+
+  AIR: "§2空氣方塊"
+
+# item name
+ITEM:
+  FLOWER_POT: "§7花盆"
+
+GUI:
+  TITLE: "§2花盆"
+  CREATE_FLOWER: "§2創建花盆"
+  CANT_CREATE_EMPTY_FLOWER: "§c你不能創建一個空花盆!"
+  REMOVE_FROM_TOP: "§2從頂部移除"
+  CLEAR_ALL: "§2全部清除"
+  FLOWER_GROUP_TITLE_COLOR: "§2"
+  GLASS_NAME_COLOR: "§a"
+  PREVIOUS: "§2上一頁"
+  NEXT: "§2下一頁"
+  SAVED_FLOWERPOTS: "§2已儲存的花盆"
+  SAVED_FLOWERPOTS_NAME_COLOR: "§7"
+
+ACTION:
+  # place the pot
+  NO_PERMISSION_PLACE: "§c您沒有放置此花盆所需的權限!"
+  MISSING_FOLLOWING_ITEMS: "§7您無法放置此花，因為您缺少以下物品:"
+  MISSING_FOLLOWING_ITEMS_LIST: "%1%2 §8(§7x%3§8)"
+
+  # edit the pot
+  NO_PERMISSION_EDIT: "§c您沒有編輯此花盆所需的權限!"
+
+  # join messages
+  OUTDATE_VERSION: "§c您正在運行過時的 §2craftflowers §7 版本!"
+  CURRENT_VERSION: "§7當前版本: §c<version>"
+  NEWEST_VERSION: "§7最新版本: §a<version>"
+  DOWNLOAD_NEW_VERSION: "§7下載新版本: §a<link>"
+  FAILED_CHECK_VERSION: "無法檢查 Spigot 上的更新."
+
