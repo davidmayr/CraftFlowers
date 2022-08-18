@@ -68,7 +68,7 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.FLOWERING_AZALEA, LanguageFile.FLOWER.FLOWERING_AZALEA));
             registerFlower(new Flower(Material.AZALEA_LEAVES, LanguageFile.FLOWER.AZALEA_LEAVES));
             registerFlower(new Flower(Material.FLOWERING_AZALEA_LEAVES, LanguageFile.FLOWER.FLOWERING_AZALEA_LEAVES));
-            registerFlower(new Flower(Material.GLOW_BERRIES, LanguageFile.FLOWER.GLOW_BERRIES, Material.CAVE_VINES));
+            registerFlower(new Flower(Material.GLOW_BERRIES, LanguageFile.FLOWER.CAVE_VINES, Material.CAVE_VINES));
             registerFlower(new Flower(Material.BIG_DRIPLEAF, LanguageFile.FLOWER.BIG_DRIPLEAF));
             registerFlower(new Flower(Material.BIG_DRIPLEAF, LanguageFile.FLOWER.BIG_DRIPLEAF_STEM, Material.BIG_DRIPLEAF_STEM));
             registerFlower(new Flower(Material.SMALL_DRIPLEAF, LanguageFile.FLOWER.SMALL_DRIPLEAF));

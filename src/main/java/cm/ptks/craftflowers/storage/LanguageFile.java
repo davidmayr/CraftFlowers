@@ -100,7 +100,7 @@ public final class LanguageFile {
         public static String FLOWERING_AZALEA;
         public static String AZALEA_LEAVES;
         public static String FLOWERING_AZALEA_LEAVES;
-        public static String GLOW_BERRIES;
+        public static String CAVE_VINES;
         public static String BIG_DRIPLEAF;
         public static String BIG_DRIPLEAF_STEM;
         public static String SMALL_DRIPLEAF;
@@ -325,7 +325,7 @@ public final class LanguageFile {
         FLOWER.FLOWERING_AZALEA = language.getString("FLOWER.FLOWERING_AZALEA");
         FLOWER.AZALEA_LEAVES = language.getString("FLOWER.AZALEA_LEAVES");
         FLOWER.FLOWERING_AZALEA_LEAVES = language.getString("FLOWER.FLOWERING_AZALEA_LEAVES");
-        FLOWER.GLOW_BERRIES = language.getString("FLOWER.GLOW_BERRIES");
+        FLOWER.CAVE_VINES = language.getString("FLOWER.CAVE_VINES");
         FLOWER.BIG_DRIPLEAF = language.getString("FLOWER.BIG_DRIPLEAF");
         FLOWER.BIG_DRIPLEAF_STEM = language.getString("FLOWER.BIG_DRIPLEAF_STEM");
         FLOWER.SMALL_DRIPLEAF = language.getString("FLOWER.SMALL_DRIPLEAF");
