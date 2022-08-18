@@ -19,7 +19,7 @@ COMMANDS:
   # /craftflowers load
   NO_PERMISSION_LOAD: "你沒有權限!"
   LOAD_NOT_FOUND: "§c找不到此花盆."
-  SUCCESS_LOAD: §7花盆 <flower_pot_name> 已成功載入!"
+  SUCCESS_LOAD: "§7花盆 <flower_pot_name> 已成功載入!"
   LOAD_SYNTAX: "/craftflowers load <name>"
 
   # /craftflowers delete
