@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.util.version;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
