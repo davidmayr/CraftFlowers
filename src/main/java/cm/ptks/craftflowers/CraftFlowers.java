@@ -102,7 +102,6 @@ public class CraftFlowers extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
         Bukkit.getServer().getPluginManager().registerEvents(new LeftClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-        // Bukkit.getServer().getPluginManager().registerEvents(new PlayerLocaleChangeListener(this), this);
     }
 
     private void registerCommands() {
