@@ -5,7 +5,7 @@ import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerGroup;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.flower.FlowerRegistry;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import cm.ptks.craftflowers.util.ItemBuilder;
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;

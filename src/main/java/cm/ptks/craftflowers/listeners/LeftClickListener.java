@@ -3,7 +3,7 @@ package cm.ptks.craftflowers.listeners;
 import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.gui.CraftFlowersGui;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

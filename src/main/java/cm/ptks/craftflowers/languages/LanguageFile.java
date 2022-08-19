@@ -1,4 +1,4 @@
-package cm.ptks.craftflowers.storage;
+package cm.ptks.craftflowers.languages;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import org.bukkit.configuration.file.YamlConfiguration;

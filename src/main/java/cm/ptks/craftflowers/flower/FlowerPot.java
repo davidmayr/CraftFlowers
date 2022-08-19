@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

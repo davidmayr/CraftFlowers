@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.gui;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import cm.ptks.craftflowers.storage.SavedFlowerPot;
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;

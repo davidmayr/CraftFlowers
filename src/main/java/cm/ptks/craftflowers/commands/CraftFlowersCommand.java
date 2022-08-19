@@ -4,7 +4,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.gui.CraftFlowersGui;
 import cm.ptks.craftflowers.gui.SavedFlowerListGui;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import cm.ptks.craftflowers.storage.SavedFlowerPot;
 import cm.ptks.craftflowers.util.version.UpdateChecker;
 import org.bukkit.ChatColor;

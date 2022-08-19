@@ -5,7 +5,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.AgingFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerPot;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import com.fastasyncworldedit.core.FaweAPI;
 import com.fastasyncworldedit.core.util.TaskManager;
 import com.sk89q.worldedit.EditSession;

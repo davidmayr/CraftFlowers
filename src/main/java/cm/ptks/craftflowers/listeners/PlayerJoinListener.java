@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.storage.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageFile;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
