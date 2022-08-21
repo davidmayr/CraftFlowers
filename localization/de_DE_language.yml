@@ -194,7 +194,7 @@ GUI:
   CLEAR_ALL: "§2Alle löschen"
   FLOWER_GROUP_TITLE_COLOR: "§2"
   GLASS_NAME_COLOR: "§a"
-  PREVIOUS: "§2Vorherige"
+  PREVIOUS: "§2Zurück"
   NEXT: "§2Weiter"
   SAVED_FLOWERPOTS: "§2Gespeicherten Blumentöpfe"
   SAVED_FLOWERPOTS_NAME_COLOR: "§7"
