@@ -8,20 +8,19 @@ import com.sk89q.worldedit.world.block.BlockType;
 
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
-import org.bukkit.block.data.type.Bamboo.Leaves;
 
 public class Flower {
 
     /**
      * The material required in the inventory when {@link CraftFlowers#isSurvivalMode()} is true and displayed in the gui
      */
-    private final Material material;
-    private final String displayName;
+    protected final Material material;
+    protected final String displayName;
 
     /**
      * The actual block that gets placed.
      */
-    private final Material blockMaterial;
+    protected final Material blockMaterial;
 
     public Flower(Material material, String displayName, Material blockMaterial) {
         this.material = material;

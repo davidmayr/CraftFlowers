@@ -10,7 +10,7 @@ import org.bukkit.Material;
 
 public class AgingFlower extends Flower {
 
-    private final int age;
+    protected final int age;
 
     public AgingFlower(Material guiMaterial, String displayName, Material blockMaterial, int age) {
         super(guiMaterial, displayName, blockMaterial);
