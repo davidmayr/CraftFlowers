@@ -2,6 +2,10 @@ package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import com.google.gson.JsonObject;
+import com.sk89q.worldedit.registry.state.Property;
+import com.sk89q.worldedit.world.block.BaseBlock;
+import com.sk89q.worldedit.world.block.BlockType;
+
 import org.bukkit.Material;
 
 public class Flower {
@@ -39,7 +43,20 @@ public class Flower {
 
             return new AgingFlower(guiMaterial, displayName, blockMaterial, age);
         }
+        if(guiMaterial == Material.BAMBOO || guiMaterial == Material.BAMBOO_SAPLING) {
+            int age = jsonObject.has("age") ? jsonObject.get("age").getAsInt() : 0;
+            
+            return new BambooFlower(guiMaterial, displayName, blockMaterial, age);
+        }
         return new Flower(guiMaterial, displayName, blockMaterial);
+    }
+
+    public BaseBlock applyToBlock(BaseBlock block, BlockType type) {
+        Property<Boolean> waterLogged = type.getProperty("waterlogged");
+        if(waterLogged != null)
+            block = block.with(waterLogged, false);
+
+        return block;
     }
 
     public JsonObject serialize() {

@@ -99,18 +99,15 @@ public class BlockPlaceListener implements Listener {
                             && (!currentLocation.getBlock().getType().equals(Material.AIR)
                             && !currentLocation.getBlock().getType().equals(Material.WATER)))
                         continue;
-                    BlockType blockType = BlockTypes.parse(flower.getBlockMaterial().name());
-                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
-
-                    Property<Boolean> prop = block.getBlockType().getProperty("waterlogged");
-                    if (prop != null) {
-                        block = block.with(prop, false);
+                    String key = flower.getBlockMaterial().getKey().toString();
+                    BlockType blockType = BlockTypes.parse(key);
+                    if(blockType == null) {
+                        plugin.getLogger().severe("Failed to find worldedit blocktype of key: " + key);
+                        continue;
                     }
+                    BaseBlock block = new BaseBlock(blockType.getDefaultState());
 
-                    if (flower instanceof AgingFlower) {
-                        Property<Integer> ageProp = block.getBlockType().getProperty("age");
-                        block = block.with(ageProp, ((AgingFlower) flower).getAge());
-                    }
+                    block = flower.applyToBlock(block, block.getBlockType());
 
                     editSession.setBlock(currentLocation.getBlockX(), currentLocation.getBlockY(), currentLocation.getBlockZ(), block);
 
