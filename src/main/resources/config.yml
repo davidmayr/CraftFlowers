@@ -4,6 +4,9 @@ survivalMode: false
 prefix: "&2CraftFlowers &8» "
 arrow: "&8» "
 
+language:
+  default: "en_US"
+
 # The Storage type for saved flowerpots
 storage:
   type: "sqlite"
