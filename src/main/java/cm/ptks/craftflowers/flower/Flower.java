@@ -7,6 +7,8 @@ import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
 
 import org.bukkit.Material;
+import org.bukkit.block.data.type.Bamboo;
+import org.bukkit.block.data.type.Bamboo.Leaves;
 
 public class Flower {
 
@@ -45,8 +47,10 @@ public class Flower {
         }
         if(guiMaterial == Material.BAMBOO || guiMaterial == Material.BAMBOO_SAPLING) {
             int age = jsonObject.has("age") ? jsonObject.get("age").getAsInt() : 0;
-            
-            return new BambooFlower(guiMaterial, displayName, blockMaterial, age);
+            Bamboo.Leaves leaves = jsonObject.has("leaveType") ? Bamboo.Leaves
+                .valueOf(jsonObject.get("leaveType").getAsString()) : Bamboo.Leaves.NONE;
+
+            return new BambooFlower(guiMaterial, displayName, blockMaterial, age, leaves);
         }
         return new Flower(guiMaterial, displayName, blockMaterial);
     }
