@@ -6,6 +6,7 @@ arrow: "&8» "
 
 language:
   default: "en_US"
+  list: ["en_US", "de_DE", "zh_TW"]
 
 # The Storage type for saved flowerpots
 storage:

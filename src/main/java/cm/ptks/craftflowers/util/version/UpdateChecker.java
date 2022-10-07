@@ -1,7 +1,7 @@
 package cm.ptks.craftflowers.util.version;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -36,7 +36,7 @@ public class UpdateChecker {
             return FlowersVersion.read(version);
         } catch (Exception var3) {
             var3.printStackTrace();
-            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.ACTION.FAILED_CHECK_VERSION);
+            Bukkit.getServer().getConsoleSender().sendMessage(CraftFlowers.prefix + ChatColor.RED + Messages.ACTION.FAILED_CHECK_VERSION);
             return FlowersVersion.read(plugin.getDescription().getVersion());
         }
     }

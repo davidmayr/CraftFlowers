@@ -1,6 +1,6 @@
 package cm.ptks.craftflowers.flower;
 
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.Messages;
 import com.google.gson.JsonObject;
 import org.bukkit.Material;
 
@@ -20,7 +20,7 @@ public class AgingFlower extends Flower {
 
     @Override
     public String getDisplayName() {
-        return super.getDisplayName() + LanguageFile.getFlowerInfoAge(age);
+        return super.getDisplayName() + Messages.getFlowerInfoAge(age);
     }
 
     @Override

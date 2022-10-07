@@ -4,7 +4,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.gui.CraftFlowersGui;
 import cm.ptks.craftflowers.gui.SavedFlowerListGui;
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.Messages;
 import cm.ptks.craftflowers.storage.SavedFlowerPot;
 import cm.ptks.craftflowers.util.version.UpdateChecker;
 import org.bukkit.ChatColor;
@@ -38,7 +38,7 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
         if (args.length == 0) {
             if (!player.hasPermission("craftflowers.use")) {
-                player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMANDS.NO_PERMISSION_USE);
+                player.sendMessage(CraftFlowers.prefix + Messages.COMMANDS.NO_PERMISSION_USE);
                 return true;
             }
             CraftFlowersGui.openGui(player);
@@ -49,19 +49,19 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
         if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("i")) {
             UpdateChecker versionChecker = plugin.getVersionChecker();
             if (versionChecker.isOutdated()) {
-                player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandVersion(plugin.getDescription().getVersion(), "§c"));
+                player.sendMessage(CraftFlowers.prefix + Messages.getCommandVersion(plugin.getDescription().getVersion(), "§c"));
             } else {
-                player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandVersion(plugin.getDescription().getVersion(), "§a"));
+                player.sendMessage(CraftFlowers.prefix + Messages.getCommandVersion(plugin.getDescription().getVersion(), "§a"));
             }
 
-            player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandAuthor(plugin.getDescription().getAuthors().get(0)));
-            player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandWebsite(plugin.getDescription().getWebsite()));
+            player.sendMessage(CraftFlowers.prefix + Messages.getCommandAuthor(plugin.getDescription().getAuthors().get(0)));
+            player.sendMessage(CraftFlowers.prefix + Messages.getCommandWebsite(plugin.getDescription().getWebsite()));
             return true;
         }
 
         if (args[0].equalsIgnoreCase("save") || args[0].equalsIgnoreCase("s")) {
             if (!player.hasPermission("craftflowers.save")) {
-                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMANDS.NO_PERMISSION_SAVE);
+                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + Messages.COMMANDS.NO_PERMISSION_SAVE);
                 return true;
             }
 
@@ -73,21 +73,21 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
                     plugin.getExecutorService().submit(() -> {
                         plugin.getFlowerStorage().saveFlower(name, player.getUniqueId(), flowerPot);
-                        player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMANDS.SUCCESS_SAVE);
+                        player.sendMessage(CraftFlowers.prefix + Messages.COMMANDS.SUCCESS_SAVE);
                     });
                 } else {
-                    player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMANDS.NEED_HOLD_CF_FLOWERPOT);
+                    player.sendMessage(CraftFlowers.prefix + ChatColor.RED + Messages.COMMANDS.NEED_HOLD_CF_FLOWERPOT);
                 }
                 return true;
             }
 
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.SAVE_SYNTAX);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.SAVE_SYNTAX);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("load") || args[0].equalsIgnoreCase("l")) {
             if (!player.hasPermission("craftflowers.load")) {
-                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMANDS.NO_PERMISSION_LOAD);
+                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + Messages.COMMANDS.NO_PERMISSION_LOAD);
                 return true;
             }
 
@@ -95,51 +95,51 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
                 plugin.getExecutorService().submit(() -> {
                     SavedFlowerPot flower = plugin.getFlowerStorage().getFlower(args[1], player.getUniqueId());
                     if (flower == null) {
-                        player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMANDS.LOAD_NOT_FOUND);
+                        player.sendMessage(CraftFlowers.prefix + Messages.COMMANDS.LOAD_NOT_FOUND);
                         return;
                     }
                     plugin.getServer().getScheduler().runTask(plugin, () -> {
                         player.getInventory().addItem(flower.getFlowerPot().createItemStack());
-                        player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandSuccessLoad(args[1]));
+                        player.sendMessage(CraftFlowers.prefix + Messages.getCommandSuccessLoad(args[1]));
                     });
                 });
                 return true;
             }
 
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.LOAD_SYNTAX);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.LOAD_SYNTAX);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("d")) {
             if (!player.hasPermission("craftflowers.delete")) {
-                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + LanguageFile.COMMANDS.NO_PERMISSION_DELETE);
+                player.sendMessage(CraftFlowers.prefix + ChatColor.RED + Messages.COMMANDS.NO_PERMISSION_DELETE);
                 return true;
             }
 
             if (args.length != 1 && args.length <= 2) {
                 plugin.getExecutorService().submit(() -> {
                     if (!plugin.getFlowerStorage().deleteFlower(args[1], player.getUniqueId())) {
-                        player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandCantDelete(args[1]));
+                        player.sendMessage(CraftFlowers.prefix + Messages.getCommandCantDelete(args[1]));
                         return;
                     }
-                    player.sendMessage(CraftFlowers.prefix + LanguageFile.getCommandSuccessDelete(args[1]));
+                    player.sendMessage(CraftFlowers.prefix + Messages.getCommandSuccessDelete(args[1]));
                 });
                 return true;
             }
 
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.DELETE_SYNTAX);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.DELETE_SYNTAX);
             return true;
         }
 
         if (args[0].equalsIgnoreCase("list")) {
             if (!player.hasPermission("craftflowers.use")) {
-                player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMANDS.NO_PERMISSION_LIST);
+                player.sendMessage(CraftFlowers.prefix + Messages.COMMANDS.NO_PERMISSION_LIST);
                 return true;
             }
             plugin.getExecutorService().submit(() -> {
                 List<SavedFlowerPot> savedFlowers = plugin.getFlowerStorage().getSavedFlowers(player.getUniqueId());
                 if (savedFlowers.size() == 0) {
-                    player.sendMessage(CraftFlowers.prefix + LanguageFile.COMMANDS.NO_SAVED_FLOWERS);
+                    player.sendMessage(CraftFlowers.prefix + Messages.COMMANDS.NO_SAVED_FLOWERS);
                     return;
                 }
                 plugin.getServer().getScheduler().runTask(plugin, () -> SavedFlowerListGui.openGui(player, savedFlowers));
@@ -149,15 +149,15 @@ public class CraftFlowersCommand implements CommandExecutor, TabCompleter {
 
 
         if (!args[0].equalsIgnoreCase("help") && !args[0].equalsIgnoreCase("h")) {
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.SYNTAX);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.SYNTAX);
         } else {
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.OPEN_GUI);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.SAVE);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.LOAD);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.DELETE);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.INFO);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.LIST);
-            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + LanguageFile.COMMANDS.HELP_MESSAGES.HELP);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.OPEN_GUI);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.SAVE);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.LOAD);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.DELETE);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.INFO);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.LIST);
+            player.sendMessage(CraftFlowers.prefix + ChatColor.GREEN + Messages.COMMANDS.HELP_MESSAGES.HELP);
         }
 
         return true;
