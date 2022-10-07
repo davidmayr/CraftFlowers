@@ -10,24 +10,35 @@ import java.nio.charset.StandardCharsets;
 public final class Messages {
 
     public final static class COMMANDS {
-        public static String NO_PERMISSION_USE;
-        public static String VERSION;
-        public static String AUTHOR;
-        public static String WEBSITE;
-        public static String NO_PERMISSION_SAVE;
-        public static String SUCCESS_SAVE;
-        public static String NEED_HOLD_CF_FLOWERPOT;
-        public static String SAVE_SYNTAX;
-        public static String NO_PERMISSION_LOAD;
-        public static String LOAD_NOT_FOUND;
-        public static String SUCCESS_LOAD;
-        public static String LOAD_SYNTAX;
-        public static String NO_PERMISSION_DELETE;
-        public static String CANT_DELETE;
-        public static String SUCCESS_DELETE;
-        public static String DELETE_SYNTAX;
-        public static String NO_PERMISSION_LIST;
-        public static String NO_SAVED_FLOWERS;
+
+        public static String NO_PERMISSION_USE = "COMMANDS.NO_PERMISSION_USE";
+
+        // /craftflowers info
+        public static String VERSION = "COMMANDS.VERSION";
+        public static String AUTHOR = "COMMANDS.AUTHOR";
+        public static String WEBSITE = "COMMANDS.WEBSITE";
+
+        // /craftflowers save
+        public static String NO_PERMISSION_SAVE = "COMMANDS.NO_PERMISSION_SAVE";
+        public static String SUCCESS_SAVE = "COMMANDS.SUCCESS_SAVE";
+        public static String NEED_HOLD_CF_FLOWERPOT = "COMMANDS.NEED_HOLD_CF_FLOWERPOT";
+        public static String SAVE_SYNTAX = "COMMANDS.SAVE_SYNTAX";
+
+        // /craftflowers load
+        public static String NO_PERMISSION_LOAD = "COMMANDS.NO_PERMISSION_LOAD";
+        public static String LOAD_NOT_FOUND = "COMMANDS.LOAD_NOT_FOUND";
+        public static String SUCCESS_LOAD = "COMMANDS.SUCCESS_LOAD";
+        public static String LOAD_SYNTAX = "COMMANDS.LOAD_SYNTAX";
+
+        // /craftflowers delete
+        public static String NO_PERMISSION_DELETE = "COMMANDS.NO_PERMISSION_DELETE";
+        public static String CANT_DELETE = "COMMANDS.CANT_DELETE";
+        public static String SUCCESS_DELETE = "COMMANDS.SUCCESS_DELETE";
+        public static String DELETE_SYNTAX = "COMMANDS.DELETE_SYNTAX";
+
+        // /craftflowers list
+        public static String NO_PERMISSION_LIST = "COMMANDS.NO_PERMISSION_LIST";
+        public static String NO_SAVED_FLOWERS = "COMMANDS.NO_SAVED_FLOWERS";
 
         public final static class HELP_MESSAGES {
             public static String SYNTAX;
@@ -227,36 +238,6 @@ public final class Messages {
         YamlConfiguration language = YamlConfiguration.loadConfiguration(languageFile);
 
         language.addDefaults(defaultLanguage);
-
-        // /craftflowers
-        COMMANDS.NO_PERMISSION_USE = language.getString("COMMANDS.NO_PERMISSION_USE");
-
-        // /craftflowers info
-        COMMANDS.VERSION = language.getString("COMMANDS.VERSION");
-        COMMANDS.AUTHOR = language.getString("COMMANDS.AUTHOR");
-        COMMANDS.WEBSITE = language.getString("COMMANDS.WEBSITE");
-
-        // /craftflowers save
-        COMMANDS.NO_PERMISSION_SAVE = language.getString("COMMANDS.NO_PERMISSION_SAVE");
-        COMMANDS.SUCCESS_SAVE = language.getString("COMMANDS.SUCCESS_SAVE");
-        COMMANDS.NEED_HOLD_CF_FLOWERPOT = language.getString("COMMANDS.NEED_HOLD_CF_FLOWERPOT");
-        COMMANDS.SAVE_SYNTAX = language.getString("COMMANDS.SAVE_SYNTAX");
-
-        // /craftflowers load
-        COMMANDS.NO_PERMISSION_LOAD = language.getString("COMMANDS.NO_PERMISSION_LOAD");
-        COMMANDS.LOAD_NOT_FOUND = language.getString("COMMANDS.LOAD_NOT_FOUND");
-        COMMANDS.SUCCESS_LOAD = language.getString("COMMANDS.SUCCESS_LOAD");
-        COMMANDS.LOAD_SYNTAX = language.getString("COMMANDS.LOAD_SYNTAX");
-
-        // /craftflowers delete
-        COMMANDS.NO_PERMISSION_DELETE = language.getString("COMMANDS.NO_PERMISSION_DELETE");
-        COMMANDS.CANT_DELETE = language.getString("COMMANDS.CANT_DELETE");
-        COMMANDS.SUCCESS_DELETE = language.getString("COMMANDS.SUCCESS_DELETE");
-        COMMANDS.DELETE_SYNTAX = language.getString("COMMANDS.DELETE_SYNTAX");
-
-        // /craftflowers list
-        COMMANDS.NO_PERMISSION_LIST = language.getString("COMMANDS.NO_PERMISSION_LIST");
-        COMMANDS.NO_SAVED_FLOWERS = language.getString("COMMANDS.NO_SAVED_FLOWERS");
 
         // /craftflowers help
         COMMANDS.HELP_MESSAGES.SYNTAX = language.getString("COMMANDS.HELP_MESSAGES.SYNTAX");
