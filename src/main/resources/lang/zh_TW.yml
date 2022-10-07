@@ -196,7 +196,6 @@ GUI:
   REMOVE_FROM_TOP: "§2從頂部移除"
   CLEAR_ALL: "§2全部清除"
   FLOWER_GROUP_TITLE_COLOR: "§2"
-  GLASS_NAME_COLOR: "§a"
   PREVIOUS: "§2上一頁"
   NEXT: "§2下一頁"
   SAVED_FLOWERPOTS: "§2已儲存的花盆"

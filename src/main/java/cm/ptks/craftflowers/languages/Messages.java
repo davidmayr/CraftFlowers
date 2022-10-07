@@ -1,11 +1,9 @@
 package cm.ptks.craftflowers.languages;
 
-import cm.ptks.craftflowers.CraftFlowers;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import net.md_5.bungee.api.ChatColor;
 
 public final class Messages {
 
@@ -196,17 +194,16 @@ public final class Messages {
 
     public final static class GUI {
 
-        public static String TITLE;
-        public static String CREATE_FLOWER;
-        public static String CANT_CREATE_EMPTY_FLOWER;
-        public static String REMOVE_FROM_TOP;
-        public static String CLEAR_ALL;
-        public static String FLOWER_GROUP_TITLE_COLOR;
-        public static String GLASS_NAME_COLOR;
-        public static String PREVIOUS;
-        public static String NEXT;
-        public static String SAVED_FLOWERPOTS;
-        public static String SAVED_FLOWERPOTS_NAME_COLOR;
+        public static String TITLE = "GUI.TITLE";
+        public static String CREATE_FLOWER = "GUI.CREATE_FLOWER";
+        public static String CANT_CREATE_EMPTY_FLOWER = "GUI.CANT_CREATE_EMPTY_FLOWER";
+        public static String REMOVE_FROM_TOP = "GUI.REMOVE_FROM_TOP";
+        public static String CLEAR_ALL = "GUI.CLEAR_ALL";
+        public static String FLOWER_GROUP_TITLE_COLOR = "GUI.FLOWER_GROUP_TITLE_COLOR";
+        public static String PREVIOUS = "GUI.PREVIOUS";
+        public static String NEXT = "GUI.NEXT";
+        public static String SAVED_FLOWERPOTS = "GUI.SAVED_FLOWERPOTS";
+        public static String SAVED_FLOWERPOTS_NAME_COLOR = "GUI.SAVED_FLOWERPOTS_NAME_COLOR";
 
     }
 
@@ -356,65 +353,52 @@ public final class Messages {
 
         FLOWER.AIR = language.getString("FLOWER.AIR");
 
-        // gui
-        GUI.TITLE = language.getString("GUI.TITLE");
-        GUI.CREATE_FLOWER = language.getString("GUI.CREATE_FLOWER");
-        GUI.CANT_CREATE_EMPTY_FLOWER = language.getString("GUI.CANT_CREATE_EMPTY_FLOWER");
-        GUI.REMOVE_FROM_TOP = language.getString("GUI.REMOVE_FROM_TOP");
-        GUI.CLEAR_ALL = language.getString("GUI.CLEAR_ALL");
-        GUI.FLOWER_GROUP_TITLE_COLOR = language.getString("GUI.FLOWER_GROUP_TITLE_COLOR");
-        GUI.GLASS_NAME_COLOR = language.getString("GUI.GLASS_NAME_COLOR");
-        GUI.PREVIOUS = language.getString("GUI.PREVIOUS");
-        GUI.NEXT = language.getString("GUI.NEXT");
-        GUI.SAVED_FLOWERPOTS = language.getString("GUI.SAVED_FLOWERPOTS");
-        GUI.SAVED_FLOWERPOTS_NAME_COLOR = language.getString("GUI.SAVED_FLOWERPOTS_NAME_COLOR");
     }
 
-    public static String getCommandVersion(String version, String color) {
-        return COMMANDS.VERSION.replaceAll("<version>", color + version);
+    public static String getCommandVersion(Player player, String version, ChatColor color) {
+        return I18n.translate(player, COMMANDS.VERSION).replaceAll("<version>", color + version);
     }
 
-    public static String getCommandAuthor(String authors) {
-        return COMMANDS.AUTHOR.replaceAll("<author>", authors);
+    public static String getCommandAuthor(Player player, String authors) {
+        return I18n.translate(player, COMMANDS.AUTHOR).replaceAll("<author>", authors);
     }
 
-    public static String getCommandWebsite(String website) {
-        return COMMANDS.WEBSITE.replaceAll("<website>", website);
+    public static String getCommandWebsite(Player player, String website) {
+        return I18n.translate(player, COMMANDS.WEBSITE).replaceAll("<website>", website);
     }
 
-    public static String getCommandSuccessLoad(String args) {
-        return COMMANDS.SUCCESS_LOAD.replaceAll("<flower_pot_name>", args);
+    public static String getCommandSuccessLoad(Player player, String args) {
+        return I18n.translate(player, COMMANDS.SUCCESS_LOAD).replaceAll("<flower_pot_name>", args);
     }
 
-    public static String getCommandCantDelete(String args) {
-        return COMMANDS.CANT_DELETE.replaceAll("<flower_pot_name>", args);
+    public static String getCommandCantDelete(Player player, String args) {
+        return I18n.translate(player, COMMANDS.CANT_DELETE).replaceAll("<flower_pot_name>", args);
     }
 
-    public static String getCommandSuccessDelete(String args) {
-        return COMMANDS.SUCCESS_DELETE.replaceAll("<flower_pot_name>", args);
+    public static String getCommandSuccessDelete(Player player, String args) {
+        return I18n.translate(player, COMMANDS.SUCCESS_DELETE).replaceAll("<flower_pot_name>", args);
     }
 
-    public static String getFlowerInfoAge(int age) {
-        return FLOWER_INFO.AGE.replaceAll("<age>", String.valueOf(age));
+    public static String getFlowerInfoAge(Player player, int age) {
+        return I18n.translate(player, FLOWER_INFO.AGE).replaceAll("<age>", String.valueOf(age));
     }
 
-    public static String getActionMissingFollowingItemsList(
-            String arrow, String flower, Integer integer) {
-        return ACTION.MISSING_FOLLOWING_ITEMS_LIST
+    public static String getActionMissingFollowingItemsList(Player player, String arrow, String flower, Integer integer) {
+        return I18n.translate(player, ACTION.MISSING_FOLLOWING_ITEMS_LIST)
                 .replaceAll("%1", arrow)
                 .replaceAll("%2", flower)
                 .replaceAll("%3", String.valueOf(integer));
     }
 
-    public static String getActionCurrentVersion(String version) {
-        return ACTION.CURRENT_VERSION.replaceAll("<version>", version);
+    public static String getActionCurrentVersion(Player player, String version) {
+        return I18n.translate(player, ACTION.CURRENT_VERSION).replaceAll("<version>", version);
     }
 
-    public static String getActionNewestVersion(String new_version) {
-        return ACTION.NEWEST_VERSION.replaceAll("<version>", new_version);
+    public static String getActionNewestVersion(Player player, String newVersion) {
+        return I18n.translate(player, ACTION.NEWEST_VERSION).replaceAll("<version>", newVersion);
     }
 
-    public static String getActionDownloadNewVersion(String download_link) {
-        return ACTION.DOWNLOAD_NEW_VERSION.replaceAll("<link>", download_link);
+    public static String getActionDownloadNewVersion(Player player, String downloadLink) {
+        return I18n.translate(player, ACTION.DOWNLOAD_NEW_VERSION).replaceAll("<link>", downloadLink);
     }
 }
