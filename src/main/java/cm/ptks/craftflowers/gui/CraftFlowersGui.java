@@ -1,6 +1,7 @@
 package cm.ptks.craftflowers.gui;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.flower.BambooFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerGroup;
 import cm.ptks.craftflowers.flower.FlowerPot;
@@ -54,6 +55,11 @@ public class CraftFlowersGui implements InventoryProvider {
                 if (flower instanceof FlowerGroup) {
                     FlowerGroupGui.openGui(player, contents.inventory(), contents.pagination().getPage(),
                             ((FlowerGroup) flower), flowerPot);
+                    return;
+                }
+                if (flower instanceof BambooFlower) {
+                    BambooAgeGui.openGui(player, contents.inventory(), contents.pagination().getPage(),
+                        (BambooFlower) flower, flowerPot);
                     return;
                 }
                 flowerPot.addFlower(player, flower);

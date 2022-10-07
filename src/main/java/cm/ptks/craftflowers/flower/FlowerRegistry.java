@@ -2,6 +2,7 @@ package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.languages.LanguageFile;
 import org.bukkit.Material;
+import org.bukkit.block.data.type.Bamboo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,7 +96,9 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.SEAGRASS, LanguageFile.FLOWER.SEAGRASS));
         registerFlower(new Flower(Material.SEA_PICKLE, LanguageFile.FLOWER.SEA_PICKLE));
         registerFlower(new Flower(Material.KELP, LanguageFile.FLOWER.KELP));
-        registerFlower(new Flower(Material.BAMBOO, LanguageFile.FLOWER.BAMBOO));
+
+        registerFlower(new BambooFlower(Material.BAMBOO, LanguageFile.FLOWER.BAMBOO, 0, Bamboo.Leaves.NONE));
+
         registerFlower(new Flower(Material.END_ROD, LanguageFile.FLOWER.END_ROD));
         registerFlower(new Flower(Material.SOUL_LANTERN, LanguageFile.FLOWER.SOUL_LANTERN));
         registerFlower(new Flower(Material.LANTERN, LanguageFile.FLOWER.LANTERN));

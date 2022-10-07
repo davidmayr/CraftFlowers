@@ -35,7 +35,13 @@ public class BambooFlower extends AgingFlower {
 
     public BambooFlower cloneWithLeaveType(Bamboo.Leaves type) {
         return new BambooFlower(material, displayName, blockMaterial, age, type);
+    
     }
+
+    public BambooFlower cloneWithAge(int age) {
+        return new BambooFlower(material, displayName, blockMaterial, age, this.leaveType);
+    }
+
 
     @Override
     public JsonObject serialize() {
