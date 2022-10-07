@@ -33,4 +33,10 @@ public class Language {
         return keys;
     }
 
+    public String translate(String key) {
+        if(keys.containsKey(key))
+            return keys.get(key);
+        return key;
+    }
+
 }

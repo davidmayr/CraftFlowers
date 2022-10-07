@@ -96,6 +96,12 @@ public class CraftFlowers extends JavaPlugin {
         this.flowerStorage.close();
     }
 
+    
+
+    public LanguageManager getLanguageManager() {
+        return languageManager;
+    }
+
     public static InventoryManager getInventoryManager() {
         return inventoryManager;
     }

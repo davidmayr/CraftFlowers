@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.apache.commons.codec.language.bm.Lang;
+import org.bukkit.entity.Player;
 
 import com.fastasyncworldedit.core.configuration.file.YamlConfiguration;
 
@@ -84,8 +85,14 @@ public class LanguageManager {
         return defaultLanguage;
     }
 
-    
-
+    public Language getLanguage(Player player) {
+        for(Language language : this.languages) {
+            if(language.isLanguage(player.getLocale())) {
+                return language;
+            }
+        } 
+        return defaultLanguage;
+    }
 
 
 }
