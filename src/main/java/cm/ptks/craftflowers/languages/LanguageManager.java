@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
+
+import org.apache.commons.codec.language.bm.Lang;
 
 import com.fastasyncworldedit.core.configuration.file.YamlConfiguration;
 
@@ -18,9 +21,13 @@ public class LanguageManager {
     private final CraftFlowers plugin;
     private final List<Language> languages = new ArrayList<>();
 
+    private Language defaultLanguage;
+
     public LanguageManager(CraftFlowers plugin) {
         this.plugin = plugin;
     
+        String defaultLanguage = plugin.getConfig().getString("language.default");
+
         for(String language : plugin.getConfig().getStringList("language.list")) {
             File languageFile = new File(plugin.getDataFolder(), "lang/" + language + ".yml");
 
@@ -47,11 +54,22 @@ public class LanguageManager {
                 }
             }
             YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
-            this.languages.add(new Language(Language.parseKeys(configuration), language));
-
+            Language lang = new Language(Language.parseKeys(configuration), language);
+            if(defaultLanguage.equals(language)) {
+                this.defaultLanguage = lang;
+            }
+            this.languages.add(lang);
+        }
+        if(defaultLanguage == null) {
+            this.defaultLanguage = new Language(new HashMap<>(), defaultLanguage);
         }
     }
 
+    public Language getDefaultLanguage() {
+        return defaultLanguage;
+    }
+
+    
     
 
 
