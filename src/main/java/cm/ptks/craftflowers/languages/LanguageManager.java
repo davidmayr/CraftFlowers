@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +53,20 @@ public class LanguageManager {
                     plugin.getLogger().log(Level.SEVERE, "Failed to load or copy " + language + "...", e);
                     continue;
                 }
+            } else {
+                //Copy new language keys over to the file
+                InputStream resource = plugin.getResource("lang/" + language + ".yml");
+                if(resource != null) {
+                    try {
+                        YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
+                        configuration.addDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(resource)));
+                        configuration.options().copyDefaults(true);
+                        configuration.save(languageFile);
+                        resource.close();
+                    } catch(Exception e) {
+                        //ignore
+                    }
+                }
             }
             YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
             Language lang = new Language(Language.parseKeys(configuration), language);
@@ -70,7 +85,7 @@ public class LanguageManager {
     }
 
     
-    
+
 
 
 }
