@@ -209,7 +209,7 @@ ACTION:
   NO_PERMISSION_EDIT: "§cDu besitzt nicht die erforderlichen Berechtigungen, um diese Blume zu bearbeiten!"
 
   # join messages
-  OUTDATE_VERSION: "§cDu verwendest eine veraltete §2craftflowers §7-Version!"
+  OUTDATED_VERSION: "§cDu verwendest eine veraltete §2craftflowers §7-Version!"
   CURRENT_VERSION: "§7Aktuelle Version: §c<version>"
   NEWEST_VERSION: "§7Neueste Version: §a<version>"
   DOWNLOAD_NEW_VERSION: "§7Neue Version herunterladen: §a<link>"

@@ -212,7 +212,7 @@ ACTION:
   NO_PERMISSION_EDIT: "§c您沒有編輯此花盆所需的權限!"
 
   # join messages
-  OUTDATE_VERSION: "§c您正在運行過時的 §2craftflowers §7 版本!"
+  OUTDATED_VERSION: "§c您正在運行過時的 §2craftflowers §7 版本!"
   CURRENT_VERSION: "§7當前版本: §c<version>"
   NEWEST_VERSION: "§7最新版本: §a<version>"
   DOWNLOAD_NEW_VERSION: "§7下載新版本: §a<link>"

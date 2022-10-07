@@ -26,7 +26,7 @@ public class PlayerJoinListener implements Listener {
         if (!plugin.getVersionChecker().isOutdated())
             return;
         player.sendMessage("§a");
-        player.sendMessage(CraftFlowers.prefix + Messages.ACTION.OUTDATE_VERSION);
+        player.sendMessage(CraftFlowers.prefix + Messages.ACTION.OUTDATED_VERSION);
         player.sendMessage(CraftFlowers.prefix + Messages.getActionCurrentVersion(plugin.getDescription().getVersion()));
         player.sendMessage(CraftFlowers.prefix + Messages.getActionNewestVersion(String.valueOf(plugin.getVersionChecker().getNewestVersion())));
         player.sendMessage(CraftFlowers.prefix + Messages.getActionDownloadNewVersion(DOWNLOAD_LINK));

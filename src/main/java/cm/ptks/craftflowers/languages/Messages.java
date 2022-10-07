@@ -40,22 +40,23 @@ public final class Messages {
         public static String NO_PERMISSION_LIST = "COMMANDS.NO_PERMISSION_LIST";
         public static String NO_SAVED_FLOWERS = "COMMANDS.NO_SAVED_FLOWERS";
 
+        // /craftflowers help
         public final static class HELP_MESSAGES {
-            public static String SYNTAX;
-            public static String OPEN_GUI;
-            public static String SAVE;
-            public static String LOAD;
-            public static String DELETE;
-            public static String INFO;
-            public static String LIST;
-            public static String HELP;
+            public static String SYNTAX = "COMMANDS.HELP_MESSAGES.SYNTAX";
+            public static String OPEN_GUI = "COMMANDS.HELP_MESSAGES.OPEN_GUI";
+            public static String SAVE = "COMMANDS.HELP_MESSAGES.SAVE";
+            public static String LOAD = "COMMANDS.HELP_MESSAGES.LOAD";
+            public static String DELETE = "COMMANDS.HELP_MESSAGES.DELETE";
+            public static String INFO = "COMMANDS.HELP_MESSAGES.INFO";
+            public static String LIST = "COMMANDS.HELP_MESSAGES.LIST";
+            public static String HELP = "COMMANDS.HELP_MESSAGES.HELP";
         }
     }
 
     public final static class FLOWER_INFO {
 
-        public static String AGE;
-        public static String LIMIT_REACHED;
+        public static String AGE = "FLOWER_INFO.AGE";
+        public static String LIMIT_REACHED = "FLOWER_INFO.LIMIT_REACHED";
 
     }
 
@@ -190,7 +191,7 @@ public final class Messages {
     }
 
     public final static class ITEM {
-        public static String FLOWER_POT;
+        public static String FLOWER_POT = "ITEM.FLOWER_POT";
     }
 
     public final static class GUI {
@@ -210,48 +211,19 @@ public final class Messages {
     }
 
     public final static class ACTION {
-        public static String NO_PERMISSION_PLACE;
-        public static String MISSING_FOLLOWING_ITEMS;
-        public static String MISSING_FOLLOWING_ITEMS_LIST;
-        public static String NO_PERMISSION_EDIT;
-        public static String OUTDATE_VERSION;
-        public static String CURRENT_VERSION;
-        public static String NEWEST_VERSION;
-        public static String DOWNLOAD_NEW_VERSION;
-        public static String FAILED_CHECK_VERSION;
+        public static String NO_PERMISSION_PLACE = "ACTION.NO_PERMISSION_PLACE";
+        public static String MISSING_FOLLOWING_ITEMS = "ACTION.MISSING_FOLLOWING_ITEMS";
+        public static String MISSING_FOLLOWING_ITEMS_LIST = "ACTION.MISSING_FOLLOWING_ITEMS_LIST";
+        public static String NO_PERMISSION_EDIT = "ACTION.NO_PERMISSION_EDIT";
+        public static String OUTDATED_VERSION = "ACTION.OUTDATED_VERSION";
+        public static String CURRENT_VERSION = "ACTION.CURRENT_VERSION";
+        public static String NEWEST_VERSION = "ACTION.NEWEST_VERSION";
+        public static String DOWNLOAD_NEW_VERSION = "ACTION.DOWNLOAD_NEW_VERSION";
+        public static String FAILED_CHECK_VERSION = "ACTION.FAILED_CHECK_VERSION";
     }
 
     public static void LoadLanguageFile() {
-        CraftFlowers instance = CraftFlowers.getInstance();
-
-        String path = "language.yml";
-
-        File languageFile = new File(instance.getDataFolder(), path);
-
-        if (!languageFile.exists()) {
-            instance.saveResource(path, false);
-        }
-
-        YamlConfiguration defaultLanguage =
-                YamlConfiguration.loadConfiguration(new InputStreamReader(instance.getResource(path), StandardCharsets.UTF_8));
-
-        YamlConfiguration language = YamlConfiguration.loadConfiguration(languageFile);
-
-        language.addDefaults(defaultLanguage);
-
-        // /craftflowers help
-        COMMANDS.HELP_MESSAGES.SYNTAX = language.getString("COMMANDS.HELP_MESSAGES.SYNTAX");
-        COMMANDS.HELP_MESSAGES.OPEN_GUI = language.getString("COMMANDS.HELP_MESSAGES.OPEN_GUI");
-        COMMANDS.HELP_MESSAGES.SAVE = language.getString("COMMANDS.HELP_MESSAGES.SAVE");
-        COMMANDS.HELP_MESSAGES.LOAD = language.getString("COMMANDS.HELP_MESSAGES.LOAD");
-        COMMANDS.HELP_MESSAGES.DELETE = language.getString("COMMANDS.HELP_MESSAGES.DELETE");
-        COMMANDS.HELP_MESSAGES.INFO = language.getString("COMMANDS.HELP_MESSAGES.INFO");
-        COMMANDS.HELP_MESSAGES.LIST = language.getString("COMMANDS.HELP_MESSAGES.LIST");
-        COMMANDS.HELP_MESSAGES.HELP = language.getString("COMMANDS.HELP_MESSAGES.HELP");
-
-        // flower_info
-        FLOWER_INFO.AGE = language.getString("FLOWER_INFO.AGE");
-        FLOWER_INFO.LIMIT_REACHED = language.getString("FLOWER_INFO.LIMIT_REACHED");
+        YamlConfiguration language = null;
 
         // flower
         FLOWER.SUNFLOWER = language.getString("FLOWER.SUNFLOWER");
@@ -384,9 +356,6 @@ public final class Messages {
 
         FLOWER.AIR = language.getString("FLOWER.AIR");
 
-        // item
-        ITEM.FLOWER_POT = language.getString("ITEM.FLOWER_POT");
-
         // gui
         GUI.TITLE = language.getString("GUI.TITLE");
         GUI.CREATE_FLOWER = language.getString("GUI.CREATE_FLOWER");
@@ -399,17 +368,6 @@ public final class Messages {
         GUI.NEXT = language.getString("GUI.NEXT");
         GUI.SAVED_FLOWERPOTS = language.getString("GUI.SAVED_FLOWERPOTS");
         GUI.SAVED_FLOWERPOTS_NAME_COLOR = language.getString("GUI.SAVED_FLOWERPOTS_NAME_COLOR");
-
-        // action
-        ACTION.NO_PERMISSION_PLACE = language.getString("ACTION.NO_PERMISSION_PLACE");
-        ACTION.MISSING_FOLLOWING_ITEMS = language.getString("ACTION.MISSING_FOLLOWING_ITEMS");
-        ACTION.MISSING_FOLLOWING_ITEMS_LIST = language.getString("ACTION.MISSING_FOLLOWING_ITEMS_LIST");
-        ACTION.NO_PERMISSION_EDIT = language.getString("ACTION.NO_PERMISSION_EDIT");
-        ACTION.OUTDATE_VERSION = language.getString("ACTION.OUTDATE_VERSION");
-        ACTION.CURRENT_VERSION = language.getString("ACTION.CURRENT_VERSION");
-        ACTION.NEWEST_VERSION = language.getString("ACTION.NEWEST_VERSION");
-        ACTION.DOWNLOAD_NEW_VERSION = language.getString("ACTION.DOWNLOAD_NEW_VERSION");
-        ACTION.FAILED_CHECK_VERSION = language.getString("ACTION.FAILED_CHECK_VERSION");
     }
 
     public static String getCommandVersion(String version, String color) {
