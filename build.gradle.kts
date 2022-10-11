@@ -1,6 +1,7 @@
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.modrinth.minotaur") version "2.+"
 }
 
 group = "at.toastiii.craftflowers"
@@ -25,6 +26,19 @@ dependencies {
 tasks.withType<ProcessResources> {
     filesMatching("plugin.yml") {
         expand(mapOf("version" to project.version))
+    }
+}
+
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("craftflowers")
+    versionNumber.set(project.version.toString())
+    versionType.set(System.getenv("MODRINTH_RELEASE_TYPE") ?: "release") // This is the default -- can also be `beta` or `alpha`
+    uploadFile.set("shadowJar")
+    gameVersions.set(listOf("1.16", "1.17", "1.18", "1.19"))
+    loaders.set(listOf("paper", "purpur", "spigot"))
+    dependencies {
+        required.project("fastasyncworldedit") // Creates a new required dependency on fastasyncworldedit
     }
 }
 
