@@ -1,0 +1,9 @@
+# Survival Mode forces players in survival mode to have the items required for the flower in the inventory.
+survivalMode: false
+
+prefix: "&2CraftFlowers &8» "
+arrow: "&8» "
+
+# The Storage type for saved flowerpots
+storage:
+  type: "sqlite"
