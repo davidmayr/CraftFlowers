@@ -1,6 +1,6 @@
 name: craftFlowers
 main: cm.ptks.craftflowers.CraftFlowers
-version: ${project.version}
+version: ${version}
 author: patrykss & MenschenToaster
 api-version: 1.16
 website: https://github.com/MenschenToaster/CraftFlowers
