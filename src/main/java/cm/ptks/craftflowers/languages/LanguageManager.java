@@ -5,13 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
-import org.apache.commons.codec.language.bm.Lang;
 import org.bukkit.entity.Player;
 
 import com.fastasyncworldedit.core.configuration.file.YamlConfiguration;
