@@ -117,36 +117,36 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.TUBE_CORAL_FAN, Messages.FLOWER.TUBE_CORAL_FAN));
 
         registerFlower(new FlowerGroup(Material.WHEAT, Messages.FLOWER.WHEAT, Arrays.asList(
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_0, 0),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_1, 1),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_2, 2),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_3, 3),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_4, 4),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_5, 5),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_6, 6),
-                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT_AGE_7, 7)
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 0),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 1),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 2),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 3),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 4),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 5),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 6),
+                new AgingFlower(Material.WHEAT, Messages.FLOWER.WHEAT, 7)
         )));
 
         registerFlower(new FlowerGroup(Material.POTATO, Messages.FLOWER.POTATO, Arrays.asList(
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_0, Material.POTATOES, 0),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_1, Material.POTATOES, 1),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_2, Material.POTATOES, 2),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_3, Material.POTATOES, 3),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_4, Material.POTATOES, 4),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_5, Material.POTATOES, 5),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_6, Material.POTATOES, 6),
-                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO_AGE_7, Material.POTATOES, 7)
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 0),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 1),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 2),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 3),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 4),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 5),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 6),
+                new AgingFlower(Material.POTATO, Messages.FLOWER.POTATO, Material.POTATOES, 7)
         )));
 
         registerFlower(new FlowerGroup(Material.CARROT, Messages.FLOWER.CARROT, Arrays.asList(
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_0, Material.CARROTS, 0),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_1, Material.CARROTS, 1),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_2, Material.CARROTS, 2),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_3, Material.CARROTS, 3),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_4, Material.CARROTS, 4),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_5, Material.CARROTS, 5),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_6, Material.CARROTS, 6),
-                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT_AGE_7, Material.CARROTS, 7)
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 0),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 1),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 2),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 3),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 4),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 5),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 6),
+                new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 7)
         )));
         registerFlower(new Flower(Material.BARRIER, Messages.FLOWER.AIR, Material.AIR));
     }

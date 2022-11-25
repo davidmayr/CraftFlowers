@@ -1,6 +1,7 @@
 package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.languages.I18n;
 import cm.ptks.craftflowers.languages.Messages;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -29,7 +30,7 @@ public class FlowerPot {
 
     public void addFlower(Player player, Flower flower) {
         if (this.flowers.size() >= 9) {
-            player.sendMessage(CraftFlowers.prefix + Messages.FLOWER_INFO.LIMIT_REACHED);
+            player.sendMessage(CraftFlowers.prefix + I18n.translate(player, Messages.FLOWER_INFO.LIMIT_REACHED));
             return;
         }
         this.flowers.add(flower);
@@ -65,7 +66,7 @@ public class FlowerPot {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
 
-        itemMeta.setDisplayName(CraftFlowers.prefix + Messages.ITEM.FLOWER_POT);
+        itemMeta.setDisplayName(CraftFlowers.prefix + I18n.translate(null, Messages.ITEM.FLOWER_POT));
 
         itemMeta
                 .getPersistentDataContainer()

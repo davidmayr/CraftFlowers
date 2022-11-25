@@ -21,7 +21,7 @@ public class FlowerGroupGui implements InventoryProvider {
                 .size(6, 9)
                 .parent(parent)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + Messages.GUI.FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName())
+                .title(CraftFlowers.arrow + Messages.GUI.FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName(player))
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }
@@ -43,7 +43,7 @@ public class FlowerGroupGui implements InventoryProvider {
 
         for (Flower flower : flowerGroup.getChildren()) {
             contents.add(ClickableItem.of(new ItemBuilder(flower.getMaterial())
-                    .setDisplayName(flower.getDisplayName()).build(), event -> {
+                    .setDisplayName(flower.getDisplayName(player)).build(), event -> {
                 if (flower instanceof FlowerGroup) {
                     return;
                 }

@@ -84,6 +84,9 @@ public class LanguageManager {
     }
 
     public Language getLanguage(Player player) {
+        if(player == null)
+            return defaultLanguage;
+        
         for(Language language : this.languages) {
             if(language.isLanguage(player.getLocale())) {
                 return language;

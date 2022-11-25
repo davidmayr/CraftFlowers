@@ -5,6 +5,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.AgingFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerPot;
+import cm.ptks.craftflowers.languages.I18n;
 import cm.ptks.craftflowers.languages.Messages;
 import com.fastasyncworldedit.core.FaweAPI;
 import com.fastasyncworldedit.core.util.TaskManager;
@@ -51,7 +52,7 @@ public class BlockPlaceListener implements Listener {
             return;
         event.setCancelled(true);
         if (!player.hasPermission("craftflowers.place")) {
-            player.sendMessage(CraftFlowers.prefix + Messages.ACTION.NO_PERMISSION_PLACE);
+            player.sendMessage(CraftFlowers.prefix + I18n.translate(player, Messages.ACTION.NO_PERMISSION_PLACE));
             return;
         }
 
@@ -70,12 +71,12 @@ public class BlockPlaceListener implements Listener {
             for (Flower flower : requiredFlowers) {
                 if (player.getInventory().contains(flower.getMaterial()))
                     continue;
-                Integer integer = missingFlowerMap.getOrDefault(flower.getDisplayName(), 0) + 1;
-                missingFlowerMap.put(flower.getDisplayName(), integer);
+                Integer integer = missingFlowerMap.getOrDefault(flower.getDisplayName(player), 0) + 1;
+                missingFlowerMap.put(flower.getDisplayName(player), integer);
             }
             if (!missingFlowerMap.isEmpty()) {
-                player.sendMessage(CraftFlowers.prefix + Messages.ACTION.MISSING_FOLLOWING_ITEMS);
-                missingFlowerMap.forEach((flower, integer) -> player.sendMessage(Messages.getActionMissingFollowingItemsList(CraftFlowers.arrow, flower, integer)));
+                player.sendMessage(CraftFlowers.prefix + I18n.translate(player, Messages.ACTION.MISSING_FOLLOWING_ITEMS));
+                missingFlowerMap.forEach((flower, integer) -> player.sendMessage(Messages.getActionMissingFollowingItemsList(player, CraftFlowers.arrow, flower, integer)));
                 return;
             }
 

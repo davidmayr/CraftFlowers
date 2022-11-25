@@ -1,6 +1,5 @@
 package cm.ptks.craftflowers.languages;
 
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import net.md_5.bungee.api.ChatColor;
@@ -78,35 +77,35 @@ public final class Messages {
         public static final String GRASS = "FLOWER.GRASS";
         public static final String FERN = "FLOWER.FERN";
         
-        public static final String NETHER_BRICK_FENCE;
-        public static final String DARK_OAK_FENCE;
-        public static final String SPRUCE_FENCE;
-        public static final String OAK_FENCE;
-        public static final String BIRCH_FENCE;
-        public static final String JUNGLE_FENCE;
-        public static final String ACACIA_FENCE;
-        public static final String CRIMSON_FENCE;
-        public static final String WARPED_FENCE;
-        public static final String MANGROVE_FENCE;
+        public static final String NETHER_BRICK_FENCE = "FLOWER.NETHER_BRICK_FENCE";
+        public static final String DARK_OAK_FENCE = "FLOWER.DARK_OAK_FENCE";
+        public static final String SPRUCE_FENCE = "FLOWER.SPRUCE_FENCE";
+        public static final String OAK_FENCE = "FLOWER.OAK_FENCE";
+        public static final String BIRCH_FENCE = "FLOWER.BIRCH_FENCE";
+        public static final String JUNGLE_FENCE = "FLOWER.JUNGLE_FENCE";
+        public static final String ACACIA_FENCE = "FLOWER.ACACIA_FENCE";
+        public static final String CRIMSON_FENCE = "FLOWER.CRIMSON_FENCE";
+        public static final String WARPED_FENCE = "FLOWER.WARPED_FENCE";
+        public static final String MANGROVE_FENCE = "FLOWER.MANGROVE_FENCE";
 
-        public static final String DANDELION;
-        public static final String POPPY;
-        public static final String BLUE_ORCHID;
-        public static final String ALLIUM;
-        public static final String AZURE_BLUET;
-        public static final String RED_TULIP;
-        public static final String ORANGE_TULIP;
-        public static final String WHITE_TULIP;
-        public static final String PINK_TULIP;
-        public static final String OXEYE_DAISY;
-        public static final String CORNFLOWER;
-        public static final String LILY_OF_THE_VALLEY;
-        public static final String WITHER_ROSE;
-        public static final String BROWN_MUSHROOM;
-        public static final String RED_MUSHROOM;
-        public static final String CRIMSON_FUNGUS;
-        public static final String WARPED_FUNGUS;
-        public static final String FLOWER_POT;
+        public static final String DANDELION = "FLOWER.DANDELION";
+        public static final String POPPY = "FLOWER.POPPY";
+        public static final String BLUE_ORCHID = "FLOWER.BLUE_ORCHID";
+        public static final String ALLIUM = "FLOWER.ALLIUM";
+        public static final String AZURE_BLUET = "FLOWER.AZURE_BLUET";
+        public static final String RED_TULIP = "FLOWER.RED_TULIP";
+        public static final String ORANGE_TULIP = "FLOWER.ORANGE_TULIP";
+        public static final String WHITE_TULIP = "FLOWER.WHITE_TULIP";
+        public static final String PINK_TULIP = "FLOWER.PINK_TULIP";
+        public static final String OXEYE_DAISY = "FLOWER.OXEYE_DAISY";
+        public static final String CORNFLOWER = "FLOWER.CORNFLOWER";
+        public static final String LILY_OF_THE_VALLEY = "FLOWER.LILY_OF_THE_VALLEY";
+        public static final String WITHER_ROSE = "FLOWER.WITHER_ROSE";
+        public static final String BROWN_MUSHROOM = "FLOWER.BROWN_MUSHROOM";
+        public static final String RED_MUSHROOM = "FLOWER.RED_MUSHROOM";
+        public static final String CRIMSON_FUNGUS = "FLOWER.CRIMSON_FUNGUS";
+        public static final String WARPED_FUNGUS = "FLOWER.WARPED_FUNGUS";
+        public static final String FLOWER_POT = "FLOWER.FLOWER_POT";
 
         public static final String MOSS_BLOCK = "FLOWER.MOSS_BLOCK";
         public static final String AZALEA = "FLOWER.AZALEA";
@@ -123,42 +122,40 @@ public final class Messages {
         public static final String MANGROVE_LEAVES = "FLOWER.MANGROVE_LEAVES";
         public static final String MANGROVE_PROPAGULE = "FLOWER.MANGROVE_PROPAGULE";
 
-        public static final String OAK_LEAVES;
-        public static final String SPRUCE_LEAVES;
-        public static final String BIRCH_LEAVES;
-        public static final String JUNGLE_LEAVES;
-        public static final String ACACIA_LEAVES;
-        public static final String DARK_OAK_LEAVES;
-
-        public static final String LILY_PAD;
-        public static final String VINE;
-        public static final String CACTUS;
-        public static final String MELON;
-        public static final String PUMPKIN;
-        public static final String SEAGRASS;
-        public static final String SEA_PICKLE;
-        public static final String KELP;
-        public static final String BAMBOO;
-        public static final String END_ROD;
-        public static final String SOUL_LANTERN;
-        public static final String LANTERN;
-        public static final String COCOA_BEANS;
-        public static final String CRIMSON_ROOTS;
-        public static final String WEEPING_VINES;
-        public static final String WARPED_ROOTS;
-        public static final String NETHER_SPROUTS;
-        public static final String TWISTING_VINES;
-        
-        public static final String BRAIN_CORAL;
-        public static final String BUBBLE_CORAL;
-        public static final String FIRE_CORAL;
-        public static final String HORN_CORAL;
-        public static final String TUBE_CORAL;
-        public static final String BRAIN_CORAL_FAN;
-        public static final String BUBBLE_CORAL_FAN;
-        public static final String FIRE_CORAL_FAN;
-        public static final String HORN_CORAL_FAN;
-        public static final String TUBE_CORAL_FAN;
+        public static final String OAK_LEAVES = "FLOWER.OAK_LEAVES";
+        public static final String SPRUCE_LEAVES = "FLOWER.SPRUCE_LEAVES";
+        public static final String BIRCH_LEAVES = "FLOWER.BIRCH_LEAVES";
+        public static final String JUNGLE_LEAVES = "FLOWER.JUNGLE_LEAVES";
+        public static final String ACACIA_LEAVES = "FLOWER.ACACIA_LEAVES";
+        public static final String DARK_OAK_LEAVES = "FLOWER.DARK_OAK_LEAVES";
+        public static final String LILY_PAD = "FLOWER.LILY_PAD";
+        public static final String VINE = "FLOWER.VINE";
+        public static final String CACTUS = "FLOWER.CACTUS";
+        public static final String MELON = "FLOWER.MELON";
+        public static final String PUMPKIN = "FLOWER.PUMPKIN";
+        public static final String SEAGRASS = "FLOWER.SEAGRASS";
+        public static final String SEA_PICKLE = "FLOWER.SEA_PICKLE";
+        public static final String KELP = "FLOWER.KELP";
+        public static final String BAMBOO = "FLOWER.BAMBOO";
+        public static final String END_ROD = "FLOWER.END_ROD";
+        public static final String SOUL_LANTERN = "FLOWER.SOUL_LANTERN";
+        public static final String LANTERN = "FLOWER.LANTERN";
+        public static final String COCOA_BEANS = "FLOWER.COCOA_BEANS";
+        public static final String CRIMSON_ROOTS = "FLOWER.CRIMSON_ROOTS";
+        public static final String WEEPING_VINES = "FLOWER.WEEPING_VINES";
+        public static final String WARPED_ROOTS = "FLOWER.WARPED_ROOTS";
+        public static final String NETHER_SPROUTS = "FLOWER.NETHER_SPROUTS";
+        public static final String TWISTING_VINES = "FLOWER.TWISTING_VINES";
+        public static final String BRAIN_CORAL = "FLOWER.BRAIN_CORAL";
+        public static final String BUBBLE_CORAL = "FLOWER.BUBBLE_CORAL";
+        public static final String FIRE_CORAL = "FLOWER.FIRE_CORAL";
+        public static final String HORN_CORAL = "FLOWER.HORN_CORAL";
+        public static final String TUBE_CORAL = "FLOWER.TUBE_CORAL";
+        public static final String BRAIN_CORAL_FAN = "FLOWER.BRAIN_CORAL_FAN";
+        public static final String BUBBLE_CORAL_FAN = "FLOWER.BUBBLE_CORAL_FAN";
+        public static final String FIRE_CORAL_FAN = "FLOWER.FIRE_CORAL_FAN";
+        public static final String HORN_CORAL_FAN = "FLOWER.HORN_CORAL_FAN";
+        public static final String TUBE_CORAL_FAN = "FLOWER.TUBE_CORAL_FAN";
 
         public static final String WHEAT = "FLOWER.WHEAT";
         public static final String POTATO = "FLOWER.POTATO";
@@ -196,75 +193,6 @@ public final class Messages {
         public static final String NEWEST_VERSION = "ACTION.NEWEST_VERSION";
         public static final String DOWNLOAD_NEW_VERSION = "ACTION.DOWNLOAD_NEW_VERSION";
         public static final String FAILED_CHECK_VERSION = "ACTION.FAILED_CHECK_VERSION";
-    }
-
-    public static void LoadLanguageFile() {
-        YamlConfiguration language = null;
-
-        FLOWER.NETHER_BRICK_FENCE = language.getString("FLOWER.NETHER_BRICK_FENCE");
-        FLOWER.DARK_OAK_FENCE = language.getString("FLOWER.DARK_OAK_FENCE");
-        FLOWER.SPRUCE_FENCE = language.getString("FLOWER.SPRUCE_FENCE");
-        FLOWER.OAK_FENCE = language.getString("FLOWER.OAK_FENCE");
-        FLOWER.BIRCH_FENCE = language.getString("FLOWER.BIRCH_FENCE");
-        FLOWER.JUNGLE_FENCE = language.getString("FLOWER.JUNGLE_FENCE");
-        FLOWER.ACACIA_FENCE = language.getString("FLOWER.ACACIA_FENCE");
-        FLOWER.CRIMSON_FENCE = language.getString("FLOWER.CRIMSON_FENCE");
-        FLOWER.WARPED_FENCE = language.getString("FLOWER.WARPED_FENCE");
-        FLOWER.MANGROVE_FENCE = language.getString("FLOWER.MANGROVE_FENCE");
-        
-        FLOWER.DANDELION = language.getString("FLOWER.DANDELION");
-        FLOWER.POPPY = language.getString("FLOWER.POPPY");
-        FLOWER.BLUE_ORCHID = language.getString("FLOWER.BLUE_ORCHID");
-        FLOWER.ALLIUM = language.getString("FLOWER.ALLIUM");
-        FLOWER.AZURE_BLUET = language.getString("FLOWER.AZURE_BLUET");
-        FLOWER.RED_TULIP = language.getString("FLOWER.RED_TULIP");
-        FLOWER.ORANGE_TULIP = language.getString("FLOWER.ORANGE_TULIP");
-        FLOWER.WHITE_TULIP = language.getString("FLOWER.WHITE_TULIP");
-        FLOWER.PINK_TULIP = language.getString("FLOWER.PINK_TULIP");
-        FLOWER.OXEYE_DAISY = language.getString("FLOWER.OXEYE_DAISY");
-        FLOWER.CORNFLOWER = language.getString("FLOWER.CORNFLOWER");
-        FLOWER.LILY_OF_THE_VALLEY = language.getString("FLOWER.LILY_OF_THE_VALLEY");
-        FLOWER.WITHER_ROSE = language.getString("FLOWER.WITHER_ROSE");
-        FLOWER.BROWN_MUSHROOM = language.getString("FLOWER.BROWN_MUSHROOM");
-        FLOWER.RED_MUSHROOM = language.getString("FLOWER.RED_MUSHROOM");
-        FLOWER.CRIMSON_FUNGUS = language.getString("FLOWER.CRIMSON_FUNGUS");
-        FLOWER.WARPED_FUNGUS = language.getString("FLOWER.WARPED_FUNGUS");
-        FLOWER.FLOWER_POT = language.getString("FLOWER.FLOWER_POT");
-
-        FLOWER.OAK_LEAVES = language.getString("FLOWER.OAK_LEAVES");
-        FLOWER.SPRUCE_LEAVES = language.getString("FLOWER.SPRUCE_LEAVES");
-        FLOWER.BIRCH_LEAVES = language.getString("FLOWER.BIRCH_LEAVES");
-        FLOWER.JUNGLE_LEAVES = language.getString("FLOWER.JUNGLE_LEAVES");
-        FLOWER.ACACIA_LEAVES = language.getString("FLOWER.ACACIA_LEAVES");
-        FLOWER.DARK_OAK_LEAVES = language.getString("FLOWER.DARK_OAK_LEAVES");
-        FLOWER.LILY_PAD = language.getString("FLOWER.LILY_PAD");
-        FLOWER.VINE = language.getString("FLOWER.VINE");
-        FLOWER.CACTUS = language.getString("FLOWER.CACTUS");
-        FLOWER.MELON = language.getString("FLOWER.MELON");
-        FLOWER.PUMPKIN = language.getString("FLOWER.PUMPKIN");
-        FLOWER.SEAGRASS = language.getString("FLOWER.SEAGRASS");
-        FLOWER.SEA_PICKLE = language.getString("FLOWER.SEA_PICKLE");
-        FLOWER.KELP = language.getString("FLOWER.KELP");
-        FLOWER.BAMBOO = language.getString("FLOWER.BAMBOO");
-        FLOWER.END_ROD = language.getString("FLOWER.END_ROD");
-        FLOWER.SOUL_LANTERN = language.getString("FLOWER.SOUL_LANTERN");
-        FLOWER.LANTERN = language.getString("FLOWER.LANTERN");
-        FLOWER.COCOA_BEANS = language.getString("FLOWER.COCOA_BEANS");
-        FLOWER.CRIMSON_ROOTS = language.getString("FLOWER.CRIMSON_ROOTS");
-        FLOWER.WEEPING_VINES = language.getString("FLOWER.WEEPING_VINES");
-        FLOWER.WARPED_ROOTS = language.getString("FLOWER.WARPED_ROOTS");
-        FLOWER.NETHER_SPROUTS = language.getString("FLOWER.NETHER_SPROUTS");
-        FLOWER.TWISTING_VINES = language.getString("FLOWER.TWISTING_VINES");
-        FLOWER.BRAIN_CORAL = language.getString("FLOWER.BRAIN_CORAL");
-        FLOWER.BUBBLE_CORAL = language.getString("FLOWER.BUBBLE_CORAL");
-        FLOWER.FIRE_CORAL = language.getString("FLOWER.FIRE_CORAL");
-        FLOWER.HORN_CORAL = language.getString("FLOWER.HORN_CORAL");
-        FLOWER.TUBE_CORAL = language.getString("FLOWER.TUBE_CORAL");
-        FLOWER.BRAIN_CORAL_FAN = language.getString("FLOWER.BRAIN_CORAL_FAN");
-        FLOWER.BUBBLE_CORAL_FAN = language.getString("FLOWER.BUBBLE_CORAL_FAN");
-        FLOWER.FIRE_CORAL_FAN = language.getString("FLOWER.FIRE_CORAL_FAN");
-        FLOWER.HORN_CORAL_FAN = language.getString("FLOWER.HORN_CORAL_FAN");
-        FLOWER.TUBE_CORAL_FAN = language.getString("FLOWER.TUBE_CORAL_FAN");
     }
 
     public static final String getCommandVersion(Player player, String version, ChatColor color) {
