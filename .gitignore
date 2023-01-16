@@ -30,3 +30,4 @@ CraftFlowers.iml
 
 build/
 .gradle/
+bin/

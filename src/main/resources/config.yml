@@ -4,6 +4,18 @@ survivalMode: false
 prefix: "&2CraftFlowers &8» "
 arrow: "&8» "
 
+# The languages for the plugin to use
+language:
+  # The default language for all players that dont have a supported language
+  default: "en_us"
+
+  # The list of supported languages. Make sure that their name is equal to the name used in the mincraft client. See more: https://minecraft.fandom.com/wiki/Language
+  list: ["en_us", "de_de", "zh_tw"]
+
+  # To avoid copying the language files over and over again you can set aliases here so other languages use the strings of another.
+  mapping:
+    de_de: ["de_at"]
+
 # The Storage type for saved flowerpots
 storage:
   type: "sqlite"

@@ -1,6 +1,5 @@
 package cm.ptks.craftflowers.util.version;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class FlowersVersion {
