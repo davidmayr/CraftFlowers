@@ -162,6 +162,10 @@ public final class Messages {
         public static final String CARROT = "FLOWER.CARROT";
 
         public static final String AIR = "FLOWER.AIR";
+        
+        public static final String LIT_CANDLE = "FLOWER.CANDLE_LIT";
+        public static final String CANDLE = "FLOWER.CANDLE";
+
     }
 
     public final static class ITEM {
