@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "at.toastiii.craftflowers"
-version = "1.1.1"
+version = "1.2.0"
 
 repositories {
     maven(url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/"))
