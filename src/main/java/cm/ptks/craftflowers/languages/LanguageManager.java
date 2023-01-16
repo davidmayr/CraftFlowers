@@ -74,6 +74,15 @@ public class LanguageManager {
             }
             this.languages.add(lang);
         }
+        
+        for(String key : plugin.getConfig().getConfigurationSection("language.mapping").getKeys(false)) {
+            Language language = getLanguage(key);
+            if(language == null)
+                throw new IllegalStateException("Language not found " + key  + " to map to");
+            
+            language.addAliases(plugin.getConfig().getStringList("language.mapping." + key));
+        }
+
         if(defaultLanguage == null) {
             this.defaultLanguage = new Language(new HashMap<>(), defaultLanguage);
         }
@@ -89,6 +98,17 @@ public class LanguageManager {
         
         for(Language language : this.languages) {
             if(language.isLanguage(player.getLocale())) {
+                return language;
+            }
+        } 
+        return defaultLanguage;
+    }
+
+
+    public Language getLanguage(String locale) {
+    
+        for(Language language : this.languages) {
+            if(language.isLanguage(locale)) {
                 return language;
             }
         } 

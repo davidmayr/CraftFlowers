@@ -17,6 +17,10 @@ public class Language {
         this.locale = locale;
     }
 
+    public void addAliases(List<String> list) {
+        this.localeAliases.addAll(list);
+    }
+
     public boolean isLanguage(String locale) {
         return this.locale.contains(locale) || this.localeAliases.contains(locale);
     }
