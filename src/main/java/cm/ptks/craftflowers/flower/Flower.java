@@ -42,6 +42,11 @@ public class Flower {
 
             return new AgingFlower(guiMaterial, displayName, blockMaterial, age);
         }
+        if(jsonObject.has("lit")) {
+            boolean lit = jsonObject.get("lit").getAsBoolean();
+
+            return new CandleFlower(guiMaterial, displayName, lit);
+        }
         return new Flower(guiMaterial, displayName, blockMaterial);
     }
 

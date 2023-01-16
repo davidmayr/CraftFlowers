@@ -182,6 +182,28 @@ FLOWER:
 
   AIR: "§2Air Block"
 
+  CANDLE:
+    CANDLE: "§2Candle"
+    WHITE_CANDLE: "§2White Candle"
+    ORANGE_CANDLE: "§2Orange Candle"
+    MAGENTA_CANDLE: "§2Magenta Candle"
+    LIGHT_BLUE_CANDLE: "§2Light Blue Candle"
+    YELLOW_CANDLE: "§2Yellow Candle"
+    LIME_CANDLE: "§2Lime Candle"
+    PINK_CANDLE: "§2Pink Candle"
+    GRAY_CANDLE: "§2Gray Candle"
+    LIGHT_GRAY_CANDLE: "§2Light Gray Candle"
+    CYAN_CANDLE: "§2Cyan Candle"
+    PURPLE_CANDLE: "§2Purple Candle"
+    BLUE_CANDLE: "§2Blue Candle"
+    BROWN_CANDLE: "§2Brown Candle"
+    GREEN_CANDLE: "§2Green Candle"
+    RED_CANDLE: "§2Red Candle"
+    BLACK_CANDLE: "§2Black Candle"
+    LIT: " (Lit)"
+  CANDLE_GROUP: "§2Candle"
+  CANDLE_GROUP_LIT: "§2Lit Candle"
+
 # item name
 ITEM:
   FLOWER_POT: "§7Flowerpot"

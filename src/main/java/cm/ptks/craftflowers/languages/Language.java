@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.languages;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ public class Language {
     public Language(Map<String, String> keys, String locale) {
         this.keys = keys;
         this.locale = locale;
+        this.localeAliases = new ArrayList<>();
     }
 
     public void addAliases(List<String> list) {

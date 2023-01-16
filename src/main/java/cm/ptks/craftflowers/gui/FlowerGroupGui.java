@@ -4,6 +4,7 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerGroup;
 import cm.ptks.craftflowers.flower.FlowerPot;
+import cm.ptks.craftflowers.languages.I18n;
 import cm.ptks.craftflowers.languages.Messages;
 import cm.ptks.craftflowers.util.ItemBuilder;
 import fr.minuskube.inv.ClickableItem;
@@ -21,7 +22,7 @@ public class FlowerGroupGui implements InventoryProvider {
                 .size(6, 9)
                 .parent(parent)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + Messages.GUI.FLOWER_GROUP_TITLE_COLOR + flowerGroup.getDisplayName(player))
+                .title(CraftFlowers.arrow + I18n.translate(player, Messages.GUI.FLOWER_GROUP_TITLE_COLOR) + flowerGroup.getDisplayName(player))
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }

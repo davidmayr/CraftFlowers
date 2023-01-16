@@ -1,7 +1,7 @@
 # Survival Mode forces players in survival mode to have the items required for the flower in the inventory.
 survivalMode: false
 
-prefix: "&2CraftFlowers &8» "
+prefix: "&2CraftFlowers &8» &7"
 arrow: "&8» "
 
 # The languages for the plugin to use

@@ -163,8 +163,28 @@ public final class Messages {
 
         public static final String AIR = "FLOWER.AIR";
         
-        public static final String LIT_CANDLE = "FLOWER.CANDLE_LIT";
-        public static final String CANDLE = "FLOWER.CANDLE";
+        public static final String LIT_CANDLE = "FLOWER.CANDLE_GROUP_LIT";
+        public static final String CANDLE = "FLOWER.CANDLE_GROUP";
+
+        public static final String CANDLE_LIT_INDICATOR = "FLOWER.CANDLE.LIT";
+
+        public static final String CANDLE_CANDLE = "FLOWER.CANDLE.CANDLE";
+        public static final String CANDLE_WHITE_CANDLE = "FLOWER.CANDLE.WHITE_CANDLE";
+        public static final String CANDLE_ORANGE_CANDLE = "FLOWER.CANDLE.ORANGE_CANDLE";
+        public static final String CANDLE_MAGENTA_CANDLE = "FLOWER.CANDLE.MAGENTA_CANDLE";
+        public static final String CANDLE_LIGHT_BLUE_CANDLE = "FLOWER.CANDLE.LIGHT_BLUE_CANDLE";
+        public static final String CANDLE_YELLOW_CANDLE = "FLOWER.CANDLE.YELLOW_CANDLE";
+        public static final String CANDLE_LIME_CANDLE = "FLOWER.CANDLE.LIME_CANDLE";
+        public static final String CANDLE_PINK_CANDLE = "FLOWER.CANDLE.PINK_CANDLE";
+        public static final String CANDLE_GRAY_CANDLE = "FLOWER.CANDLE.GRAY_CANDLE";
+        public static final String CANDLE_LIGHT_GRAY_CANDLE = "FLOWER.CANDLE.LIGHT_GRAY_CANDLE";
+        public static final String CANDLE_CYAN_CANDLE = "FLOWER.CANDLE.CYAN_CANDLE";
+        public static final String CANDLE_PURPLE_CANDLE = "FLOWER.CANDLE.PURPLE_CANDLE";
+        public static final String CANDLE_BLUE_CANDLE = "FLOWER.CANDLE.BLUE_CANDLE";
+        public static final String CANDLE_BROWN_CANDLE = "FLOWER.CANDLE.BROWN_CANDLE";
+        public static final String CANDLE_GREEN_CANDLE = "FLOWER.CANDLE.GREEN_CANDLE";
+        public static final String CANDLE_RED_CANDLE = "FLOWER.CANDLE.RED_CANDLE";
+        public static final String CANDLE_BLACK_CANDLE = "FLOWER.CANDLE.BLACK_CANDLE";
 
     }
 
@@ -199,50 +219,50 @@ public final class Messages {
         public static final String FAILED_CHECK_VERSION = "ACTION.FAILED_CHECK_VERSION";
     }
 
-    public static final String getCommandVersion(Player player, String version, ChatColor color) {
+    public static String getCommandVersion(Player player, String version, ChatColor color) {
         return I18n.translate(player, COMMANDS.VERSION).replaceAll("<version>", color + version);
     }
 
-    public static final String getCommandAuthor(Player player, String authors) {
+    public static String getCommandAuthor(Player player, String authors) {
         return I18n.translate(player, COMMANDS.AUTHOR).replaceAll("<author>", authors);
     }
 
-    public static final String getCommandWebsite(Player player, String website) {
+    public static String getCommandWebsite(Player player, String website) {
         return I18n.translate(player, COMMANDS.WEBSITE).replaceAll("<website>", website);
     }
 
-    public static final String getCommandSuccessLoad(Player player, String args) {
+    public static String getCommandSuccessLoad(Player player, String args) {
         return I18n.translate(player, COMMANDS.SUCCESS_LOAD).replaceAll("<flower_pot_name>", args);
     }
 
-    public static final String getCommandCantDelete(Player player, String args) {
+    public static String getCommandCantDelete(Player player, String args) {
         return I18n.translate(player, COMMANDS.CANT_DELETE).replaceAll("<flower_pot_name>", args);
     }
 
-    public static final String getCommandSuccessDelete(Player player, String args) {
+    public static String getCommandSuccessDelete(Player player, String args) {
         return I18n.translate(player, COMMANDS.SUCCESS_DELETE).replaceAll("<flower_pot_name>", args);
     }
 
-    public static final String getFlowerInfoAge(Player player, int age) {
+    public static String getFlowerInfoAge(Player player, int age) {
         return I18n.translate(player, FLOWER_INFO.AGE).replaceAll("<age>", String.valueOf(age));
     }
 
-    public static final String getActionMissingFollowingItemsList(Player player, String arrow, String flower, Integer integer) {
+    public static String getActionMissingFollowingItemsList(Player player, String arrow, String flower, Integer integer) {
         return I18n.translate(player, ACTION.MISSING_FOLLOWING_ITEMS_LIST)
                 .replaceAll("%1", arrow)
                 .replaceAll("%2", flower)
                 .replaceAll("%3", String.valueOf(integer));
     }
 
-    public static final String getActionCurrentVersion(Player player, String version) {
+    public static String getActionCurrentVersion(Player player, String version) {
         return I18n.translate(player, ACTION.CURRENT_VERSION).replaceAll("<version>", version);
     }
 
-    public static final String getActionNewestVersion(Player player, String newVersion) {
+    public static String getActionNewestVersion(Player player, String newVersion) {
         return I18n.translate(player, ACTION.NEWEST_VERSION).replaceAll("<version>", newVersion);
     }
 
-    public static final String getActionDownloadNewVersion(Player player, String downloadLink) {
+    public static String getActionDownloadNewVersion(Player player, String downloadLink) {
         return I18n.translate(player, ACTION.DOWNLOAD_NEW_VERSION).replaceAll("<link>", downloadLink);
     }
 }

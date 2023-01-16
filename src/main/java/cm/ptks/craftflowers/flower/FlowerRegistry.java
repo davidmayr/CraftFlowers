@@ -73,6 +73,46 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.BIG_DRIPLEAF, Messages.FLOWER.BIG_DRIPLEAF_STEM, Material.BIG_DRIPLEAF_STEM));
             registerFlower(new Flower(Material.SMALL_DRIPLEAF, Messages.FLOWER.SMALL_DRIPLEAF));
             registerFlower(new Flower(Material.SPORE_BLOSSOM, Messages.FLOWER.SPORE_BLOSSOM));
+
+            registerFlower(new FlowerGroup(Material.CANDLE, Messages.FLOWER.CANDLE, List.of(
+                    new CandleFlower(Material.CANDLE, Messages.FLOWER.CANDLE_CANDLE, false),
+                    new CandleFlower(Material.WHITE_CANDLE, Messages.FLOWER.CANDLE_WHITE_CANDLE, false),
+                    new CandleFlower(Material.ORANGE_CANDLE, Messages.FLOWER.CANDLE_ORANGE_CANDLE, false),
+                    new CandleFlower(Material.MAGENTA_CANDLE, Messages.FLOWER.CANDLE_MAGENTA_CANDLE, false),
+                    new CandleFlower(Material.LIGHT_BLUE_CANDLE, Messages.FLOWER.CANDLE_LIGHT_BLUE_CANDLE, false),
+                    new CandleFlower(Material.YELLOW_CANDLE, Messages.FLOWER.CANDLE_YELLOW_CANDLE, false),
+                    new CandleFlower(Material.LIME_CANDLE, Messages.FLOWER.CANDLE_LIME_CANDLE, false),
+                    new CandleFlower(Material.PINK_CANDLE, Messages.FLOWER.CANDLE_PINK_CANDLE, false),
+                    new CandleFlower(Material.GRAY_CANDLE, Messages.FLOWER.CANDLE_GRAY_CANDLE, false),
+                    new CandleFlower(Material.LIGHT_GRAY_CANDLE, Messages.FLOWER.CANDLE_LIGHT_GRAY_CANDLE, false),
+                    new CandleFlower(Material.CYAN_CANDLE, Messages.FLOWER.CANDLE_CYAN_CANDLE, false),
+                    new CandleFlower(Material.PURPLE_CANDLE, Messages.FLOWER.CANDLE_PURPLE_CANDLE, false),
+                    new CandleFlower(Material.BLUE_CANDLE, Messages.FLOWER.CANDLE_BLUE_CANDLE, false),
+                    new CandleFlower(Material.BROWN_CANDLE, Messages.FLOWER.CANDLE_BROWN_CANDLE, false),
+                    new CandleFlower(Material.GREEN_CANDLE, Messages.FLOWER.CANDLE_GREEN_CANDLE, false),
+                    new CandleFlower(Material.RED_CANDLE, Messages.FLOWER.CANDLE_RED_CANDLE, false),
+                    new CandleFlower(Material.BLACK_CANDLE, Messages.FLOWER.CANDLE_BLACK_CANDLE, false)
+            )));
+
+            registerFlower(new FlowerGroup(Material.CANDLE, Messages.FLOWER.LIT_CANDLE, List.of(
+                    new CandleFlower(Material.CANDLE, Messages.FLOWER.CANDLE_CANDLE, true),
+                    new CandleFlower(Material.WHITE_CANDLE, Messages.FLOWER.CANDLE_WHITE_CANDLE, true),
+                    new CandleFlower(Material.ORANGE_CANDLE, Messages.FLOWER.CANDLE_ORANGE_CANDLE, true),
+                    new CandleFlower(Material.MAGENTA_CANDLE, Messages.FLOWER.CANDLE_MAGENTA_CANDLE, true),
+                    new CandleFlower(Material.LIGHT_BLUE_CANDLE, Messages.FLOWER.CANDLE_LIGHT_BLUE_CANDLE, true),
+                    new CandleFlower(Material.YELLOW_CANDLE, Messages.FLOWER.CANDLE_YELLOW_CANDLE, true),
+                    new CandleFlower(Material.LIME_CANDLE, Messages.FLOWER.CANDLE_LIME_CANDLE, true),
+                    new CandleFlower(Material.PINK_CANDLE, Messages.FLOWER.CANDLE_PINK_CANDLE, true),
+                    new CandleFlower(Material.GRAY_CANDLE, Messages.FLOWER.CANDLE_GRAY_CANDLE, true),
+                    new CandleFlower(Material.LIGHT_GRAY_CANDLE, Messages.FLOWER.CANDLE_LIGHT_GRAY_CANDLE, true),
+                    new CandleFlower(Material.CYAN_CANDLE, Messages.FLOWER.CANDLE_CYAN_CANDLE, true),
+                    new CandleFlower(Material.PURPLE_CANDLE, Messages.FLOWER.CANDLE_PURPLE_CANDLE, true),
+                    new CandleFlower(Material.BLUE_CANDLE, Messages.FLOWER.CANDLE_BLUE_CANDLE, true),
+                    new CandleFlower(Material.BROWN_CANDLE, Messages.FLOWER.CANDLE_BROWN_CANDLE, true),
+                    new CandleFlower(Material.GREEN_CANDLE, Messages.FLOWER.CANDLE_GREEN_CANDLE, true),
+                    new CandleFlower(Material.RED_CANDLE, Messages.FLOWER.CANDLE_RED_CANDLE, true),
+                    new CandleFlower(Material.BLACK_CANDLE, Messages.FLOWER.CANDLE_BLACK_CANDLE, true)
+            )));
         }
 
         if (isValidMaterial("MANGROVE_LEAVES" /* 1.19*/)) {

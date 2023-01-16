@@ -3,6 +3,7 @@ package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.AgingFlower;
+import cm.ptks.craftflowers.flower.CandleFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.languages.I18n;
@@ -111,6 +112,10 @@ public class BlockPlaceListener implements Listener {
                     if (flower instanceof AgingFlower) {
                         Property<Integer> ageProp = block.getBlockType().getProperty("age");
                         block = block.with(ageProp, ((AgingFlower) flower).getAge());
+                    }
+                    if (flower instanceof CandleFlower) {
+                        Property<Boolean> ageProp = block.getBlockType().getProperty("lit");
+                        block = block.with(ageProp, ((CandleFlower) flower).isLit());
                     }
 
                     editSession.setBlock(currentLocation.getBlockX(), currentLocation.getBlockY(), currentLocation.getBlockZ(), block);

@@ -182,6 +182,27 @@ FLOWER:
 
   AIR: "§2Luft Block"
 
+  CANDLE.CANDLE: "§2Kerze"
+  WHITE_CANDLE: "§2Weiße Kerze"
+  ORANGE_CANDLE: "§2Orange Kerze"
+  MAGENTA_CANDLE: "§2Magenta Kerze"
+  LIGHT_BLUE_CANDLE: "§2Hellblaue Kerze"
+  YELLOW_CANDLE: "§2Gelbe Kerze"
+  LIME_CANDLE: "§2Hellgrüne Kerze"
+  PINK_CANDLE: "§2Rosa Kerze"
+  GRAY_CANDLE: "§2Graue Kerze"
+  LIGHT_GRAY_CANDLE: "§2Hellgraue Kerze"
+  CYAN_CANDLE: "§2Türkise Kerze"
+  PURPLE_CANDLE: "§2Lila Kerze"
+  BLUE_CANDLE: "§2Blaue Kerze"
+  BROWN_CANDLE: "§2Braune Kerze"
+  GREEN_CANDLE: "§2Grüne Kerze"
+  RED_CANDLE: "§2Rote Kerze"
+  BLACK_CANDLE: "§2Schwarze Kerze"
+  CANDLE_LIT_INDICATOR: " (Angezündet)"
+  CANDLE_GROUP: "Kerze"
+  CANDLE_GROUP_LIT: "Angezündete Kerze"
+
 # item name
 ITEM:
   FLOWER_POT: "§7Blumentopf"
