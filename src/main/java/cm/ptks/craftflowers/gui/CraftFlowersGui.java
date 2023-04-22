@@ -58,11 +58,6 @@ public class CraftFlowersGui implements InventoryProvider {
                             ((FlowerGroup) flower), flowerPot);
                     return;
                 }
-                if (flower instanceof BambooFlower) {
-                    BambooAgeGui.openGui(player, contents.inventory(), contents.pagination().getPage(),
-                        (BambooFlower) flower, flowerPot);
-                    return;
-                }
                 flowerPot.addFlower(player, flower);
                 fillPotRow(player, flowerPot, contents);
                 player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);

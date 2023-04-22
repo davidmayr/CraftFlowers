@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.flower;
 
+import cm.ptks.craftflowers.languages.Messages;
 import com.google.gson.JsonObject;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
@@ -30,17 +31,7 @@ public class BambooFlower extends AgingFlower {
 
     @Override
     public String getDisplayName(Player player) {
-        //TODO: leave type
-        return super.getDisplayName(player);
-    }
-
-    public BambooFlower cloneWithLeaveType(Bamboo.Leaves type) {
-        return new BambooFlower(material, displayName, blockMaterial, age, type);
-    
-    }
-
-    public BambooFlower cloneWithAge(int age) {
-        return new BambooFlower(material, displayName, blockMaterial, age, this.leaveType);
+        return super.getDisplayName(player) + " " + Messages.getFlowerInfoBambooLeaves(player, leaveType);
     }
 
 

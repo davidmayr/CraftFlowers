@@ -136,7 +136,15 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.SEAGRASS, Messages.FLOWER.SEAGRASS));
         registerFlower(new Flower(Material.SEA_PICKLE, Messages.FLOWER.SEA_PICKLE));
         registerFlower(new Flower(Material.KELP, Messages.FLOWER.KELP));
-        registerFlower(new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 0, Bamboo.Leaves.NONE));
+        registerFlower(new FlowerGroup(Material.BAMBOO, Messages.FLOWER.BAMBOO, Arrays.asList(
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 0, Bamboo.Leaves.NONE),
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 1, Bamboo.Leaves.NONE),
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 0, Bamboo.Leaves.SMALL),
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 1, Bamboo.Leaves.SMALL),
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 0, Bamboo.Leaves.LARGE),
+                new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 1, Bamboo.Leaves.LARGE)
+
+        )));
         registerFlower(new Flower(Material.END_ROD, Messages.FLOWER.END_ROD));
         registerFlower(new Flower(Material.SOUL_LANTERN, Messages.FLOWER.SOUL_LANTERN));
         registerFlower(new Flower(Material.LANTERN, Messages.FLOWER.LANTERN));
