@@ -42,17 +42,17 @@ public class Flower {
         String displayName = jsonObject.get("displayName").getAsString();
         Material blockMaterial = Material.valueOf(jsonObject.get("blockMaterial").getAsString());
 
+        if(guiMaterial == Material.BAMBOO || guiMaterial == Material.BAMBOO_SAPLING) {
+            int age = jsonObject.has("age") ? jsonObject.get("age").getAsInt() : 0;
+            Bamboo.Leaves leaves = jsonObject.has("leaveType") ? Bamboo.Leaves
+                    .valueOf(jsonObject.get("leaveType").getAsString()) : Bamboo.Leaves.NONE;
+
+            return new BambooFlower(guiMaterial, displayName, blockMaterial, age, leaves);
+        }
         if(jsonObject.has("age")) {
             int age = jsonObject.get("age").getAsInt();
 
             return new AgingFlower(guiMaterial, displayName, blockMaterial, age);
-        }
-        if(guiMaterial == Material.BAMBOO || guiMaterial == Material.BAMBOO_SAPLING) {
-            int age = jsonObject.has("age") ? jsonObject.get("age").getAsInt() : 0;
-            Bamboo.Leaves leaves = jsonObject.has("leaveType") ? Bamboo.Leaves
-                .valueOf(jsonObject.get("leaveType").getAsString()) : Bamboo.Leaves.NONE;
-
-            return new BambooFlower(guiMaterial, displayName, blockMaterial, age, leaves);
         }
         if(jsonObject.has("lit")) {
             boolean lit = jsonObject.get("lit").getAsBoolean();
