@@ -3,6 +3,7 @@ package cm.ptks.craftflowers.flower;
 import com.google.gson.JsonObject;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
+import org.bukkit.entity.Player;
 
 public class BambooFlower extends AgingFlower {
 
@@ -28,9 +29,9 @@ public class BambooFlower extends AgingFlower {
 
 
     @Override
-    public String getDisplayName() {
+    public String getDisplayName(Player player) {
         //TODO: leave type
-        return super.getDisplayName();
+        return super.getDisplayName(player);
     }
 
     public BambooFlower cloneWithLeaveType(Bamboo.Leaves type) {

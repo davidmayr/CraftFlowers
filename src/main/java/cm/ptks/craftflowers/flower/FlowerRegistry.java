@@ -1,6 +1,5 @@
 package cm.ptks.craftflowers.flower;
 
-import cm.ptks.craftflowers.languages.LanguageFile;
 import cm.ptks.craftflowers.languages.Messages;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
@@ -137,7 +136,7 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.SEAGRASS, Messages.FLOWER.SEAGRASS));
         registerFlower(new Flower(Material.SEA_PICKLE, Messages.FLOWER.SEA_PICKLE));
         registerFlower(new Flower(Material.KELP, Messages.FLOWER.KELP));
-        registerFlower(new BambooFlower(Material.BAMBOO, LanguageFile.FLOWER.BAMBOO, 0, Bamboo.Leaves.NONE));
+        registerFlower(new BambooFlower(Material.BAMBOO, Messages.FLOWER.BAMBOO, 0, Bamboo.Leaves.NONE));
         registerFlower(new Flower(Material.END_ROD, Messages.FLOWER.END_ROD));
         registerFlower(new Flower(Material.SOUL_LANTERN, Messages.FLOWER.SOUL_LANTERN));
         registerFlower(new Flower(Material.LANTERN, Messages.FLOWER.LANTERN));
