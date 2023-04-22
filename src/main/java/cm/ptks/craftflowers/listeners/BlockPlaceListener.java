@@ -89,6 +89,7 @@ public class BlockPlaceListener implements Listener {
             final BukkitPlayer bukkitPlayer = BukkitAdapter.adapt(player);
             final EditSession editSession = WorldEdit.getInstance().newEditSessionBuilder()
                     .world(world)
+                    .limitUnlimited()
                     .actor(bukkitPlayer).build();
 
             bukkitPlayer.queueAction(() -> {
@@ -109,6 +110,7 @@ public class BlockPlaceListener implements Listener {
 
                     block = flower.applyToBlock(block, block.getBlockType());
 
+                    editSession.resetLimit();
                     editSession.setBlock(currentLocation.getBlockX(), currentLocation.getBlockY(), currentLocation.getBlockZ(), block);
 
                     currentLocation.add(0.0D, 1.0D, 0.0D);
