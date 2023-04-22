@@ -1,7 +1,8 @@
 package cm.ptks.craftflowers.gui;
 
 import cm.ptks.craftflowers.CraftFlowers;
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.I18n;
+import cm.ptks.craftflowers.languages.Messages;
 import cm.ptks.craftflowers.storage.SavedFlowerPot;
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
@@ -28,7 +29,7 @@ public class SavedFlowerListGui implements InventoryProvider {
                 .provider(new SavedFlowerListGui(pots))
                 .size(6, 9)
                 .manager(CraftFlowers.getInventoryManager())
-                .title(CraftFlowers.arrow + LanguageFile.GUI.SAVED_FLOWERPOTS)
+                .title(CraftFlowers.arrow + I18n.translate(player, Messages.GUI.SAVED_FLOWERPOTS))
                 .build().open(player);
         player.playSound(player.getLocation(), Sound.BLOCK_BARREL_OPEN, 1, 1);
     }
@@ -45,7 +46,7 @@ public class SavedFlowerListGui implements InventoryProvider {
             ItemStack itemStack = savedFlowerPot.getFlowerPot().createItemStack();
 
             ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(CraftFlowers.prefix + LanguageFile.GUI.SAVED_FLOWERPOTS_NAME_COLOR + savedFlowerPot.getName());
+            itemMeta.setDisplayName(CraftFlowers.prefix + I18n.translate(player, Messages.GUI.SAVED_FLOWERPOTS_NAME_COLOR) + savedFlowerPot.getName());
             itemStack.setItemMeta(itemMeta);
 
             items[i] = ClickableItem.of(itemStack,
@@ -60,12 +61,12 @@ public class SavedFlowerListGui implements InventoryProvider {
             contents.add(pageItem);
         }
 
-        contents.set(5, 1, ClickableItem.of(GuiConstants.PREV, event -> {
+        contents.set(5, 1, ClickableItem.of(GuiConstants.getPrev(player), event -> {
             contents.inventory().open(player, contents.pagination().previous().getPage());
             player.playSound(player.getLocation(), Sound.BLOCK_LAVA_POP, 1, 1);
         }));
 
-        contents.set(5, 7, ClickableItem.of(GuiConstants.NEXT, event -> {
+        contents.set(5, 7, ClickableItem.of(GuiConstants.getNext(player), event -> {
             contents.inventory().open(player, contents.pagination().next().getPage());
             player.playSound(player.getLocation(), Sound.BLOCK_LAVA_POP, 1, 1);
         }));

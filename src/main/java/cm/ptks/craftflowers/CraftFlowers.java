@@ -1,7 +1,8 @@
 package cm.ptks.craftflowers;
 
 import cm.ptks.craftflowers.commands.CraftFlowersCommand;
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.LanguageManager;
+import cm.ptks.craftflowers.languages.Messages;
 import cm.ptks.craftflowers.listeners.BlockPlaceListener;
 import cm.ptks.craftflowers.listeners.LeftClickListener;
 import cm.ptks.craftflowers.listeners.PlayerJoinListener;
@@ -12,9 +13,13 @@ import fr.minuskube.inv.InventoryManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,14 +38,20 @@ public class CraftFlowers extends JavaPlugin {
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private FlowerStorage flowerStorage;
+    private LanguageManager languageManager;
 
     @Override
     public void onEnable() {
         instance = this;
-        LanguageFile.LoadLanguageFile();
 
         CraftFlowers.inventoryManager = new InventoryManager(this);
         inventoryManager.init();
+        
+        getConfig().setDefaults(YamlConfiguration
+                .loadConfiguration(new InputStreamReader(Objects.requireNonNull(getResource("config.yml")), StandardCharsets.UTF_8)));
+        getConfig().options().copyDefaults(true);
+
+        saveConfig();
         saveDefaultConfig();
 
         CraftFlowers.prefix = ChatColor.translateAlternateColorCodes('&',
@@ -52,6 +63,7 @@ public class CraftFlowers extends JavaPlugin {
             this.flowerStorage = new SqLiteStorage(new File(getDataFolder(), "database.db"));
         }
 
+        this.languageManager = new LanguageManager(this);
         this.versionChecker = new UpdateChecker(this);
 
 
@@ -84,6 +96,12 @@ public class CraftFlowers extends JavaPlugin {
     public void onDisable() {
         this.executorService.shutdown();
         this.flowerStorage.close();
+    }
+
+    
+
+    public LanguageManager getLanguageManager() {
+        return languageManager;
     }
 
     public static InventoryManager getInventoryManager() {

@@ -1,6 +1,8 @@
 package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.CraftFlowers;
+import cm.ptks.craftflowers.languages.I18n;
+
 import com.google.gson.JsonObject;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.block.BaseBlock;
@@ -8,6 +10,7 @@ import com.sk89q.worldedit.world.block.BlockType;
 
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
+import org.bukkit.entity.Player;
 
 public class Flower {
 
@@ -51,6 +54,11 @@ public class Flower {
 
             return new BambooFlower(guiMaterial, displayName, blockMaterial, age, leaves);
         }
+        if(jsonObject.has("lit")) {
+            boolean lit = jsonObject.get("lit").getAsBoolean();
+
+            return new CandleFlower(guiMaterial, displayName, lit);
+        }
         return new Flower(guiMaterial, displayName, blockMaterial);
     }
 
@@ -78,8 +86,8 @@ public class Flower {
         return material;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getDisplayName(Player player) {
+        return I18n.translate(player, getRawDisplayName());
     }
 
     public String getRawDisplayName() {

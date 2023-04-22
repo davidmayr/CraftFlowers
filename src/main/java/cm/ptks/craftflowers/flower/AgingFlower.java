@@ -1,12 +1,13 @@
 package cm.ptks.craftflowers.flower;
 
-import cm.ptks.craftflowers.languages.LanguageFile;
+import cm.ptks.craftflowers.languages.Messages;
 import com.google.gson.JsonObject;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 
 public class AgingFlower extends Flower {
 
@@ -32,8 +33,8 @@ public class AgingFlower extends Flower {
     }
 
     @Override
-    public String getDisplayName() {
-        return super.getDisplayName() + LanguageFile.getFlowerInfoAge(age);
+    public String getDisplayName(Player player) {
+        return super.getDisplayName(player) + Messages.getFlowerInfoAge(player, age);
     }
 
     @Override

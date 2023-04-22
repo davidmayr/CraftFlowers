@@ -1,10 +1,11 @@
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("xyz.jpenilla.run-paper") version "2.0.0"
 }
 
 group = "at.toastiii.craftflowers"
-version = "1.1.1"
+version = "1.2.0"
 
 repositories {
     maven(url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/"))
@@ -44,5 +45,11 @@ tasks {
     }
     processResources {
         filteringCharset = Charsets.UTF_8.name()
+    }
+}
+
+tasks {
+    runServer {
+        minecraftVersion("1.19.4")
     }
 }
