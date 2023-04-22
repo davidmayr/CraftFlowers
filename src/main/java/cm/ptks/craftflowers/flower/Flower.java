@@ -4,7 +4,12 @@ import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.languages.I18n;
 
 import com.google.gson.JsonObject;
+import com.sk89q.worldedit.registry.state.Property;
+import com.sk89q.worldedit.world.block.BaseBlock;
+import com.sk89q.worldedit.world.block.BlockType;
+
 import org.bukkit.Material;
+import org.bukkit.block.data.type.Bamboo;
 import org.bukkit.entity.Player;
 
 public class Flower {
@@ -12,13 +17,13 @@ public class Flower {
     /**
      * The material required in the inventory when {@link CraftFlowers#isSurvivalMode()} is true and displayed in the gui
      */
-    private final Material material;
-    private final String displayName;
+    protected final Material material;
+    protected final String displayName;
 
     /**
      * The actual block that gets placed.
      */
-    private final Material blockMaterial;
+    protected final Material blockMaterial;
 
     public Flower(Material material, String displayName, Material blockMaterial) {
         this.material = material;
@@ -42,12 +47,27 @@ public class Flower {
 
             return new AgingFlower(guiMaterial, displayName, blockMaterial, age);
         }
+        if(guiMaterial == Material.BAMBOO || guiMaterial == Material.BAMBOO_SAPLING) {
+            int age = jsonObject.has("age") ? jsonObject.get("age").getAsInt() : 0;
+            Bamboo.Leaves leaves = jsonObject.has("leaveType") ? Bamboo.Leaves
+                .valueOf(jsonObject.get("leaveType").getAsString()) : Bamboo.Leaves.NONE;
+
+            return new BambooFlower(guiMaterial, displayName, blockMaterial, age, leaves);
+        }
         if(jsonObject.has("lit")) {
             boolean lit = jsonObject.get("lit").getAsBoolean();
 
             return new CandleFlower(guiMaterial, displayName, lit);
         }
         return new Flower(guiMaterial, displayName, blockMaterial);
+    }
+
+    public BaseBlock applyToBlock(BaseBlock block, BlockType type) {
+        Property<Boolean> waterLogged = type.getProperty("waterlogged");
+        if(waterLogged != null)
+            block = block.with(waterLogged, false);
+
+        return block;
     }
 
     public JsonObject serialize() {

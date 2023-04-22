@@ -45,6 +45,7 @@ COMMANDS:
 
 FLOWER_INFO:
   AGE: "§8(§7Age <age>§8)"
+  BAMBOO_LEAVES: "§8(§7Leaves <leaves>§8)"
   LIMIT_REACHED: "§cYou can't add more than 9 Flowers!"
 
 # flowers name

@@ -3,7 +3,6 @@ package cm.ptks.craftflowers.listeners;
 
 import cm.ptks.craftflowers.CraftFlowers;
 import cm.ptks.craftflowers.flower.AgingFlower;
-import cm.ptks.craftflowers.flower.CandleFlower;
 import cm.ptks.craftflowers.flower.Flower;
 import cm.ptks.craftflowers.flower.FlowerPot;
 import cm.ptks.craftflowers.languages.I18n;
@@ -14,7 +13,6 @@ import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.bukkit.BukkitPlayer;
-import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
@@ -101,22 +99,15 @@ public class BlockPlaceListener implements Listener {
                             && (!currentLocation.getBlock().getType().equals(Material.AIR)
                             && !currentLocation.getBlock().getType().equals(Material.WATER)))
                         continue;
-                    BlockType blockType = BlockTypes.parse(flower.getBlockMaterial().name());
-                    BaseBlock block = new BaseBlock(Objects.requireNonNull(blockType).getDefaultState());
+                    String key = flower.getBlockMaterial().getKey().toString();
+                    BlockType blockType = BlockTypes.parse(key);
+                    if(blockType == null) {
+                        plugin.getLogger().severe("Failed to find worldedit blocktype of key: " + key);
+                        continue;
+                    }
+                    BaseBlock block = new BaseBlock(blockType.getDefaultState());
 
-                    Property<Boolean> prop = block.getBlockType().getProperty("waterlogged");
-                    if (prop != null) {
-                        block = block.with(prop, false);
-                    }
-
-                    if (flower instanceof AgingFlower) {
-                        Property<Integer> ageProp = block.getBlockType().getProperty("age");
-                        block = block.with(ageProp, ((AgingFlower) flower).getAge());
-                    }
-                    if (flower instanceof CandleFlower) {
-                        Property<Boolean> ageProp = block.getBlockType().getProperty("lit");
-                        block = block.with(ageProp, ((CandleFlower) flower).isLit());
-                    }
+                    block = flower.applyToBlock(block, block.getBlockType());
 
                     editSession.setBlock(currentLocation.getBlockX(), currentLocation.getBlockY(), currentLocation.getBlockZ(), block);
 

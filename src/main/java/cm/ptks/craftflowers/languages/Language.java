@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cm.ptks.craftflowers.CraftFlowers;
 import com.fastasyncworldedit.core.configuration.file.YamlConfiguration;
 
 public class Language {
@@ -42,6 +43,9 @@ public class Language {
     public String translate(String key) {
         if(keys.containsKey(key))
             return keys.get(key);
+        if(CraftFlowers.getInstance().getLanguageManager().getDefaultLanguage() != this) {
+            return CraftFlowers.getInstance().getLanguageManager().getDefaultLanguage().translate(key);
+        }
         return key;
     }
 

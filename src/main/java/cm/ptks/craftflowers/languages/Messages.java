@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.languages;
 
+import org.bukkit.block.data.type.Bamboo;
 import org.bukkit.entity.Player;
 
 import net.md_5.bungee.api.ChatColor;
@@ -53,6 +54,7 @@ public final class Messages {
     public final static class FLOWER_INFO {
 
         public static final String AGE = "FLOWER_INFO.AGE";
+        public static final String BAMBOO_LEAVES = "FLOWER_INFO.BAMBOO_LEAVES";
         public static final String LIMIT_REACHED = "FLOWER_INFO.LIMIT_REACHED";
 
     }
@@ -246,6 +248,11 @@ public final class Messages {
     public static String getFlowerInfoAge(Player player, int age) {
         return I18n.translate(player, FLOWER_INFO.AGE).replaceAll("<age>", String.valueOf(age));
     }
+
+    public static String getFlowerInfoBambooLeaves(Player player, Bamboo.Leaves leaves) {
+        return I18n.translate(player, FLOWER_INFO.BAMBOO_LEAVES).replaceAll("<leaves>", String.valueOf(leaves.name()));
+    }
+
 
     public static String getActionMissingFollowingItemsList(Player player, String arrow, String flower, Integer integer) {
         return I18n.translate(player, ACTION.MISSING_FOLLOWING_ITEMS_LIST)
