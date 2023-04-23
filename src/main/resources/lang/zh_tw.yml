@@ -45,6 +45,7 @@ COMMANDS:
 
 FLOWER_INFO:
   AGE: "§8(§7Age <age>§8)"
+  BAMBOO_LEAVES: "§8(§7葉子 <leaves>§8)"
   LIMIT_REACHED: "§c您不能添加超過 9 朵花!"
 
 # flowers name
@@ -184,6 +185,28 @@ FLOWER:
     CARROT_7: "§2胡蘿蔔"
 
   AIR: "§2空氣方塊"
+  
+  CANDLE:
+    CANDLE: "§2蠟燭"
+    WHITE_CANDLE: "§2白色蠟燭"
+    ORANGE_CANDLE: "§2橙色蠟燭"
+    MAGENTA_CANDLE: "§2洋紅色蠟燭"
+    LIGHT_BLUE_CANDLE: "§2淺藍色蠟燭"
+    YELLOW_CANDLE: "§2黃色蠟燭"
+    LIME_CANDLE: "§2淺綠色蠟燭"
+    PINK_CANDLE: "§2粉紅色蠟燭"
+    GRAY_CANDLE: "§2灰色蠟燭"
+    LIGHT_GRAY_CANDLE: "§2淺灰色蠟燭"
+    CYAN_CANDLE: "§2青色蠟燭"
+    PURPLE_CANDLE: "§2紫色蠟燭"
+    BLUE_CANDLE: "§2藍色蠟燭"
+    BROWN_CANDLE: "§2棕色蠟燭"
+    GREEN_CANDLE: "§2綠色蠟燭"
+    RED_CANDLE: "§2紅色蠟燭"
+    BLACK_CANDLE: "§2黑色蠟燭"
+    LIT: " (點燃)"
+  CANDLE_GROUP: "§2蠟燭"
+  CANDLE_GROUP_LIT: "§2點燃的蠟燭"
 
 # item name
 ITEM:
