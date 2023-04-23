@@ -45,6 +45,7 @@ COMMANDS:
 
 FLOWER_INFO:
   AGE: "§8(§7Age <age>§8)"
+  BAMBOO_LEAVES: "§8(§7葉子 <leaves>§8)"
   LIMIT_REACHED: "§c您不能添加超過 9 朵花!"
 
 # flowers name
