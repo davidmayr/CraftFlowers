@@ -5,47 +5,47 @@ import com.google.gson.JsonObject;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
-
 import org.bukkit.Material;
+import org.bukkit.block.data.Bisected;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
-public class AgingFlower extends Flower {
+public class BisectedFlower extends Flower {
 
-    protected final int age;
+    protected final Bisected.Half half;
 
-    public AgingFlower(Material guiMaterial, String displayName, Material blockMaterial, int age) {
+    public BisectedFlower(Material guiMaterial, String displayName, Material blockMaterial, Bisected.Half half) {
         super(guiMaterial, displayName, blockMaterial);
-        this.age = age;
+        this.half = half;
     }
 
-    public AgingFlower(Material material, String displayName, int age) {
+    public BisectedFlower(Material material, String displayName, Bisected.Half half) {
         super(material, displayName);
-        this.age = age;
+        this.half = half;
     }
 
     @Override
     public BaseBlock applyToBlock(BaseBlock block, BlockType type) {
-        Property<Integer> ageProp = type.getProperty("age");
-        if(ageProp != null)
-            block = block.with(ageProp, age);
+        Property<String> halfProperty = type.getProperty("half");
+        if(halfProperty != null)
+            block = block.with(halfProperty, half == Bisected.Half.BOTTOM ? "lower" : "upper");
 
         return super.applyToBlock(block, type);
     }
 
     @Override
     public String getDisplayName(@Nullable Player player) {
-        return super.getDisplayName(player) + Messages.getFlowerInfoAge(player, age);
+        return super.getDisplayName(player) + Messages.getFlowerInfoBisected(player, half);
     }
 
     @Override
     public JsonObject serialize() {
         JsonObject serialize = super.serialize();
-        serialize.addProperty("age", age);
+        serialize.addProperty("half", this.half.name());
         return serialize;
     }
 
-    public int getAge() {
-        return age;
+    public Bisected.Half getHalf() {
+        return half;
     }
 }

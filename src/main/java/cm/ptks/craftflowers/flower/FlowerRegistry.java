@@ -2,6 +2,7 @@ package cm.ptks.craftflowers.flower;
 
 import cm.ptks.craftflowers.languages.Messages;
 import org.bukkit.Material;
+import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.type.Bamboo;
 
 import java.util.ArrayList;
@@ -26,6 +27,11 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.JUNGLE_SAPLING, Messages.FLOWER.JUNGLE_SAPLING));
         registerFlower(new Flower(Material.ACACIA_SAPLING, Messages.FLOWER.ACACIA_SAPLING));
         registerFlower(new Flower(Material.DARK_OAK_SAPLING, Messages.FLOWER.DARK_OAK_SAPLING));
+
+        if (isValidMaterial("CHERRY_SAPLING") /* 1.20+ */) {
+            registerFlower(new Flower(Material.CHERRY_SAPLING, Messages.FLOWER.CHERRY_SAPLING));
+        }
+
         registerFlower(new Flower(Material.DEAD_BUSH, Messages.FLOWER.DEAD_BUSH));
         registerFlower(new Flower(Material.GRASS, Messages.FLOWER.GRASS));
         registerFlower(new Flower(Material.FERN, Messages.FLOWER.FERN));
@@ -42,6 +48,11 @@ public class FlowerRegistry {
 
         if (isValidMaterial("MANGROVE_FENCE") /* 1.19+ */) {
             registerFlower(new Flower(Material.MANGROVE_FENCE, Messages.FLOWER.MANGROVE_FENCE));
+        }
+
+        if (isValidMaterial("CHERRY_FENCE") /* 1.20+ */) {
+            registerFlower(new Flower(Material.CHERRY_FENCE, Messages.FLOWER.CHERRY_FENCE));
+            registerFlower(new Flower(Material.BAMBOO_FENCE, Messages.FLOWER.BAMBOO_FENCE));
         }
 
         registerFlower(new Flower(Material.DANDELION, Messages.FLOWER.DANDELION));
@@ -61,19 +72,67 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.RED_MUSHROOM, Messages.FLOWER.RED_MUSHROOM));
         registerFlower(new Flower(Material.CRIMSON_FUNGUS, Messages.FLOWER.CRIMSON_FUNGUS));
         registerFlower(new Flower(Material.WARPED_FUNGUS, Messages.FLOWER.WARPED_FUNGUS));
+
+        if (isValidMaterial("TORCHFLOWER") /* 1.20+ */) {
+            registerFlower(new Flower(Material.TORCHFLOWER, Messages.FLOWER.TORCHFLOWER));
+            registerFlower(new FlowerGroup(Material.TORCHFLOWER_SEEDS, Messages.FLOWER.TORCHFLOWER_SEEDS, Arrays.asList(
+                    new AgingFlower(Material.TORCHFLOWER_SEEDS, Messages.FLOWER.TORCHFLOWER_SEEDS, Material.TORCHFLOWER_CROP, 0),
+                    new AgingFlower(Material.TORCHFLOWER_SEEDS, Messages.FLOWER.TORCHFLOWER_SEEDS, Material.TORCHFLOWER_CROP, 1)
+            )));
+
+            registerFlower(new FlowerGroup(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Arrays.asList(
+                    new AgingFlower(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Material.PITCHER_CROP, 0),
+                    new AgingFlower(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Material.PITCHER_CROP, 1),
+                    new AgingFlower(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Material.PITCHER_CROP, 2),
+                    new AgingFlower(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Material.PITCHER_CROP, 3),
+                    new AgingFlower(Material.PITCHER_POD, Messages.FLOWER.PITCHER_POD, Material.PITCHER_CROP, 4)
+            )));
+
+
+            registerFlower(new FlowerGroup(Material.PITCHER_PLANT, Messages.FLOWER.PITCHER_PLANT, Arrays.asList(
+                    new BisectedFlower(Material.PITCHER_PLANT, Messages.FLOWER.PITCHER_PLANT, Material.PITCHER_PLANT, Bisected.Half.TOP),
+                    new BisectedFlower(Material.PITCHER_PLANT, Messages.FLOWER.PITCHER_PLANT, Material.PITCHER_PLANT, Bisected.Half.BOTTOM)
+            )));
+
+            registerFlower(new FlowerGroup(Material.PINK_PETALS, Messages.FLOWER.PINK_PETALS, Arrays.asList(
+                    new FlowerAmountFlower(Material.PINK_PETALS, Messages.FLOWER.PINK_PETALS, 1),
+                    new FlowerAmountFlower(Material.PINK_PETALS, Messages.FLOWER.PINK_PETALS, 2),
+                    new FlowerAmountFlower(Material.PINK_PETALS, Messages.FLOWER.PINK_PETALS, 3),
+                    new FlowerAmountFlower(Material.PINK_PETALS, Messages.FLOWER.PINK_PETALS, 4)
+            )));
+
+        }
+
+
         registerFlower(new Flower(Material.FLOWER_POT, Messages.FLOWER.FLOWER_POT));
+
+        if (isValidMaterial("MANGROVE_ROOTS" /* 1.19*/)) {
+            registerFlower(new Flower(Material.MANGROVE_ROOTS, Messages.FLOWER.MANGROVE_ROOTS));
+            registerFlower(new Flower(Material.MANGROVE_PROPAGULE, Messages.FLOWER.MANGROVE_PROPAGULE));
+        }
 
         if (isValidMaterial("AZALEA") /* 1.17 or newer*/) {
             registerFlower(new Flower(Material.MOSS_BLOCK, Messages.FLOWER.MOSS_BLOCK));
             registerFlower(new Flower(Material.AZALEA, Messages.FLOWER.AZALEA));
             registerFlower(new Flower(Material.FLOWERING_AZALEA, Messages.FLOWER.FLOWERING_AZALEA));
-            registerFlower(new Flower(Material.AZALEA_LEAVES, Messages.FLOWER.AZALEA_LEAVES));
-            registerFlower(new Flower(Material.FLOWERING_AZALEA_LEAVES, Messages.FLOWER.FLOWERING_AZALEA_LEAVES));
             registerFlower(new Flower(Material.GLOW_BERRIES, Messages.FLOWER.GLOW_BERRIES, Material.CAVE_VINES));
             registerFlower(new Flower(Material.BIG_DRIPLEAF, Messages.FLOWER.BIG_DRIPLEAF));
             registerFlower(new Flower(Material.BIG_DRIPLEAF, Messages.FLOWER.BIG_DRIPLEAF_STEM, Material.BIG_DRIPLEAF_STEM));
-            registerFlower(new Flower(Material.SMALL_DRIPLEAF, Messages.FLOWER.SMALL_DRIPLEAF));
+
+            registerFlower(new FlowerGroup(Material.SMALL_DRIPLEAF, Messages.FLOWER.SMALL_DRIPLEAF, Arrays.asList(
+                    new BisectedFlower(Material.SMALL_DRIPLEAF, Messages.FLOWER.SMALL_DRIPLEAF, Material.SMALL_DRIPLEAF, Bisected.Half.TOP),
+                    new BisectedFlower(Material.SMALL_DRIPLEAF, Messages.FLOWER.SMALL_DRIPLEAF, Material.SMALL_DRIPLEAF, Bisected.Half.BOTTOM)
+            )));
+
             registerFlower(new Flower(Material.SPORE_BLOSSOM, Messages.FLOWER.SPORE_BLOSSOM));
+
+            registerFlower(new FlowerGroup(Material.AMETHYST_CLUSTER, Messages.FLOWER.AMETHYST, List.of(
+                    new Flower(Material.SMALL_AMETHYST_BUD, Messages.FLOWER.AMETHYST_SMALL_BUD),
+                    new Flower(Material.MEDIUM_AMETHYST_BUD, Messages.FLOWER.AMETHYST_MEDIUM_BUD),
+                    new Flower(Material.LARGE_AMETHYST_BUD, Messages.FLOWER.AMETHYST_LARGE_BUD),
+                    new Flower(Material.AMETHYST_CLUSTER, Messages.FLOWER.AMETHYST_CLUSTER)
+            )));
+
 
             registerFlower(new FlowerGroup(Material.CANDLE, Messages.FLOWER.CANDLE, List.of(
                     new CandleFlower(Material.CANDLE, Messages.FLOWER.CANDLE_CANDLE, false),
@@ -117,11 +176,17 @@ public class FlowerRegistry {
         }
 
         if (isValidMaterial("MANGROVE_LEAVES" /* 1.19*/)) {
-            registerFlower(new Flower(Material.MANGROVE_ROOTS, Messages.FLOWER.MANGROVE_ROOTS));
             registerFlower(new Flower(Material.MANGROVE_LEAVES, Messages.FLOWER.MANGROVE_LEAVES));
-            registerFlower(new Flower(Material.MANGROVE_PROPAGULE, Messages.FLOWER.MANGROVE_PROPAGULE));
         }
 
+        if (isValidMaterial("CHERRY_LEAVES") /* 1.20+ */) {
+            registerFlower(new Flower(Material.CHERRY_LEAVES, Messages.FLOWER.CHERRY_FENCE));
+        }
+
+        if(isValidMaterial("AZALEA")) {
+            registerFlower(new Flower(Material.AZALEA_LEAVES, Messages.FLOWER.AZALEA_LEAVES));
+            registerFlower(new Flower(Material.FLOWERING_AZALEA_LEAVES, Messages.FLOWER.FLOWERING_AZALEA_LEAVES));
+        }
         registerFlower(new Flower(Material.OAK_LEAVES, Messages.FLOWER.OAK_LEAVES));
         registerFlower(new Flower(Material.SPRUCE_LEAVES, Messages.FLOWER.SPRUCE_LEAVES));
         registerFlower(new Flower(Material.BIRCH_LEAVES, Messages.FLOWER.BIRCH_LEAVES));

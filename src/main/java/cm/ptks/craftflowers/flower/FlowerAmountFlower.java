@@ -5,47 +5,46 @@ import com.google.gson.JsonObject;
 import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
-
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
-public class AgingFlower extends Flower {
+public class FlowerAmountFlower extends Flower {
 
-    protected final int age;
+    protected final int flowerAmount;
 
-    public AgingFlower(Material guiMaterial, String displayName, Material blockMaterial, int age) {
+    public FlowerAmountFlower(Material guiMaterial, String displayName, Material blockMaterial, int flowerAmount) {
         super(guiMaterial, displayName, blockMaterial);
-        this.age = age;
+        this.flowerAmount = flowerAmount;
     }
 
-    public AgingFlower(Material material, String displayName, int age) {
+    public FlowerAmountFlower(Material material, String displayName, int flowerAmount) {
         super(material, displayName);
-        this.age = age;
+        this.flowerAmount = flowerAmount;
     }
 
     @Override
     public BaseBlock applyToBlock(BaseBlock block, BlockType type) {
-        Property<Integer> ageProp = type.getProperty("age");
+        Property<Integer> ageProp = type.getProperty("flower_amount");
         if(ageProp != null)
-            block = block.with(ageProp, age);
+            block = block.with(ageProp, flowerAmount);
 
         return super.applyToBlock(block, type);
     }
 
     @Override
     public String getDisplayName(@Nullable Player player) {
-        return super.getDisplayName(player) + Messages.getFlowerInfoAge(player, age);
+        return super.getDisplayName(player) + Messages.getFlowerInfoFlowerAmount(player, flowerAmount);
     }
 
     @Override
     public JsonObject serialize() {
         JsonObject serialize = super.serialize();
-        serialize.addProperty("age", age);
+        serialize.addProperty("flower_amount", flowerAmount);
         return serialize;
     }
 
-    public int getAge() {
-        return age;
+    public int getFlowerAmount() {
+        return flowerAmount;
     }
 }

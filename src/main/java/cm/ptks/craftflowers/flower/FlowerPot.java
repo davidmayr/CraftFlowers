@@ -72,8 +72,22 @@ public class FlowerPot {
                 .getPersistentDataContainer()
                 .set(key, PersistentDataType.STRING, serialize().toString());
 
+        itemMeta.setLore(createLore());
+
         itemStack.setItemMeta(itemMeta);
         return itemStack;
+    }
+
+    private List<String> createLore() {
+        List<String> lore = new ArrayList<>();
+
+        lore.add("");
+        lore.add(CraftFlowers.arrow + I18n.translate(null, Messages.FLOWER_INFO.FLOWER_LIST));
+        for (Flower flower : flowers) {
+            lore.add(flower.getDisplayName(null));
+        }
+        lore.add("");
+        return lore;
     }
 
     public static FlowerPot parsePot(ItemStack itemStack) {

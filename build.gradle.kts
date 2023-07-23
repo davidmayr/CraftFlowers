@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "at.toastiii.craftflowers"
-version = "1.2.1"
+version = "1.2.2"
 
 repositories {
     maven(url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/"))
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
     compileOnly("com.mojang:authlib:1.6.25")
     compileOnly("com.fastasyncworldedit:FastAsyncWorldEdit-Bukkit:2.7.0")
     implementation("fr.minuskube.inv:smart-invs:1.2.7") {
@@ -50,6 +50,6 @@ tasks {
 
 tasks {
     runServer {
-        minecraftVersion("1.19.4")
+        minecraftVersion("1.20.1")
     }
 }

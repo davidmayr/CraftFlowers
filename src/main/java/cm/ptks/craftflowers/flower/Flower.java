@@ -9,8 +9,10 @@ import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
 
 import org.bukkit.Material;
+import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.type.Bamboo;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
 
 public class Flower {
 
@@ -54,6 +56,16 @@ public class Flower {
 
             return new AgingFlower(guiMaterial, displayName, blockMaterial, age);
         }
+        if(jsonObject.has("flower_amount")) {
+            int flowerAmount = jsonObject.get("flower_amount").getAsInt();
+
+            return new FlowerAmountFlower(guiMaterial, displayName, blockMaterial, flowerAmount);
+        }
+        if(jsonObject.has("half")) {
+            Bisected.Half half = Bisected.Half.valueOf(jsonObject.get("half").getAsString());
+
+            return new BisectedFlower(guiMaterial, displayName, blockMaterial, half);
+        }
         if(jsonObject.has("lit")) {
             boolean lit = jsonObject.get("lit").getAsBoolean();
 
@@ -86,7 +98,7 @@ public class Flower {
         return material;
     }
 
-    public String getDisplayName(Player player) {
+    public String getDisplayName(@Nullable Player player) {
         return I18n.translate(player, getRawDisplayName());
     }
 

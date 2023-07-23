@@ -8,6 +8,7 @@ import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Bamboo;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
 
 public class BambooFlower extends AgingFlower {
 
@@ -38,7 +39,7 @@ public class BambooFlower extends AgingFlower {
     }
 
     @Override
-    public String getDisplayName(Player player) {
+    public String getDisplayName(@Nullable Player player) {
         return super.getDisplayName(player) + " " + Messages.getFlowerInfoBambooLeaves(player, leaveType);
     }
 

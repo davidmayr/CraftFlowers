@@ -53,21 +53,11 @@ public class LanguageManager {
                     plugin.getLogger().log(Level.SEVERE, "Failed to load or copy " + language + "...", e);
                     continue;
                 }
-            } else {
-                //Copy new language keys over to the file
-                InputStream resource = plugin.getResource("lang/" + language + ".yml");
-                if(resource != null) {
-                    try {
-                        YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
-                        configuration.addDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(resource, StandardCharsets.UTF_8)));
-                        configuration.options().copyDefaults(true);
-                        configuration.save(languageFile);
-                        resource.close();
-                    } catch(Exception e) {
-                        //ignore
-                    }
-                }
             }
+
+            updateLanguageFile(languageFile, language);
+            updateLanguageFile(languageFile, "en_US");
+
             YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
             Language lang = new Language(Language.parseKeys(configuration), language);
             if(defaultLanguage.equals(language)) {
@@ -84,8 +74,24 @@ public class LanguageManager {
             language.addAliases(plugin.getConfig().getStringList("language.mapping." + key));
         }
 
-        if(defaultLanguage == null) {
+        if(this.defaultLanguage == null) {
             this.defaultLanguage = new Language(new HashMap<>(), defaultLanguage);
+        }
+    }
+
+    private void updateLanguageFile(File languageFile, String languageCode) {
+        //Copy new language keys over to the file
+        InputStream resource = plugin.getResource("lang/" + languageCode + ".yml");
+        if(resource != null) {
+            try {
+                YamlConfiguration configuration = YamlConfiguration.loadConfiguration(languageFile);
+                configuration.addDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(resource, StandardCharsets.UTF_8)));
+                configuration.options().copyDefaults(true);
+                configuration.save(languageFile);
+                resource.close();
+            } catch(Exception e) {
+                //ignore
+            }
         }
     }
 

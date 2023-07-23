@@ -8,6 +8,7 @@ import com.sk89q.worldedit.world.block.BaseBlock;
 import com.sk89q.worldedit.world.block.BlockType;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
 
 public class CandleFlower extends Flower {
 
@@ -19,7 +20,7 @@ public class CandleFlower extends Flower {
     }
 
     @Override
-    public String getDisplayName(Player player) {
+    public String getDisplayName(@Nullable Player player) {
         return super.getDisplayName(player) + (isLit() ? I18n.translate(player, Messages.FLOWER.CANDLE_LIT_INDICATOR) : "");
     }
 

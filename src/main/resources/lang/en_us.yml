@@ -47,9 +47,29 @@ FLOWER_INFO:
   AGE: "§8(§7Age <age>§8)"
   BAMBOO_LEAVES: "§8(§7Leaves <leaves>§8)"
   LIMIT_REACHED: "§cYou can't add more than 9 Flowers!"
+  FLOWER_LIST: "§a§lFlowers:"
+  BISECTED_UPPER: "§8(§7Upper Half§8)"
+  BISECTED_LOWER: "§8(§7Lower Half§8)"
+  FLOWER_AMOUNT: "§8(§7Flower Amount <amount>§8)"
 
 # flowers name
 FLOWER:
+  CHERRY_SAPLING: "§2Cherry Sapling"
+  CHERRY_FENCE: "§2Cherry Fence"
+  BAMBOO_FENCE: "§2Bamboo Fence"
+  TORCHFLOWER: "§2Torchflower"
+  TORCHFLOWER_SEEDS: "§2Torchflower Seeds"
+  PITCHER_POD: "§2Pitcher Pod"
+  PITCHER_PLANT: "§2Pitcher Plant"
+  CHERRY_LEAVES: "§2Cherry Leaves"
+  PINK_PETALS: "§2Pink Petals"
+
+  AMETHYST: "§2Amethyst"
+  AMETHYST_SMALL_BUD: "§2Small Amethyst Bud"
+  AMETHYST_MEDIUM_BUD: "§2Medium Amethyst Bud"
+  AMETHYST_LARGE_BUD: "§2Large Amethyst Bud"
+  AMETHYST_CLUSTER: "§2Amethyst Cluster"
+
   SUNFLOWER: "§2Sunflower"
   SUGAR_CANE: "§2Sugar Canes"
   LILAC: "§2Lilac"

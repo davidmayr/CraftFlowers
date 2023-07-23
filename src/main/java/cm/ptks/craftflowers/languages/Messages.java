@@ -1,5 +1,6 @@
 package cm.ptks.craftflowers.languages;
 
+import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.type.Bamboo;
 import org.bukkit.entity.Player;
 
@@ -54,9 +55,17 @@ public final class Messages {
     public final static class FLOWER_INFO {
 
         public static final String AGE = "FLOWER_INFO.AGE";
+
+        public static final String FLOWER_AMOUNT = "FLOWER_INFO.FLOWER_AMOUNT";
+
+        public static final String BISECTED_UPPER = "FLOWER_INFO.BISECTED_UPPER";
+
+        public static final String BISECTED_LOWER = "FLOWER_INFO.BISECTED_LOWER";
+
         public static final String BAMBOO_LEAVES = "FLOWER_INFO.BAMBOO_LEAVES";
         public static final String LIMIT_REACHED = "FLOWER_INFO.LIMIT_REACHED";
 
+        public static final String FLOWER_LIST = "FLOWER_INFO.FLOWER_LIST";
     }
 
     public final static class FLOWER {
@@ -75,6 +84,8 @@ public final class Messages {
         public static final String ACACIA_SAPLING = "FLOWER.ACACIA_SAPLING";
         public static final String DARK_OAK_SAPLING = "FLOWER.DARK_OAK_SAPLING";
 
+        public static final String CHERRY_SAPLING = "FLOWER.CHERRY_SAPLING";
+
         public static final String DEAD_BUSH = "FLOWER.DEAD_BUSH";
         public static final String GRASS = "FLOWER.GRASS";
         public static final String FERN = "FLOWER.FERN";
@@ -89,6 +100,8 @@ public final class Messages {
         public static final String CRIMSON_FENCE = "FLOWER.CRIMSON_FENCE";
         public static final String WARPED_FENCE = "FLOWER.WARPED_FENCE";
         public static final String MANGROVE_FENCE = "FLOWER.MANGROVE_FENCE";
+        public static final String CHERRY_FENCE = "FLOWER.CHERRY_FENCE";
+        public static final String BAMBOO_FENCE = "FLOWER.BAMBOO_FENCE";
 
         public static final String DANDELION = "FLOWER.DANDELION";
         public static final String POPPY = "FLOWER.POPPY";
@@ -107,12 +120,22 @@ public final class Messages {
         public static final String RED_MUSHROOM = "FLOWER.RED_MUSHROOM";
         public static final String CRIMSON_FUNGUS = "FLOWER.CRIMSON_FUNGUS";
         public static final String WARPED_FUNGUS = "FLOWER.WARPED_FUNGUS";
+
+        public static final String TORCHFLOWER = "FLOWER.TORCHFLOWER";
+
+        public static final String TORCHFLOWER_SEEDS = "FLOWER.TORCHFLOWER_SEEDS";
+
+        public static final String PITCHER_POD = "FLOWER.PITCHER_POD";
+        public static final String PITCHER_PLANT = "FLOWER.PITCHER_PLANT";
+        public static final String PINK_PETALS = "FLOWER.PINK_PETALS";
+
         public static final String FLOWER_POT = "FLOWER.FLOWER_POT";
 
         public static final String MOSS_BLOCK = "FLOWER.MOSS_BLOCK";
         public static final String AZALEA = "FLOWER.AZALEA";
         public static final String FLOWERING_AZALEA = "FLOWER.FLOWERING_AZALEA";
         public static final String AZALEA_LEAVES = "FLOWER.AZALEA_LEAVES";
+        public static final String CHERRY_LEAVES = "FLOWER.CHERRY_LEAVES";
         public static final String FLOWERING_AZALEA_LEAVES = "FLOWER.FLOWERING_AZALEA_LEAVES";
         public static final String GLOW_BERRIES = "FLOWER.GLOW_BERRIES";
         public static final String BIG_DRIPLEAF = "FLOWER.BIG_DRIPLEAF";
@@ -167,6 +190,12 @@ public final class Messages {
         
         public static final String LIT_CANDLE = "FLOWER.CANDLE_GROUP_LIT";
         public static final String CANDLE = "FLOWER.CANDLE_GROUP";
+
+        public static final String AMETHYST = "FLOWER.AMETHYST";
+        public static final String AMETHYST_SMALL_BUD = "FLOWER.AMETHYST_SMALL_BUD";
+        public static final String AMETHYST_MEDIUM_BUD = "FLOWER.AMETHYST_MEDIUM_BUD";
+        public static final String AMETHYST_LARGE_BUD = "FLOWER.AMETHYST_LARGE_BUD";
+        public static final String AMETHYST_CLUSTER = "FLOWER.AMETHYST_CLUSTER";
 
         public static final String CANDLE_LIT_INDICATOR = "FLOWER.CANDLE.LIT";
 
@@ -247,6 +276,18 @@ public final class Messages {
 
     public static String getFlowerInfoAge(Player player, int age) {
         return I18n.translate(player, FLOWER_INFO.AGE).replaceAll("<age>", String.valueOf(age));
+    }
+
+    public static String getFlowerInfoFlowerAmount(Player player, int age) {
+        return I18n.translate(player, FLOWER_INFO.FLOWER_AMOUNT).replaceAll("<amount>", String.valueOf(age));
+    }
+
+    public static String getFlowerInfoBisected(Player player, Bisected.Half half) {
+        if (half == Bisected.Half.TOP) {
+            return I18n.translate(player, FLOWER_INFO.BISECTED_UPPER);
+        } else {
+            return I18n.translate(player, FLOWER_INFO.BISECTED_LOWER);
+        }
     }
 
     public static String getFlowerInfoBambooLeaves(Player player, Bamboo.Leaves leaves) {
