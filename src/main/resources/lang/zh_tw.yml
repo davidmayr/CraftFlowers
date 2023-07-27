@@ -47,9 +47,29 @@ FLOWER_INFO:
   AGE: "§8(§7Age <age>§8)"
   BAMBOO_LEAVES: "§8(§7葉子 <leaves>§8)"
   LIMIT_REACHED: "§c您不能添加超過 9 朵花!"
+  FLOWER_LIST: "§a§l花朵清單:"
+  BISECTED_UPPER: "§8(§7上半部§8)"
+  BISECTED_LOWER: "§8(§7下半部§8)"
+  FLOWER_AMOUNT: "§8(§7花朵數量 <amount>§8)"
 
 # flowers name
 FLOWER:
+  CHERRY_SAPLING: "§2櫻花木樹苗"
+  CHERRY_FENCE: "§2櫻花木柵欄"
+  BAMBOO_FENCE: "§2竹柵欄"
+  TORCHFLOWER: "§2火把花"
+  TORCHFLOWER_SEEDS: "§2火把花種子"
+  PITCHER_POD: "§2瓶子草豆莢"
+  PITCHER_PLANT: "§2瓶子草"
+  CHERRY_LEAVES: "§2櫻花木樹葉"
+  PINK_PETALS: "§2粉瓣花"
+
+  AMETHYST: "§2紫水晶"
+  AMETHYST_SMALL_BUD: "§2小型紫水晶芽"
+  AMETHYST_MEDIUM_BUD: "§2中型紫水晶芽"
+  AMETHYST_LARGE_BUD: "§2大型紫水晶芽"
+  AMETHYST_CLUSTER: "§2紫水晶晶簇"
+
   SUNFLOWER: "§2向日葵"
   SUGAR_CANE: "§2甘蔗"
   LILAC: "§2紫丁香"
