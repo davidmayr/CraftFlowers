@@ -73,7 +73,7 @@ public class FlowerRegistry {
         registerFlower(new Flower(Material.CRIMSON_FUNGUS, Messages.FLOWER.CRIMSON_FUNGUS));
         registerFlower(new Flower(Material.WARPED_FUNGUS, Messages.FLOWER.WARPED_FUNGUS));
 
-        if (isValidMaterial("TORCHFLOWER") /* 1.20+ */) {
+        if (isValidMaterial("PITCHER_POD") /* 1.20+ */) {
             registerFlower(new Flower(Material.TORCHFLOWER, Messages.FLOWER.TORCHFLOWER));
             registerFlower(new FlowerGroup(Material.TORCHFLOWER_SEEDS, Messages.FLOWER.TORCHFLOWER_SEEDS, Arrays.asList(
                     new AgingFlower(Material.TORCHFLOWER_SEEDS, Messages.FLOWER.TORCHFLOWER_SEEDS, Material.TORCHFLOWER_CROP, 0),
