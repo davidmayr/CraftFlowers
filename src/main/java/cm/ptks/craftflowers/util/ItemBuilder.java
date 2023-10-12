@@ -32,7 +32,7 @@ public class ItemBuilder {
             return this;
 
         SkullMeta headMeta = (SkullMeta) itemStack.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        GameProfile profile = new GameProfile(UUID.randomUUID(), "null");
         byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}",
                 "https://textures.minecraft.net/texture/" + textureId).getBytes());
         profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
