@@ -201,7 +201,12 @@ FLOWER:
     CARROT_6: "§2Carrot"
     CARROT_7: "§2Carrot"
 
-  SWEET_BERRY_BUSH: "§2Sweet Berry Bush"
+  SWEET_BERRY_BUSH:
+    SWEET_BERRY_BUSH_0: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_1: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_2: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_3: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_4: "§2Sweet Berry Bush"
 
   AIR: "§2Air Block"
 

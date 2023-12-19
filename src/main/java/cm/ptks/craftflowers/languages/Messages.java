@@ -188,7 +188,6 @@ public final class Messages {
 
         public static final String SWEET_BERRY_BUSH = "FLOWER.SWEET_BERRY_BUSH";
 
-
         public static final String AIR = "FLOWER.AIR";
         
         public static final String LIT_CANDLE = "FLOWER.CANDLE_GROUP_LIT";

@@ -33,11 +33,11 @@ public class FlowerRegistry {
         }
 
         registerFlower(new Flower(Material.DEAD_BUSH, Messages.FLOWER.DEAD_BUSH));
-        registerFlower(new Flower(Material.GRASS, Messages.FLOWER.GRASS));
+
         if (isValidMaterial("GRASS")){
-            registerFlower(new Flower(Material.getMaterial("GLASS"), Messages.FLOWER.GRASS));
+            registerFlower(new Flower(Material.getMaterial("GRASS"), Messages.FLOWER.GRASS));
         } else { /* 1.20.4 */
-            registerFlower(new Flower(Material.getMaterial("SHORT_GLASS"),Messages.FLOWER.GRASS));
+            registerFlower(new Flower(Material.getMaterial("SHORT_GRASS"),Messages.FLOWER.GRASS));
         }
         registerFlower(new Flower(Material.FERN, Messages.FLOWER.FERN));
         registerFlower(new Flower(Material.NETHER_BRICK_FENCE, Messages.FLOWER.NETHER_BRICK_FENCE));
