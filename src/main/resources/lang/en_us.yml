@@ -204,6 +204,13 @@ FLOWER:
     CARROT_6: "§2Carrot"
     CARROT_7: "§2Carrot"
 
+  BEETROOT: "§2Beetroot"
+  BEETROOT_AGE:
+    BEETROOT_0: "§2Beetroot"
+    BEETROOT_1: "§2Beetroot"
+    BEETROOT_2: "§2Beetroot"
+    BEETROOT_3: "§2Beetroot"
+
   ATTACHED_PUMPKIN_STEM: "§2Attached Pumpkin Stem"
 
   PUMPKIN_STEM: "§2Pumpkin Stem"

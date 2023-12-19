@@ -188,6 +188,7 @@ public final class Messages {
         public static final String WHEAT = "FLOWER.WHEAT";
         public static final String POTATO = "FLOWER.POTATO";
         public static final String CARROT = "FLOWER.CARROT";
+        public static final String BEETROOT = "FLOWER.BEETROOT";
         public static final String ATTACHED_PUMPKIN_STEM = "FLOWER.ATTACHED_PUMPKIN_STEM";
         public static final String PUMPKIN_STEM = "FLOWER.PUMPKIN_STEM";
         public static final String ATTACHED_MELON_STEM = "FLOWER.ATTACHED_MELON_STEM";

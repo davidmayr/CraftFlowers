@@ -272,6 +272,13 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 7)
         )));
 
+        registerFlower(new FlowerGroup(Material.BEETROOT,Messages.FLOWER.BEETROOT, Arrays.asList(
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,0),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,1),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,2),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,3)
+        )));
+
         registerFlower(new Flower(Material.PUMPKIN_SEEDS,Messages.FLOWER.ATTACHED_PUMPKIN_STEM,Material.ATTACHED_PUMPKIN_STEM));
 
         registerFlower(new FlowerGroup(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Arrays.asList(
