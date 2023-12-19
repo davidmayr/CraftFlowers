@@ -207,7 +207,34 @@ FLOWER:
     CARROT_6: "§2胡蘿蔔"
     CARROT_7: "§2胡蘿蔔"
 
-  SWEET_BERRY_BUSH:
+  ATTACHED_PUMPKIN_STEM: "§2Attached Pumpkin Stem"
+
+  PUMPKIN_STEM: "§2Pumpkin Stem"
+  PUMPKIN_STEM_AGE:
+    PUMPKIN_STEM_0: "§2Pumpkin Stem"
+    PUMPKIN_STEM_1: "§2Pumpkin Stem"
+    PUMPKIN_STEM_2: "§2Pumpkin Stem"
+    PUMPKIN_STEM_3: "§2Pumpkin Stem"
+    PUMPKIN_STEM_4: "§2Pumpkin Stem"
+    PUMPKIN_STEM_5: "§2Pumpkin Stem"
+    PUMPKIN_STEM_6: "§2Pumpkin Stem"
+    PUMPKIN_STEM_7: "§2Pumpkin Stem"
+
+  ATTACHED_MELON_STEM: "§2Attached Melon Stem"
+
+  ELON_STEM: "§2Melon Stem"
+  MELON_STEM_AGE:
+    MELON_STEM_0: "§2Melon Stem"
+    MELON_STEM_1: "§2Melon Stem"
+    MELON_STEM_2: "§2Melon Stem"
+    MELON_STEM_3: "§2Melon Stem"
+    MELON_STEM_4: "§2Melon Stem"
+    MELON_STEM_5: "§2Melon Stem"
+    MELON_STEM_6: "§2Melon Stem"
+    MELON_STEM_7: "§2Melon Stem"
+
+  SWEET_BERRY_BUSH: "§2Sweet Berry Bush"
+  SWEET_BERRY_BUSH_AGE:
     SWEET_BERRY_BUSH_0: "§2甜莓灌木叢"
     SWEET_BERRY_BUSH_1: "§2甜莓灌木叢"
     SWEET_BERRY_BUSH_2: "§2甜莓灌木叢"
