@@ -34,6 +34,11 @@ public class FlowerRegistry {
 
         registerFlower(new Flower(Material.DEAD_BUSH, Messages.FLOWER.DEAD_BUSH));
         registerFlower(new Flower(Material.GRASS, Messages.FLOWER.GRASS));
+        if (isValidMaterial("GRASS")){
+            registerFlower(new Flower(Material.getMaterial("GLASS"), Messages.FLOWER.GRASS));
+        } else { /* 1.20.4 */
+            registerFlower(new Flower(Material.getMaterial("SHORT_GLASS"),Messages.FLOWER.GRASS));
+        }
         registerFlower(new Flower(Material.FERN, Messages.FLOWER.FERN));
         registerFlower(new Flower(Material.NETHER_BRICK_FENCE, Messages.FLOWER.NETHER_BRICK_FENCE));
 
@@ -262,6 +267,14 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 7)
         )));
+        if (isValidMaterial("SWEET_BERRY_BUSH")){
+            registerFlower(new FlowerGroup(Material.SWEET_BERRIES,Messages.FLOWER.SWEET_BERRY_BUSH, Arrays.asList(
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,0),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,1),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,2),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,3)
+            )));
+        }
         registerFlower(new Flower(Material.BARRIER, Messages.FLOWER.AIR, Material.AIR));
     }
 
