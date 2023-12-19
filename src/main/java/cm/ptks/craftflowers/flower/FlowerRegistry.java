@@ -36,7 +36,7 @@ public class FlowerRegistry {
 
         if (isValidMaterial("GRASS")){
             registerFlower(new Flower(Material.getMaterial("GRASS"), Messages.FLOWER.GRASS));
-        } else { /* 1.20.4 */
+        } else { /* 1.20.3+ */
             registerFlower(new Flower(Material.getMaterial("SHORT_GRASS"),Messages.FLOWER.GRASS));
         }
         registerFlower(new Flower(Material.FERN, Messages.FLOWER.FERN));
