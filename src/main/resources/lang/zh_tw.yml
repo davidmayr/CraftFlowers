@@ -135,6 +135,9 @@ FLOWER:
   MANGROVE_ROOTS: "§2紅樹林木根"
   MANGROVE_LEAVES: "§2紅樹林木樹葉"
   MANGROVE_PROPAGULE: "§2紅樹林木胎生苗"
+
+  # 1.20.3+
+  DECORATED_POT: "§2裝飾陶罐"
   
   OAK_LEAVES: "§2橡木樹葉"
   SPRUCE_LEAVES: "§2杉木樹葉"
@@ -205,11 +208,11 @@ FLOWER:
     CARROT_7: "§2胡蘿蔔"
 
   SWEET_BERRY_BUSH:
-    SWEET_BERRY_BUSH_0: "§2Sweet Berry Bush"
-    SWEET_BERRY_BUSH_1: "§2Sweet Berry Bush"
-    SWEET_BERRY_BUSH_2: "§2Sweet Berry Bush"
-    SWEET_BERRY_BUSH_3: "§2Sweet Berry Bush"
-    SWEET_BERRY_BUSH_4: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_0: "§2甜莓灌木叢"
+    SWEET_BERRY_BUSH_1: "§2甜莓灌木叢"
+    SWEET_BERRY_BUSH_2: "§2甜莓灌木叢"
+    SWEET_BERRY_BUSH_3: "§2甜莓灌木叢"
+    SWEET_BERRY_BUSH_4: "§2甜莓灌木叢"
 
   AIR: "§2空氣方塊"
   
