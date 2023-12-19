@@ -132,6 +132,9 @@ FLOWER:
   MANGROVE_ROOTS: "§2Mangrove Roots"
   MANGROVE_LEAVES: "§2Mangrove Leaves"
   MANGROVE_PROPAGULE: "§2Mangrove Propagule"
+
+  # 1.20.3+
+  DECORATED_POT: "§2Decorated Pot"
   
   OAK_LEAVES: "§2Oak Leaves"
   SPRUCE_LEAVES: "§2Spruce Leaves"

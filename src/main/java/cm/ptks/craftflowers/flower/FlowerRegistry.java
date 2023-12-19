@@ -188,6 +188,10 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.CHERRY_LEAVES, Messages.FLOWER.CHERRY_FENCE));
         }
 
+        if (isValidMaterial("DECORATED_POT") /* 1.20.3+ */) {
+            registerFlower(new Flower(Material.DECORATED_POT, Messages.FLOWER.DECORATED_POT));
+        }
+
         if(isValidMaterial("AZALEA")) {
             registerFlower(new Flower(Material.AZALEA_LEAVES, Messages.FLOWER.AZALEA_LEAVES));
             registerFlower(new Flower(Material.FLOWERING_AZALEA_LEAVES, Messages.FLOWER.FLOWERING_AZALEA_LEAVES));
@@ -267,6 +271,7 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 7)
         )));
+
         if (isValidMaterial("SWEET_BERRY_BUSH")){
             registerFlower(new FlowerGroup(Material.SWEET_BERRIES,Messages.FLOWER.SWEET_BERRY_BUSH, Arrays.asList(
                     new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,0),
