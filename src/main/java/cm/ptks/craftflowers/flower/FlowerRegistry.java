@@ -33,7 +33,12 @@ public class FlowerRegistry {
         }
 
         registerFlower(new Flower(Material.DEAD_BUSH, Messages.FLOWER.DEAD_BUSH));
-        registerFlower(new Flower(Material.GRASS, Messages.FLOWER.GRASS));
+
+        if (isValidMaterial("GRASS")){
+            registerFlower(new Flower(Material.getMaterial("GRASS"), Messages.FLOWER.GRASS));
+        } else { /* 1.20.3+ */
+            registerFlower(new Flower(Material.getMaterial("SHORT_GRASS"),Messages.FLOWER.GRASS));
+        }
         registerFlower(new Flower(Material.FERN, Messages.FLOWER.FERN));
         registerFlower(new Flower(Material.NETHER_BRICK_FENCE, Messages.FLOWER.NETHER_BRICK_FENCE));
 
@@ -183,6 +188,10 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.CHERRY_LEAVES, Messages.FLOWER.CHERRY_FENCE));
         }
 
+        if (isValidMaterial("DECORATED_POT") /* 1.20.3+ */) {
+            registerFlower(new Flower(Material.DECORATED_POT, Messages.FLOWER.DECORATED_POT));
+        }
+
         if(isValidMaterial("AZALEA")) {
             registerFlower(new Flower(Material.AZALEA_LEAVES, Messages.FLOWER.AZALEA_LEAVES));
             registerFlower(new Flower(Material.FLOWERING_AZALEA_LEAVES, Messages.FLOWER.FLOWERING_AZALEA_LEAVES));
@@ -262,6 +271,48 @@ public class FlowerRegistry {
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 6),
                 new AgingFlower(Material.CARROT, Messages.FLOWER.CARROT, Material.CARROTS, 7)
         )));
+
+        registerFlower(new FlowerGroup(Material.BEETROOT,Messages.FLOWER.BEETROOT, Arrays.asList(
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,0),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,1),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,2),
+                new AgingFlower(Material.BEETROOT,Messages.FLOWER.BEETROOT,Material.BEETROOTS,3)
+        )));
+
+        registerFlower(new Flower(Material.PUMPKIN_SEEDS,Messages.FLOWER.ATTACHED_PUMPKIN_STEM,Material.ATTACHED_PUMPKIN_STEM));
+
+        registerFlower(new FlowerGroup(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Arrays.asList(
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,0),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,1),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,2),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,3),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,4),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,5),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,6),
+                new AgingFlower(Material.PUMPKIN_SEEDS,Messages.FLOWER.PUMPKIN_STEM,Material.PUMPKIN_STEM,7)
+        )));
+
+        registerFlower(new Flower(Material.MELON_SEEDS,Messages.FLOWER.ATTACHED_MELON_STEM,Material.ATTACHED_MELON_STEM));
+
+        registerFlower(new FlowerGroup(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Arrays.asList(
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,0),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,1),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,2),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,3),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,4),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,5),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,6),
+                new AgingFlower(Material.MELON_SEEDS,Messages.FLOWER.MELON_STEM,Material.MELON_STEM,7)
+        )));
+
+        if (isValidMaterial("SWEET_BERRY_BUSH")){
+            registerFlower(new FlowerGroup(Material.SWEET_BERRIES,Messages.FLOWER.SWEET_BERRY_BUSH, Arrays.asList(
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,0),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,1),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,2),
+                    new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,3)
+            )));
+        }
         registerFlower(new Flower(Material.BARRIER, Messages.FLOWER.AIR, Material.AIR));
     }
 

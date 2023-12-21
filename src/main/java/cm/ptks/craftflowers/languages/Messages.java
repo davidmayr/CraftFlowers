@@ -137,6 +137,7 @@ public final class Messages {
         public static final String AZALEA_LEAVES = "FLOWER.AZALEA_LEAVES";
         public static final String CHERRY_LEAVES = "FLOWER.CHERRY_LEAVES";
         public static final String FLOWERING_AZALEA_LEAVES = "FLOWER.FLOWERING_AZALEA_LEAVES";
+
         public static final String GLOW_BERRIES = "FLOWER.GLOW_BERRIES";
         public static final String BIG_DRIPLEAF = "FLOWER.BIG_DRIPLEAF";
         public static final String BIG_DRIPLEAF_STEM = "FLOWER.BIG_DRIPLEAF_STEM";
@@ -146,6 +147,8 @@ public final class Messages {
         public static final String MANGROVE_ROOTS = "FLOWER.MANGROVE_ROOTS";
         public static final String MANGROVE_LEAVES = "FLOWER.MANGROVE_LEAVES";
         public static final String MANGROVE_PROPAGULE = "FLOWER.MANGROVE_PROPAGULE";
+
+        public static final String DECORATED_POT = "FLOWER.DECORATED_POT";
 
         public static final String OAK_LEAVES = "FLOWER.OAK_LEAVES";
         public static final String SPRUCE_LEAVES = "FLOWER.SPRUCE_LEAVES";
@@ -185,6 +188,13 @@ public final class Messages {
         public static final String WHEAT = "FLOWER.WHEAT";
         public static final String POTATO = "FLOWER.POTATO";
         public static final String CARROT = "FLOWER.CARROT";
+        public static final String BEETROOT = "FLOWER.BEETROOT";
+        public static final String ATTACHED_PUMPKIN_STEM = "FLOWER.ATTACHED_PUMPKIN_STEM";
+        public static final String PUMPKIN_STEM = "FLOWER.PUMPKIN_STEM";
+        public static final String ATTACHED_MELON_STEM = "FLOWER.ATTACHED_MELON_STEM";
+        public static final String MELON_STEM = "FLOWER.MELON_STEM";
+
+        public static final String SWEET_BERRY_BUSH = "FLOWER.SWEET_BERRY_BUSH";
 
         public static final String AIR = "FLOWER.AIR";
         

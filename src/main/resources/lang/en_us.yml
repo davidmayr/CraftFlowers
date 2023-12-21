@@ -132,6 +132,9 @@ FLOWER:
   MANGROVE_ROOTS: "§2Mangrove Roots"
   MANGROVE_LEAVES: "§2Mangrove Leaves"
   MANGROVE_PROPAGULE: "§2Mangrove Propagule"
+
+  # 1.20.3+
+  DECORATED_POT: "§2Decorated Pot"
   
   OAK_LEAVES: "§2Oak Leaves"
   SPRUCE_LEAVES: "§2Spruce Leaves"
@@ -200,6 +203,47 @@ FLOWER:
     CARROT_5: "§2Carrot"
     CARROT_6: "§2Carrot"
     CARROT_7: "§2Carrot"
+
+  BEETROOT: "§2Beetroot"
+  BEETROOT_AGE:
+    BEETROOT_0: "§2Beetroot"
+    BEETROOT_1: "§2Beetroot"
+    BEETROOT_2: "§2Beetroot"
+    BEETROOT_3: "§2Beetroot"
+
+  ATTACHED_PUMPKIN_STEM: "§2Attached Pumpkin Stem"
+
+  PUMPKIN_STEM: "§2Pumpkin Stem"
+  PUMPKIN_STEM_AGE:
+    PUMPKIN_STEM_0: "§2Pumpkin Stem"
+    PUMPKIN_STEM_1: "§2Pumpkin Stem"
+    PUMPKIN_STEM_2: "§2Pumpkin Stem"
+    PUMPKIN_STEM_3: "§2Pumpkin Stem"
+    PUMPKIN_STEM_4: "§2Pumpkin Stem"
+    PUMPKIN_STEM_5: "§2Pumpkin Stem"
+    PUMPKIN_STEM_6: "§2Pumpkin Stem"
+    PUMPKIN_STEM_7: "§2Pumpkin Stem"
+
+  ATTACHED_MELON_STEM: "§2Attached Melon Stem"
+
+  MELON_STEM: "§2Melon Stem"
+  MELON_STEM_AGE:
+    MELOM_STEM_0: "§2Melon Stem"
+    MELOM_STEM_1: "§2Melon Stem"
+    MELOM_STEM_2: "§2Melon Stem"
+    MELOM_STEM_3: "§2Melon Stem"
+    MELON_STEM_4: "§2Melon Stem"
+    MELON_STEM_5: "§2Melon Stem"
+    MELON_STEM_6: "§2Melon Stem"
+    MELON_STEM_7: "§2Melon Stem"
+
+  SWEET_BERRY_BUSH: "§2Sweet Berry Bush"
+  SWEET_BERRY_BUSH_AGE:
+    SWEET_BERRY_BUSH_0: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_1: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_2: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_3: "§2Sweet Berry Bush"
+    SWEET_BERRY_BUSH_4: "§2Sweet Berry Bush"
 
   AIR: "§2Air Block"
 
