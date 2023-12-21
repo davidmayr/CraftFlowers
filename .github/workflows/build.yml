@@ -30,3 +30,8 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
+    - uses: actions/upload-artifact@v3
+      continue-on-error: true
+      with:
+        name: CraftFlowers jars
+        path: build/libs/
