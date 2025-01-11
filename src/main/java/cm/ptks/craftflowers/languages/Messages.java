@@ -132,6 +132,8 @@ public final class Messages {
         public static final String FLOWER_POT = "FLOWER.FLOWER_POT";
 
         public static final String MOSS_BLOCK = "FLOWER.MOSS_BLOCK";
+        public static final String MOSS_CARPET = "FLOWER.MOSS_CARPET";
+        public static final String HANGING_ROOTS = "FLOWER.HANGING_ROOTS";
         public static final String AZALEA = "FLOWER.AZALEA";
         public static final String FLOWERING_AZALEA = "FLOWER.FLOWERING_AZALEA";
         public static final String AZALEA_LEAVES = "FLOWER.AZALEA_LEAVES";
@@ -227,6 +229,11 @@ public final class Messages {
         public static final String CANDLE_RED_CANDLE = "FLOWER.CANDLE.RED_CANDLE";
         public static final String CANDLE_BLACK_CANDLE = "FLOWER.CANDLE.BLACK_CANDLE";
 
+        public static final String PALE_OAK_LEAVES = "FLOWER.PALE_OAK_LEAVES";
+        public static final String PALE_OAK_SAPLING = "FLOWER.PALE_OAK_SAPLING";
+        public static final String PALE_HANGING_MOSS = "FLOWER.PALE_HANGING_MOSS";
+        public static final String PALE_MOSS_CARPET = "FLOWER.PALE_MOSS_CARPET";
+        public static final String PALE_MOSS_BLOCK = "FLOWER.PALE_MOSS_BLOCK";
     }
 
     public final static class ITEM {

@@ -268,6 +268,13 @@ FLOWER:
     LIT: " (Lit)"
   CANDLE_GROUP: "§2Candle"
   CANDLE_GROUP_LIT: "§2Lit Candle"
+  PALE_OAK_LEAVES: "§2Pale Oak Leaves"
+  PALE_OAK_SAPLING: "§2Pale Oak Sapling"
+  PALE_HANGING_MOSS: "§2Pale Hanging Moss"
+  PALE_MOSS_CARPET: "§2Pale Moss Carpet"
+  MOSS_CARPET: "§2Moss Carpet"
+  HANGING_ROOTS: "§2Hanging Roots"
+  PALE_MOSS_BLOCK: "§2Pale Moss Block"
 
 # item name
 ITEM:

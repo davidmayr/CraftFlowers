@@ -32,6 +32,10 @@ public class FlowerRegistry {
             registerFlower(new Flower(Material.CHERRY_SAPLING, Messages.FLOWER.CHERRY_SAPLING));
         }
 
+        if (isValidMaterial("PALE_OAK_SAPLING")) {
+            registerFlower(new Flower(Material.PALE_OAK_SAPLING, Messages.FLOWER.PALE_OAK_SAPLING));
+        }
+
         registerFlower(new Flower(Material.DEAD_BUSH, Messages.FLOWER.DEAD_BUSH));
 
         if (isValidMaterial("GRASS")){
@@ -118,6 +122,8 @@ public class FlowerRegistry {
 
         if (isValidMaterial("AZALEA") /* 1.17 or newer*/) {
             registerFlower(new Flower(Material.MOSS_BLOCK, Messages.FLOWER.MOSS_BLOCK));
+            registerFlower(new Flower(Material.MOSS_CARPET, Messages.FLOWER.MOSS_CARPET));
+            registerFlower(new Flower(Material.HANGING_ROOTS, Messages.FLOWER.HANGING_ROOTS));
             registerFlower(new Flower(Material.AZALEA, Messages.FLOWER.AZALEA));
             registerFlower(new Flower(Material.FLOWERING_AZALEA, Messages.FLOWER.FLOWERING_AZALEA));
             registerFlower(new Flower(Material.GLOW_BERRIES, Messages.FLOWER.GLOW_BERRIES, Material.CAVE_VINES));
@@ -186,6 +192,9 @@ public class FlowerRegistry {
 
         if (isValidMaterial("CHERRY_LEAVES") /* 1.20+ */) {
             registerFlower(new Flower(Material.CHERRY_LEAVES, Messages.FLOWER.CHERRY_FENCE));
+        }
+        if (isValidMaterial("PALE_OAK_LEAVES")) {
+            registerFlower(new Flower(Material.PALE_OAK_LEAVES, Messages.FLOWER.PALE_OAK_LEAVES));
         }
 
         if (isValidMaterial("DECORATED_POT") /* 1.20.3+ */) {
@@ -313,6 +322,14 @@ public class FlowerRegistry {
                     new AgingFlower(Material.SWEET_BERRIES, Messages.FLOWER.SWEET_BERRY_BUSH, Material.SWEET_BERRY_BUSH,3)
             )));
         }
+
+        if (isValidMaterial("PALE_HANGING_MOSS")) {
+            registerFlower(new Flower(Material.PALE_HANGING_MOSS, Messages.FLOWER.PALE_HANGING_MOSS));
+            registerFlower(new Flower(Material.PALE_MOSS_BLOCK, Messages.FLOWER.PALE_MOSS_BLOCK));
+            registerFlower(new Flower(Material.PALE_MOSS_CARPET, Messages.FLOWER.PALE_MOSS_CARPET));
+        }
+
+
         registerFlower(new Flower(Material.BARRIER, Messages.FLOWER.AIR, Material.AIR));
     }
 

@@ -204,6 +204,16 @@ FLOWER:
   CANDLE_GROUP: "Kerze"
   CANDLE_GROUP_LIT: "Angezündete Kerze"
 
+  PALE_OAK_LEAVES: "§2Blasseichenblätter"
+  PALE_OAK_SAPLING: "§2Blasseichenlaub"
+  PALE_HANGING_MOSS: "§2Hängendes Blassmoos"
+  PALE_MOSS_CARPET: "§2Blassmoosteppich"
+  MOSS_CARPET: "§2Moosteppich"
+  HANGING_ROOTS: "§2Hängende Wurzeln"
+  PALE_MOSS_BLOCK: "§2Blassmoosblock"
+
+
+
 # item name
 ITEM:
   FLOWER_POT: "§7Blumentopf"
