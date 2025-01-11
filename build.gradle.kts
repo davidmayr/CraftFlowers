@@ -18,7 +18,7 @@ repositories {
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("com.mojang:authlib:1.6.25")
-    compileOnly("com.fastasyncworldedit:FastAsyncWorldEdit-Bukkit:2.7.0")
+    compileOnly("com.fastasyncworldedit:FastAsyncWorldEdit-Bukkit:2.12.3")
     implementation("fr.minuskube.inv:smart-invs:1.2.7") {
         isTransitive = false
     }
